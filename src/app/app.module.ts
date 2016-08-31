@@ -18,10 +18,11 @@ import 'hammerjs'
 import {routing} from './app.routing'
 
 import { AppComponent } from './app.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,8 @@ import { AppComponent } from './app.component';
     HttpModule,
     MdCoreModule, MdCardModule, MdButtonModule, MdRadioModule,
     MdCheckboxModule, MdTooltipModule, MdSliderModule,MdToolbarModule,
-    routing
+    routing,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
