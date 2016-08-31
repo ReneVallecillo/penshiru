@@ -1,32 +1,11 @@
-<div class="app-content">
-  <h1>{{title}}</h1>
+<md-toolbar color="primary">
+  <button md-icon-button (click)="sidenav.open()">
+      <md-icon>menu</md-icon>  
+    </button> {{title}}
+</md-toolbar>
 
-  <!-- Buttons -->
-  <md-card>
-    <button md-button>FLAT</button>
-    <button md-raised-button md-tooltip="This is a tooltip!">RAISED</button>
-    <button md-raised-button color="primary">PRIMARY RAISED</button>
-    <button md-raised-button color="accent">ACCENT RAISED</button>
-  </md-card>
 
-  <!-- Checkboxes -->
-  <md-card>
-    <md-checkbox>Unchecked</md-checkbox>
-    <md-checkbox [checked]="true">Checked</md-checkbox>
-    <md-checkbox [indeterminate]="true">Indeterminate</md-checkbox>
-    <md-checkbox [disabled]="true">Disabled</md-checkbox>
-  </md-card>
-
-  <!-- Radio Buttons -->
-  <md-card>
-    <md-radio-button name="symbol">Alpha</md-radio-button>
-    <md-radio-button name="symbol">Beta</md-radio-button>
-    <md-radio-button name="symbol" disabled>Gamma</md-radio-button>
-  </md-card>
-
-  <!-- Slider -->
-  <md-card>
-    <md-slider min="1" max="5"></md-slider>
-  </md-card>
-
+<!--<app-law-upload></app-law-upload>-->
+<div class="content">
+  <router-outlet></router-outlet>
 </div>

@@ -11,8 +11,11 @@ import { MdRadioModule } from '@angular2-material/radio';
 import { MdCheckboxModule } from '@angular2-material/checkbox'
 import { MdTooltipModule } from '@angular2-material/tooltip';
 import { MdSliderModule } from '@angular2-material/slider';
-import { MdToolbar} from '@angular2-material/toolbar'
+import { MdToolbarModule} from '@angular2-material/toolbar'
 import 'hammerjs'
+
+//router
+import {routing} from './app.routing'
 
 import { AppComponent } from './app.component';
 
@@ -25,7 +28,8 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpModule,
     MdCoreModule, MdCardModule, MdButtonModule, MdRadioModule,
-    MdCheckboxModule, MdTooltipModule, MdSliderModule
+    MdCheckboxModule, MdTooltipModule, MdSliderModule,MdToolbarModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
