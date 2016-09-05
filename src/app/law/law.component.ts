@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {MenuService} from '../shared/menu.service'
+
 @Component({
   selector: 'app-law',
   templateUrl: './law.component.html',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LawComponent implements OnInit {
 
-  constructor() { }
+  constructor(private menuService:MenuService) { }
 
   ngOnInit() {
+    this.menuService.showMenu(true);
   }
 
 }

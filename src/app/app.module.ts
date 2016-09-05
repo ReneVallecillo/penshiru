@@ -21,6 +21,9 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { LawModule } from './law/law.module';
 
+//providers
+import {MenuService} from './shared/menu.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,7 @@ import { LawModule } from './law/law.module';
     HomeModule,
     LawModule
   ],
-  providers: [],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
