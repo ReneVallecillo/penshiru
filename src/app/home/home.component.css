@@ -1,8 +1,12 @@
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#356aa0+0,356aa0+100;Blue+Flat */
 
 .gradient {
+    flex: 1 1 auto;
     height: 500px;
-    width: 500px;
+    position: relative;
+    z-index: -1;
+    margin-top: -115px;
+    padding-top: 115px;
     background: #356aa0;
     /* Old browsers */
     background: -moz-linear-gradient(top, #356aa0 0%, #356aa0 100%);

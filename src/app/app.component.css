@@ -1,3 +1,7 @@
 md-toolbar.md-primary {
     background-color: rgba(0, 0, 0, 0.5)
 }
+
+#menu {
+    flex: 1 1 auto;
+}
