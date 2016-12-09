@@ -3,26 +3,18 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-// Material 2 
-import { MdCoreModule } from '@angular2-material/core'
-import { MdButtonModule } from '@angular2-material/button';
-import { MdCardModule } from '@angular2-material/card';
-import { MdRadioModule } from '@angular2-material/radio';
-import { MdCheckboxModule } from '@angular2-material/checkbox'
-import { MdTooltipModule } from '@angular2-material/tooltip';
-import { MdSliderModule } from '@angular2-material/slider';
-import { MdToolbarModule} from '@angular2-material/toolbar'
-import 'hammerjs'
-
-//router
-import {routing} from './app.routing'
+// router
+import {routing} from './app.routing';
 
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { LawModule } from './law/law.module';
 
-//providers
-import {MenuService} from './shared/menu.service'
+// providers
+import {MenuService} from './shared/menu.service';
+
+// Material
+import {MaterialModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -32,8 +24,7 @@ import {MenuService} from './shared/menu.service'
     BrowserModule,
     FormsModule,
     HttpModule,
-    MdCoreModule, MdCardModule, MdButtonModule, MdRadioModule,
-    MdCheckboxModule, MdTooltipModule, MdSliderModule,MdToolbarModule,
+    MaterialModule.forRoot(),
     routing,
     HomeModule,
     LawModule
