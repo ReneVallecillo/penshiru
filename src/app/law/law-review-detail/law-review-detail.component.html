@@ -1,0 +1,31 @@
+<div class="parent">
+  <law-tree class="tree" [directories]="law?.data?.titles"></law-tree>
+
+  <div class="card-container">
+    <div *ngIf="currentLvl?.chapters">
+      <md-card *ngFor="let data of currentLvl.chapters">
+        <md-checkbox [checked]="data.reviewed" (click)="check(data)">
+          {{data.name}}
+        </md-checkbox>
+      </md-card>
+    </div>
+    <div *ngIf="currentLvl?.articles">
+      <md-card *ngFor="let data of currentLvl.articles">
+        <div class="reviewed" align="end">
+          <md-checkbox [checked]="data.reviewed" (click)="check(data)">
+            Revisado
+          </md-checkbox>
+        </div>
+        <md-card-title>{{data.name}}</md-card-title>
+        <md-card-content>
+          <textarea [(ngModel)]="data.text">
+          {{data.text}}
+          </textarea>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+  <!--<h3>History</h3>
+    <ul>
+      <li *ngFor="let event of history">{{event}}</li>
+    </ul>-->

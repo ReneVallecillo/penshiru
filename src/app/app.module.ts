@@ -16,6 +16,10 @@ import {MenuService} from './shared/menu.service';
 // Material
 import {MaterialModule} from '@angular/material';
 
+// Shared
+import { SharedModule } from './shared/shared.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +29,7 @@ import {MaterialModule} from '@angular/material';
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
+    SharedModule,
     routing,
     HomeModule,
     LawModule

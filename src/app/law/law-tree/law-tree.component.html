@@ -1,0 +1,14 @@
+<div class="law-tree">
+    <ul>
+        <li *ngFor="let dir of directories">
+            <span *ngIf="checkClass(dir)==true" class="iconButton" (click)="toggle(dir)">{{getIcon(dir)}}</span>
+            <md-checkbox [checked]="dir.reviewed" (click)="check(dir)" [class.article]="checkClass(dir)==false">
+                {{ dir.name | titleCase | truncate:30:'...' }}
+            </md-checkbox>
+            <div *ngIf="dir.expanded">
+                <law-tree *ngIf="dir.chapters" [directories]="dir.chapters"></law-tree>
+                <law-tree *ngIf="dir.articles" [directories]="dir.articles"></law-tree>
+            </div>
+        </li>
+    </ul>
+</div>

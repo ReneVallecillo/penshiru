@@ -1,21 +1,38 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+
+
+
 import { lawRouting } from './law.routing';
 import { LawComponent } from './law.component';
 
 import {LawListComponent} from './law-list'
 import {LawReviewComponent} from './law-review'
+import {LawReviewDetailComponent} from './law-review-detail'
+import {LawTreeComponent} from './law-tree'
+import { SharedModule } from '../shared/shared.module'
+
+
 
 
 @NgModule({
   imports: [
     CommonModule,
-    lawRouting
+    lawRouting,
+    MaterialModule,
+    FormsModule,
+    SharedModule,
+
+    
   ],
   declarations: [
     LawComponent,
     LawListComponent,
     LawReviewComponent,
-  ]
+    LawReviewDetailComponent,
+    LawTreeComponent,
+  ],
 })
 export class LawModule { }
