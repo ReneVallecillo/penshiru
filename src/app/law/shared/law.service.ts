@@ -4,7 +4,8 @@ import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import {Law, LawTmp} from '../../shared/models/';;
 import {Observable} from 'rxjs/Observable';
 
-import '../../rxjs-operators';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LawService {

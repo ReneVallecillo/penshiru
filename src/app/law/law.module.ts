@@ -4,6 +4,8 @@ import { lawRouting } from './law.routing';
 import { LawComponent } from './law.component';
 
 import {LawListComponent} from './law-list'
+import {LawReviewComponent} from './law-review'
+
 
 @NgModule({
   imports: [
@@ -13,6 +15,7 @@ import {LawListComponent} from './law-list'
   declarations: [
     LawComponent,
     LawListComponent,
+    LawReviewComponent,
   ]
 })
 export class LawModule { }
