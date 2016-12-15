@@ -1,0 +1,29 @@
+<p>
+  law-review works!
+</p>
+
+<div *ngIf="laws" class="card-container" align="center">
+  <md-card align="left">
+    <md-nav-list>
+      <a md-list-item *ngFor="let law of laws">
+        <h3 md-line>{{law.name}}</h3>
+        <p md-line class="secondary">
+          <span> rev: {{law.id}}</span>
+        </p>
+      </a>
+    </md-nav-list>
+  </md-card>
+</div>
+
+<div *ngIf="tmpLaws" class="card-container" align="center">
+  <md-card align="left">
+    <md-nav-list *ngFor="let tlaw of tmpLaws">
+      <a md-list-item [routerLink]="[tlaw.name]">
+        <h3 md-line>{{tlaw.name}}</h3>
+        <p md-line class="secondary">
+          <span> path: {{tlaw.path}}</span>
+        </p>
+      </a>
+    </md-nav-list>
+  </md-card>
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 
-import {LawService} from '../shared/law.service'
+import {LawService} from '../shared/law.service';
 
 
 @Component({
@@ -11,12 +11,11 @@ import {LawService} from '../shared/law.service'
   providers:[LawService],
 })
 export class LawReviewComponent implements OnInit {
-  title = 'Review Law'
+  title = 'Review Law';
   constructor(  private service:LawService  ) {}
 
-  
+
   ngOnInit() {
 
   }
-  
 }

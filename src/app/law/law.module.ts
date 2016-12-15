@@ -8,11 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { lawRouting } from './law.routing';
 import { LawComponent } from './law.component';
 
-import {LawListComponent} from './law-list'
-import {LawReviewComponent} from './law-review'
-import {LawReviewDetailComponent} from './law-review-detail'
-import {LawTreeComponent} from './law-tree'
-import { SharedModule } from '../shared/shared.module'
+import {LawListComponent} from './law-list';
+import {LawReviewComponent} from './law-review';
+import {LawReviewDetailComponent} from './law-review-detail';
+import {LawTreeComponent} from './law-tree';
+import {LawReviewListComponent} from './law-review-list/law-review-list.component';
+import {LawUploadComponent} from './law-upload/law-upload.component';
+
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -33,6 +36,8 @@ import { SharedModule } from '../shared/shared.module'
     LawReviewComponent,
     LawReviewDetailComponent,
     LawTreeComponent,
+    LawReviewListComponent,
+    LawUploadComponent,
   ],
 })
 export class LawModule { }
