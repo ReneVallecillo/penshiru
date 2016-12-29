@@ -12,12 +12,17 @@ import { LawModule } from './law/law.module';
 
 // providers
 import {MenuService} from './shared/menu.service';
+import {AuthService} from './shared/auth.service';
+import {AlertService} from './shared/alert.service';
 
 // Material
 import {MaterialModule} from '@angular/material';
 
 // Shared
 import { SharedModule } from './shared/shared.module';
+
+// Auth
+import { AuthModule } from './auth/auth.module';
 
 
 @NgModule({
@@ -32,9 +37,10 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     routing,
     HomeModule,
-    LawModule
+    LawModule,
+    AuthModule,
   ],
-  providers: [MenuService],
+  providers: [MenuService, AlertService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
