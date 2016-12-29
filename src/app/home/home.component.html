@@ -5,6 +5,32 @@
   </md-toolbar>
 </div>
 
- <div class="container">
-  <router-outlet></router-outlet>
+<div class="intro">
+  <div class="fade">
+    <div class="fade-content">
+      <div class="welcome">{{ welcome }}</div>
+      <div class="app-name">{{ appname }}</div>
+      <div class="divider"></div>
+      <div class="slogan">{{ slogan }}</div>
+
+      <button md-raised-button color="accent">Entrar</button>
+    </div>
+  </div>
+</div>
+
+<div class="info">
+  <div class="info-text"> {{ infoText }}</div>
+  <div class="computer"></div>
+</div>
+
+<div class="subscribe">
+  <h1>{{ subscribeMSG }}</h1>
+
+  <div class="box">
+    <md-input-container dividerColor="accent">
+      <input class="subscribe-input" md-input placeholder="your@email.com">
+    </md-input-container>
+ </div>
+    <button md-raised-button color="accent">Subscribirse</button>
+ 
 </div>
