@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { homeRouting } from './home.routing';
 import { HomeComponent } from './home.component';
 
-import {MenuService} from '../shared/menu.service'
+import {MenuService} from '../shared/menu.service';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     homeRouting,
+    SharedModule,
   ],
   declarations: [
     HomeComponent
@@ -16,7 +18,7 @@ import {MenuService} from '../shared/menu.service'
 })
 export class HomeModule implements OnInit {
 
-  constructor(private menuService:MenuService){
+  constructor(private menuService: MenuService) {
 
   }
 

@@ -12,11 +12,11 @@ import {LawUploadComponent} from './law-upload/law-upload.component';
 
 const LawRouter: Routes = [
   { path: 'list', component: LawListComponent },
-  {
-    path: '',
-    redirectTo: 'law',
-    pathMatch: 'full',
-  },
+  // {
+  //   path: '',
+  //   redirectTo: 'law',
+  //   pathMatch: 'full',
+  // },
   {
     path: 'law',
     component: LawComponent,
