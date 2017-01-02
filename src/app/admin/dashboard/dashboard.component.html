@@ -1,0 +1,14 @@
+<md-sidenav-container class="admin-container">
+  <md-sidenav #sidenav class="admin-sidenav">
+    <md-list>
+      <md-list-item> Usuarios </md-list-item>
+      <md-list-item> Leyes </md-list-item>
+      <md-list-item> Info </md-list-item>
+    </md-list>
+  </md-sidenav>
+  <div class="admin-sidenav-content">
+    <button md-button (click)="sidenav.open()">
+      Open sidenav
+    </button>
+  </div>
+</md-sidenav-container>

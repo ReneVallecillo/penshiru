@@ -24,6 +24,9 @@ import { SharedModule } from './shared/shared.module';
 // Auth
 import { AuthModule } from './auth/auth.module';
 
+// Admin
+import { AdminModule } from './admin/admin.module';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { AuthModule } from './auth/auth.module';
     HomeModule,
     LawModule,
     AuthModule,
+    AdminModule,
   ],
   providers: [MenuService, AlertService, AuthService],
   bootstrap: [AppComponent]
