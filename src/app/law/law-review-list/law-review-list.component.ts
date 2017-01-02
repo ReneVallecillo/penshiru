@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+``
 
 
 import {LawService} from '../shared/law.service'
@@ -17,7 +19,7 @@ export class LawReviewListComponent implements OnInit {
 
   id:number;
   errorMessage: string;
-  laws: Law[];
+  laws$: Observable<Law[]>;
   tmpLaws: LawTmp[];
 
   constructor(private lawService: LawService) {}
@@ -27,14 +29,13 @@ export class LawReviewListComponent implements OnInit {
     this.getTmpLaws();
   }
 
-  getLaws(){
-    this.lawService.getLaws()
-      .subscribe(
-        laws => this.laws = laws,
-        // laws => console.log(laws),
-        error => this.errorMessage = <any>error,
-        () => { console.log(this.laws)}
-      );
+  getLaws() {
+    this.laws$ = this.lawService.getLaws();
+      // .subscribe(
+      //   laws => { this.laws = laws;},
+      //   error => this.errorMessage = <any>error,
+      //   () => { }
+      // );
   }
 
   getTmpLaws(){
@@ -42,7 +43,7 @@ export class LawReviewListComponent implements OnInit {
     .subscribe(
       tmpLaws => this.tmpLaws = tmpLaws,
       error => this.errorMessage = <any>error,
-      () =>    { console.log(this.tmpLaws) }
+      () =>    { }
 
     )
   }

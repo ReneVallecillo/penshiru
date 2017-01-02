@@ -17,7 +17,7 @@ export class LawService {
   
   getLaws() : Observable<Law[]>{
     return this.http.get(this.lawurl)
-      .map(this.extractData)
+      .map(this.extractDataT)
       .catch(this.handleError);
   }
   
@@ -41,7 +41,7 @@ export class LawService {
   //fix later
    private extractDataT(res: Response){
     let body = res.json();
-    return body.data || {};
+    return body.data || [];
   }
   
   private handleError (error: any) {
