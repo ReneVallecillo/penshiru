@@ -11,11 +11,12 @@
     </md-nav-list>
   </md-card>
 </div>
-
 <div *ngIf="tmpLaws" class="card-container" align="center">
   <md-card align="left">
+    <md-card-title>Pendientes de Revisar</md-card-title>
     <md-nav-list *ngFor="let tlaw of tmpLaws">
-      <a md-list-item [routerLink]="[tlaw.name]">
+      <a md-list-item [routerLink]="['../review/' + tlaw.name]">
+        <!--<a md-list-item [routerLink]="[tlaw.name]">-->
         <h3 md-line>{{tlaw.name}}</h3>
         <p md-line class="secondary">
           <span> path: {{tlaw.path}}</span>

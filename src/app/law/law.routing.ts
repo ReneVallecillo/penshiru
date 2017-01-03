@@ -28,7 +28,7 @@ const LawRouter: Routes = [
       {
         path: 'review',
         component: LawReviewComponent,
-        children:[
+        children: [
           {
             path: ':file',
             component: LawReviewDetailComponent

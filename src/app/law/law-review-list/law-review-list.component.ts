@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-``
-
 
 import {LawService} from '../shared/law.service'
 import {Law} from '../../shared/models/law.model'
@@ -31,11 +29,6 @@ export class LawReviewListComponent implements OnInit {
 
   getLaws() {
     this.laws$ = this.lawService.getLaws();
-      // .subscribe(
-      //   laws => { this.laws = laws;},
-      //   error => this.errorMessage = <any>error,
-      //   () => { }
-      // );
   }
 
   getTmpLaws(){

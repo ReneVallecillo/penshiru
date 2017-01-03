@@ -9,10 +9,10 @@
 }
 
 .admin-sidenav-content {
-  display: flex;
-  height: 100%;
-  align-items: center;
+  flex: 0 0 100%;
+  padding-top: 20px;
   justify-content: center;
+  margin: 0 20px;
 }
 
 .admin-sidenav {
