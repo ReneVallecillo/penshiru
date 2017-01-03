@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ToolbarService {
 
-  private toogleSource = new Subject<Boolean>();
-  private sideNavSource = new Subject<Boolean>()
+  private toogleSource = new Subject<boolean>();
+  private sideNavSource = new Subject<boolean>()
   toogle$ = this.toogleSource.asObservable();
   sideNav$ = this.sideNavSource.asObservable();
 
