@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
-import {LawService} from '../shared/law.service'
-import {Law} from '../../shared/models/law.model'
-import {LawTmp} from '../../shared/models/law-tmp.model'
+import { LawService } from '../shared/law.service';
+import { LawAdminService } from '../../admin/admin-law/admin-law.service';
+
+import { Law } from '../../shared/models/law.model';
+import { LawTmp } from '../../shared/models/law-tmp.model';
 
 
 
@@ -11,16 +13,18 @@ import {LawTmp} from '../../shared/models/law-tmp.model'
   selector: 'app-law-review',
   templateUrl: './law-review-list.component.html',
   styleUrls: ['./law-review-list.component.css'],
-  providers:[LawService]
+  providers: [LawService]
 })
 export class LawReviewListComponent implements OnInit {
 
-  id:number;
+  id: number;
   errorMessage: string;
   laws$: Observable<Law[]>;
   tmpLaws: LawTmp[];
 
-  constructor(private lawService: LawService) {}
+  constructor(
+    private lawService: LawService,
+    private lawAdminService: LawAdminService) { }
 
   ngOnInit() {
     this.getLaws();
@@ -31,13 +35,16 @@ export class LawReviewListComponent implements OnInit {
     this.laws$ = this.lawService.getLaws();
   }
 
-  getTmpLaws(){
+  getTmpLaws() {
     this.lawService.getTmpLaws()
-    .subscribe(
+      .subscribe(
       tmpLaws => this.tmpLaws = tmpLaws,
       error => this.errorMessage = <any>error,
-      () =>    { }
+      () => { }
+      );
+  }
 
-    )
+  addTab(route: string) {
+    this.lawAdminService.addTab(route);
   }
 }

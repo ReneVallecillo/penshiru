@@ -3,7 +3,7 @@
     <a md-tab-link *ngFor="let tabLink of tabLinks; let i = index" [routerLink]="tabLink.link" [active]="activeLinkIndex === i"
       (click)="activeLinkIndex = i">
       {{tabLink.label}}
-    </a>
+      </a>
   </nav>
   <router-outlet></router-outlet>
 </div>
