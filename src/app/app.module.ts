@@ -19,6 +19,9 @@ import { ToolbarService } from './shared/toolbar.service';
 // Material
 import { MaterialModule } from '@angular/material';
 
+// Layout
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 // Shared
 import { SharedModule } from './shared/shared.module';
 
@@ -38,6 +41,7 @@ import { AdminModule } from './admin/admin.module';
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
+    FlexLayoutModule.forRoot(),
     SharedModule,
     routing,
     HomeModule,

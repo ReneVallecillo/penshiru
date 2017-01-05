@@ -1,20 +1,17 @@
-
-md-card{
-    width: 600px;
-    box-sizing: border-box;
-    margin: 16px;
+md-card {
+  box-sizing: border-box;
+  margin: 16px;
 }
 
-.card-container{
-    display: flex;
-    flex-flow: column nowrap;
+.card-container {
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .secondary {
-    color: rgba(0, 0, 0, 0.42)
+  color: rgba(0, 0, 0, 0.42)
 }
 
-.secondary span{
-    margin-right: 5px;
-    
+.secondary span {
+  margin-right: 5px;
 }

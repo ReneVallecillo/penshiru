@@ -1,18 +1,8 @@
-md-tab-group {
-  width: 800px;
-}
-
-.demo-nav-bar {
-  border: 1px solid #e0e0e0;
-  margin-bottom: 40px;
-  flex-grow: 1;
-  [md-tab-nav-bar] {
-    background: #f9f9f9;
-  }
-  sunny-routed-content,
-  rainy-routed-content,
-  foggy-routed-content {
-    display: block;
-    padding: 12px;
-  }
-}
+// .demo-nav-bar {
+//   border: 1px solid #e0e0e0;
+//   margin-bottom: 40px;
+//   flex-grow: 1;
+//   [md-tab-nav-bar] {
+//     background: #f9f9f9;
+//   }
+// }

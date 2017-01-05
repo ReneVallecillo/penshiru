@@ -1,12 +1,13 @@
 <div class="parent">
   <law-tree class="tree" [directories]="law?.data?.titles"></law-tree>
-
   <div class="card-container">
     <div *ngIf="currentLvl?.chapters">
       <md-card *ngFor="let data of currentLvl.chapters">
         <md-checkbox [checked]="data.reviewed" (change)="check(data)">
-          {{data.name}}
         </md-checkbox>
+        <md-input-container style="width: 100%">
+          <input md-input [(ngModel)]="data.name">
+        </md-input-container>
       </md-card>
     </div>
     <div *ngIf="currentLvl?.articles">
@@ -16,8 +17,10 @@
             Revisado
           </md-checkbox>
         </div>
-        <md-card-title>{{data.name}}</md-card-title>
         <md-card-content>
+          <md-input-container style="width:100%">
+            <input md-input [(ngModel)]="data.name">
+          </md-input-container>
           <textarea [(ngModel)]="data.text">
           {{data.text}}
           </textarea>

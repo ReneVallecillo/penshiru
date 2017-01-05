@@ -1,23 +1,11 @@
-<p>
-  law-upload works!
-</p>
-
 <div class="card-container" align="center">
-  <div class="container">
-   <md-card>
-     <md-card-content align="left" (click)="showInputDialog()">
-       <input #fileInput type="file" id="imgFile" (change)="fileChangeEvent($event)" >
-       {{inputTooltip | json}}
-     </md-card-content>
-     
-   </md-card>
-   <div class="upload-action" align="end">
+  <md-card>
+    <md-card-content align="left" (click)="showInputDialog()">
+      <input #fileInput type="file" id="imgFile" (change)="fileChangeEvent($event)"> {{inputTooltip | json}}
+    </md-card-content>
+  </md-card>
+  <div class="upload-action" align="end">
     <button md-raised-button color="primary" (click)="parse()">Parse</button>
-   </div>
- </div>
- 
- {{uploadProgress}}
-   
-
+  </div>
+  {{uploadProgress}}
 </div>
-   
