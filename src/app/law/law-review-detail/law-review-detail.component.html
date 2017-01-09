@@ -1,5 +1,10 @@
+<div class="actions">
+  <button md-raised-button color="warn" (click)="checkAll()">Check All</button>
+  <button md-raised-button>Update</button>
+  <button md-raised-button color="primary" [disabled]="checkIfAll()==false">Save to DB</button>
+</div>
 <div class="parent">
-  <law-tree class="tree" [directories]="law?.data?.titles"></law-tree>
+  <law-tree class="tree" [directories]="law?.titles"></law-tree>
   <div class="card-container">
     <div *ngIf="currentLvl?.chapters">
       <md-card *ngFor="let data of currentLvl.chapters">
