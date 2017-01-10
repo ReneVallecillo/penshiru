@@ -45,6 +45,12 @@ export class LawService {
       .catch(this.handleError);
   }
 
+  saveLawDB(law: Law): Observable<boolean> {
+    return this.http.post(this.lawurl, JSON.stringify(law))
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
   private extractData(res: Response) {
     let body = res.json();
     return body || {};

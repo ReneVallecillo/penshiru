@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer } from '@angular/core';
 
-import {Response} from '@angular/http';
-import {Observable}from 'rxjs/Observable';
+import { Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 
 
-import {FileUploadService } from '../shared/file-upload.service';
+import { FileUploadService } from '../shared/file-upload.service';
 
 
 @Component({
@@ -17,25 +17,25 @@ import {FileUploadService } from '../shared/file-upload.service';
 export class LawUploadComponent implements OnInit {
 
   api_domain = 'http://localhost:8080';
-  end_point: string = '/api/laws';
+  end_point: string = '/api/tmp/laws';
 
   url: string = this.api_domain + this.end_point;
-  uploadProgress:number;
+  uploadProgress: number;
 
-  law:any;
+  law: any;
 
-  @ViewChild('fileInput') fileInput:ElementRef;
+  @ViewChild('fileInput') fileInput: ElementRef;
 
   inputTooltip: string = 'Click to Select File';
   toUpload: Array<File> = [];
 
-  constructor(private renderer: Renderer, private uploadService: FileUploadService) {}
+  constructor(private renderer: Renderer, private uploadService: FileUploadService) { }
 
   ngOnInit() {
   }
 
-  showInputDialog(){
-    let event = new MouseEvent('click', {bubbles: true});
+  showInputDialog() {
+    let event = new MouseEvent('click', { bubbles: true });
     event.stopPropagation();
 
     this.renderer.invokeElementMethod(
@@ -43,7 +43,7 @@ export class LawUploadComponent implements OnInit {
     );
   }
 
-  fileChangeEvent(fileInput: any){
+  fileChangeEvent(fileInput: any) {
     console.log('File Changed');
     this.inputTooltip = fileInput.target.files[0].name;
     let fileList: FileList = fileInput.target.files;
@@ -53,7 +53,7 @@ export class LawUploadComponent implements OnInit {
     }
   }
 
-  parse(){
+  parse() {
     console.log('enter parse');
     // subscribe to progress observer
     this.uploadService.getObserver()
@@ -62,17 +62,17 @@ export class LawUploadComponent implements OnInit {
       });
 
     this.uploadService.upload(this.url, this.toUpload)
-    .subscribe(
+      .subscribe(
       data => { this.law = data; },
-      error => { console.log(error);},
+      error => { console.log(error); },
       () => { console['table'](this.law); }
 
-    );
+      );
 
   }
 
   private extractData(res: Response) {
     let body = res.json();
-    return body.data || { };
+    return body.data || {};
   }
 }

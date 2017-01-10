@@ -111,4 +111,12 @@ export class LawReviewDetailComponent implements OnInit {
     }
     return true;
   }
+
+  saveToDB(law: Law) {
+    this.service.saveLawDB(law)
+      .subscribe(
+      data => { console.log(data); },
+      error => { console.log(error); }
+      );
+  }
 }
