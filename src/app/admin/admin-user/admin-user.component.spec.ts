@@ -2,25 +2,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MaterialModule } from '@angular/material';
 
+import { AdminUserComponent } from './admin-user.component';
 
-import { LawUploadComponent } from './law-upload.component';
-
-describe('LawUploadComponent', () => {
-  let component: LawUploadComponent;
-  let fixture: ComponentFixture<LawUploadComponent>;
+describe('AdminUserComponent', () => {
+  let component: AdminUserComponent;
+  let fixture: ComponentFixture<AdminUserComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LawUploadComponent],
-      imports: [MaterialModule.forRoot()],
+      declarations: [ AdminUserComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LawUploadComponent);
+    fixture = TestBed.createComponent(AdminUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

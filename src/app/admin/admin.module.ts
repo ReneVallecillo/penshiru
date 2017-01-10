@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AdminLawComponent } from './admin-law/admin-law.component';
 
 import { LawAdminService } from './admin-law/admin-law.service';
+import { AdminUserComponent } from './admin-user/admin-user.component';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { LawAdminService } from './admin-law/admin-law.service';
     AdminRoutingModule,
     SharedModule,
   ],
-  declarations: [DashboardComponent, AdminLawComponent],
+  declarations: [DashboardComponent, AdminLawComponent, AdminUserComponent],
   providers: [LawAdminService],
 })
 export class AdminModule { }

@@ -13,7 +13,8 @@ import { LawTmp } from '../../shared/models/law-tmp.model';
   selector: 'app-law-review',
   templateUrl: './law-review-list.component.html',
   styleUrls: ['./law-review-list.component.css'],
-  providers: [LawService]
+  // TODO: Review if needs to be at module lvl.
+  providers: [LawService],
 })
 export class LawReviewListComponent implements OnInit {
 

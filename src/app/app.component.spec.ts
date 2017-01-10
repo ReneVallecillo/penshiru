@@ -1,34 +1,53 @@
-/* tslint:disable:no-unused-variable */
-
-import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-describe('AppComponent', () => {
-  beforeEach(() => {
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+
+import { MaterialModule } from '@angular/material';
+// USE TO NOT TEST ROUTER
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+
+import { MenuService } from './shared/menu.service';
+import { ToolbarService } from './shared/toolbar.service';
+
+
+
+
+
+describe('AppComponent', function () {
+  let de: DebugElement;
+  let comp: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let el: HTMLElement;
+
+
+  beforeEach(async(() => {
+
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    });
-    TestBed.compileComponents();
+      declarations: [AppComponent],
+      imports: [MaterialModule.forRoot()],
+      schemas: [NO_ERRORS_SCHEMA],
+      providers: [
+        MenuService, ToolbarService
+      ]
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    comp = fixture.componentInstance;
   });
 
   it('should create the app', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(comp).toBeTruthy();
   }));
 
-  it(`should have as title 'app works!'`, async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app works!');
-  }));
-
-  it('should render title in a h1 tag', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
+  it('should have expected <h1> text', async(() => {
     fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('app works!');
+    de = fixture.debugElement.query(By.css('.appName'));
+    el = de.nativeElement;
+    expect(el.innerText).toMatch('Penshiru');
   }));
 });

@@ -1,46 +1,65 @@
-import {
-  beforeEach,
-  beforeEachProviders,
-  describe,
-  expect,
-  it,
-  inject,
-} from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
+
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
+import { MaterialModule } from '@angular/material';
+
 import { LawReviewListComponent } from './law-review-list.component';
 
-describe('Component: LawReview', () => {
-  let builder: TestComponentBuilder;
+import { LawService } from '../shared/law.service';
+import { LawAdminService } from '../../admin/admin-law/admin-law.service';
 
-  beforeEachProviders(() => [LawReviewListComponent]);
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
+import { AbstractMockObservableService } from '../../testing/ObService';
+
+describe('LawReviewListComponent', () => {
+  let component: LawReviewListComponent;
+  let fixture: ComponentFixture<LawReviewListComponent>;
+
+  class MockLawService extends AbstractMockObservableService {
+    doStuff() { // change to actual needed methods. Always return this
+      return this;
+    }
+  }
+
+  class MockLawAdminService extends AbstractMockObservableService {
+    doStuff() { // change to actual needed methods. Always return this
+      return this;
+    }
+  }
+  let mockLawService, mockLawAdminService;
+
+  beforeEach(async(() => {
+    mockLawService = new MockLawService();
+    mockLawAdminService = new MockLawAdminService();
+
+    TestBed.configureTestingModule({
+      declarations: [LawReviewListComponent],
+      imports: [MaterialModule],
+      providers: [
+        { provide: LawAdminService, classValue: mockLawAdminService },
+      ]
+    })
+      // Override component's own provider
+      // .overrideComponent(LawReviewListComponent, {
+      //   set: {
+      //     providers: [
+      //       { provide: LawService, useClass: mockLawService }
+      //     ]
+      //   }
+      // })
+      .compileComponents();
   }));
 
-  it('should inject the component', inject([LawReviewListComponent],
-      (component: LawReviewListComponent) => {
+  beforeEach(() => {
+    fixture = TestBed.createComponent(LawReviewListComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
     expect(component).toBeTruthy();
-  }));
-
-  it('should create the component', inject([], () => {
-    return builder.createAsync(LawReviewListComponentTestController)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(LawReviewListComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
+  });
 });
 
-@Component({
-  selector: 'test',
-  template: `
-    <app-law-review></app-law-review>
-  `,
-  directives: [LawReviewListComponent]
-})
-class LawReviewListComponentTestController {
-}
+
 
