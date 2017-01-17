@@ -83,9 +83,11 @@ export class LawReviewDetailComponent implements OnInit {
       if (t.chapters.length > 0) {
         for (let c of t.chapters) {
           c.reviewed = true;
-          if (c.articles.length > 0) {
-            for (let a of c.articles) {
-              a.reviewed = true;
+          if (c.articles != null) {
+            if (c.articles.length > 0) {
+              for (let a of c.articles) {
+                a.reviewed = true;
+              }
             }
           }
         }
@@ -118,5 +120,27 @@ export class LawReviewDetailComponent implements OnInit {
       data => { console.log(data); },
       error => { console.log(error); }
       );
+  }
+
+  //TODO: Lookup a more eficient way
+  delete(data: string, index) {
+    if (this.law != null) {
+      this.law.titles.forEach((itemt, t) => {
+        if (itemt.chapters.length > 0) {
+          itemt.chapters.forEach((itemc, c) => {
+            if (itemc.articles.length > 0) {
+              itemc.articles.forEach((itema, a) => {
+                if (JSON.stringify(itema.name) === JSON.stringify(data)) {
+                  console.log("match found");
+                  // delete this.law.titles[t].chapters[c].articles[a];
+                  this.law.titles[t].chapters[c].articles.splice(index, 1);
+                  return;
+                }
+              });
+            }
+          });
+        }
+      });
+    }
   }
 }

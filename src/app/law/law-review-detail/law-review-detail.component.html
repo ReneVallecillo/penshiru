@@ -16,7 +16,7 @@
       </md-card>
     </div>
     <div *ngIf="currentLvl?.articles">
-      <md-card *ngFor="let data of currentLvl.articles">
+      <md-card *ngFor="let data of currentLvl.articles; let i = index">
         <div class="reviewed" align="end">
           <md-checkbox [checked]="data.reviewed" (change)="check(data)">
             Revisado
@@ -30,6 +30,9 @@
           {{data.text}}
           </textarea>
         </md-card-content>
+        <md-card-actions>
+          <button md-raised-button color="warn" (click)="delete(data.name, i)">Delete</button>
+        </md-card-actions>
       </md-card>
     </div>
   </div>
