@@ -7,6 +7,9 @@ import {
   Law
 } from '../../shared/models/law.model';
 import {
+  Article
+} from '../../shared/models/article.model'
+import {
   Router,
   ActivatedRoute
 } from '@angular/router';
@@ -131,8 +134,7 @@ export class LawReviewDetailComponent implements OnInit {
             if (itemc.articles.length > 0) {
               itemc.articles.forEach((itema, a) => {
                 if (JSON.stringify(itema.name) === JSON.stringify(data)) {
-                  console.log("match found");
-                  // delete this.law.titles[t].chapters[c].articles[a];
+                  console.log('match found');
                   this.law.titles[t].chapters[c].articles.splice(index, 1);
                   return;
                 }
@@ -143,4 +145,37 @@ export class LawReviewDetailComponent implements OnInit {
       });
     }
   }
+  add(data: string, index: number) {
+    console.log('add called');
+    if (this.law != null) {
+      this.law.titles.forEach((itemt, t) => {
+        if (itemt.chapters.length > 0) {
+          itemt.chapters.forEach((itemc, c) => {
+            if (itemc.articles.length > 0) {
+              itemc.articles.forEach((itema, a) => {
+                let ctrl = 0;
+                if (JSON.stringify(itema.name) === JSON.stringify(data)) {
+                  console.log('match found on ' + itema.name + ' and ' + index);
+                  let obj: Article = {
+                    id: 0,
+                    name: '',
+                    text: '',
+                    chapterID: 0,
+                    type: '',
+                    reviewed: false,
+                  };
+                  this.law.titles[t].chapters[c].articles.splice(index, 0, obj);
+                  //After slice, the if statement is called twice
+                  //set data to null to avoid adding a second element
+                  data = null;
+                  return;
+                }
+              });
+            }
+          });
+        }
+      });
+    }
+  }
+
 }
