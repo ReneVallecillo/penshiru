@@ -10,12 +10,14 @@ import { MaterialModule } from '@angular/material';
 
 // Layout
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
     imports: [CommonModule, MaterialModule, FormsModule, FlexLayoutModule],
     exports: [TitleCasePipe, TruncatePipe, MaterialModule, FormsModule, FlexLayoutModule],
-    declarations: [TitleCasePipe, TruncatePipe],
+    declarations: [TitleCasePipe, TruncatePipe, ConfirmDialogComponent],
+    entryComponents: [ConfirmDialogComponent],
     providers: [],
 })
 export class SharedModule { }

@@ -3,6 +3,7 @@ import {
   OnInit,
   ChangeDetectorRef
 } from '@angular/core';
+import { MdDialogRef, MdDialog } from '@angular/material';
 import {
   Law
 } from '../../shared/models/law.model';
@@ -22,6 +23,7 @@ import {
 import {
   directory
 } from '../../shared/models/directory';
+import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dialog.component';
 // import {Autosize} from 'angular2-autosize/angular2-autosize';
 
 
@@ -40,12 +42,16 @@ export class LawReviewDetailComponent implements OnInit {
   selectedIndex: number = 0;
   currentLvl: directory;
 
+  dialogRef: MdDialogRef<ConfirmDialogComponent>;
+
+
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private service: LawService,
-    private reviewService: ReviewService) {
+    private reviewService: ReviewService,
+    public dialog: MdDialog) {
 
     this.reviewService.itemSelected$.subscribe(
       dir => {
@@ -127,23 +133,31 @@ export class LawReviewDetailComponent implements OnInit {
 
   //TODO: Lookup a more eficient way
   delete(data: string, index) {
-    if (this.law != null) {
-      this.law.titles.forEach((itemt, t) => {
-        if (itemt.chapters.length > 0) {
-          itemt.chapters.forEach((itemc, c) => {
-            if (itemc.articles.length > 0) {
-              itemc.articles.forEach((itema, a) => {
-                if (JSON.stringify(itema.name) === JSON.stringify(data)) {
-                  console.log('match found');
-                  this.law.titles[t].chapters[c].articles.splice(index, 1);
-                  return;
-                }
-              });
-            }
-          });
-        }
-      });
-    }
+    this.dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      disableClose: false
+    });
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      console.log('result: ' + result);
+      this.dialogRef = null;
+      if (this.law != null && result == 'yes') {
+        this.law.titles.forEach((itemt, t) => {
+          if (itemt.chapters.length > 0) {
+            itemt.chapters.forEach((itemc, c) => {
+              if (itemc.articles.length > 0) {
+                itemc.articles.forEach((itema, a) => {
+                  if (JSON.stringify(itema.name) === JSON.stringify(data)) {
+                    console.log('match found');
+                    this.law.titles[t].chapters[c].articles.splice(index, 1);
+                    return;
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+    });
   }
   add(data: string, index: number) {
     console.log('add called');
