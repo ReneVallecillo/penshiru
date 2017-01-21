@@ -1,28 +1,61 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { By, BrowserModule } from '@angular/platform-browser';
+import { DebugElement, NgModule } from '@angular/core';
+import { MdDialogModule, MdDialog, OverlayContainer, MaterialModule } from '@angular/material';
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+
+
+
 
 import { ConfirmDialogComponent } from './confirm-dialog.component';
+import { SharedModule } from '../shared.module';
+
+@NgModule({
+  declarations: [ConfirmDialogComponent],
+  exports: [ConfirmDialogComponent],
+  entryComponents: [ConfirmDialogComponent],
+  imports: [MdDialogModule],
+})
+class DialogTestModule { }
+
+
 
 describe('ConfirmDialogComponent', () => {
   let component: ConfirmDialogComponent;
-  let fixture: ComponentFixture<ConfirmDialogComponent>;
+  let dialog: MdDialog;
+  let overlayContainerElement: HTMLElement;
+
+
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfirmDialogComponent ]
+      imports: [DialogTestModule, MdDialogModule.forRoot()],
+      providers: [
+        {
+          provide: OverlayContainer, useFactory: () => {
+            overlayContainerElement = document.createElement('div');
+            return { getContainerElement: () => overlayContainerElement };
+          }
+        }
+      ],
+
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfirmDialogComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    dialog = TestBed.get(MdDialog);
+    let dialogRef = dialog.open(ConfirmDialogComponent);
+
+    component = dialogRef.componentInstance;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
 });
+
