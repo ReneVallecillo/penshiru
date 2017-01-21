@@ -31,6 +31,9 @@ import { AuthModule } from './auth/auth.module';
 // Admin
 import { AdminModule } from './admin/admin.module';
 
+import 'hammerjs';
+
+
 
 @NgModule({
   declarations: [
