@@ -31,6 +31,9 @@ import { AuthModule } from './auth/auth.module';
 // Admin
 import { AdminModule } from './admin/admin.module';
 
+// Covalent
+import { CovalentDataTableModule } from '@covalent/core';
+
 import 'hammerjs';
 
 
@@ -51,6 +54,7 @@ import 'hammerjs';
     LawModule,
     AuthModule,
     AdminModule,
+    CovalentDataTableModule.forRoot(),
   ],
   providers: [MenuService, AlertService, AuthService, ToolbarService],
   bootstrap: [AppComponent]
