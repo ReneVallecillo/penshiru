@@ -7,10 +7,12 @@ import { AdminLawComponent } from './admin-law/admin-law.component';
 import { LawReviewListComponent } from '../law/law-review-list';
 import { LawComponent } from '../law/law.component';
 import { LawListComponent } from '../law/law-list';
-import {LawReviewComponent} from '../law/law-review/law-review.component';
-import {LawReviewDetailComponent} from '../law/law-review-detail/law-review-detail.component';
-import {LawTreeComponent} from '../law/law-tree/law-tree.component';
-import {LawUploadComponent} from '../law/law-upload/law-upload.component';
+import { LawReviewComponent } from '../law/law-review/law-review.component';
+import { LawReviewDetailComponent } from '../law/law-review-detail/law-review-detail.component';
+import { LawTreeComponent } from '../law/law-tree/law-tree.component';
+import { LawUploadComponent } from '../law/law-upload/law-upload.component';
+import { AdminUserComponent } from './admin-user/admin-user.component';
+import { ListUserComponent } from './admin-user/list-user/list-user.component';
 
 const adminRoutes: Routes = [
   {
@@ -46,6 +48,16 @@ const adminRoutes: Routes = [
           {
             path: 'upload',
             component: LawUploadComponent
+          },
+        ]
+      },
+      {
+        path: 'users',
+        component: AdminUserComponent,
+        children: [
+          {
+            path: 'list',
+            component: ListUserComponent,
           },
         ]
       },

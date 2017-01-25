@@ -1,0 +1,16 @@
+<md-card>
+  <md-card-actions>
+    <button md-button>Agregar</button>
+    <button md-button [disabled]="selectedUser==null">Editar</button>
+  </md-card-actions>
+  <md-card-content>
+    <td-data-table [data]="users" [columns]="columns2" (rowSelect)="selectEvent($event)" selectable="true">
+      <template tdDataTableTemplate="type" let-value="value" let-row="row" let-column="column">
+        <div layout="row">
+          <span flex>{{value}}</span> // or <span flex>{{row[column]}}</span>
+          <md-icon>star</md-icon>
+        </div>
+      </template>
+    </td-data-table>
+  </md-card-content>
+</md-card>
