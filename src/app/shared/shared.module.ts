@@ -1,6 +1,6 @@
 import { NgModule, } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { TitleCasePipe, TruncatePipe } from './';
@@ -16,8 +16,8 @@ import { CovalentDataTableModule } from '@covalent/core';
 
 
 @NgModule({
-    imports: [CommonModule, MaterialModule, FormsModule, FlexLayoutModule, CovalentDataTableModule],
-    exports: [TitleCasePipe, TruncatePipe, MaterialModule, FormsModule, FlexLayoutModule, CovalentDataTableModule],
+    imports: [CommonModule, MaterialModule, FormsModule, FlexLayoutModule, CovalentDataTableModule, ReactiveFormsModule],
+    exports: [TitleCasePipe, TruncatePipe, MaterialModule, FormsModule, FlexLayoutModule, CovalentDataTableModule, ReactiveFormsModule],
     declarations: [TitleCasePipe, TruncatePipe, ConfirmDialogComponent],
     entryComponents: [ConfirmDialogComponent],
     providers: [],

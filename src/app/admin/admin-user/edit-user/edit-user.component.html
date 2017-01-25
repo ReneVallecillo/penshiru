@@ -1,0 +1,57 @@
+<md-card>
+  <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+    <div>
+      <md-input-container>
+        <input md-input type="text" name="name" placeholder="Full name" formControlName="name">
+      </md-input-container>
+      <span class="error" *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+        Name is required
+      </span>
+      <span class="error" *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+        Minimum of 2 characters
+      </span>
+      <md-input-container>
+        <input md-input type="text" name="lastname" placeholder="Last Name" formControlName="lastname">
+      </md-input-container>
+      <span class="error" *ngIf="user.get('lastname').hasError('required') && user.get('lastname').touched">
+        lastname is required
+      </span>
+      <span class="error" *ngIf="user.get('lastname').hasError('minlength') && user.get('lastname').touched">
+        Minimum of 2 characters
+      </span>
+    </div>
+    <div>
+      <md-input-container>
+        <input md-input type="text" name="username" placeholder="Username" formControlusername="username">
+      </md-input-container>
+      <span class="error" *ngIf="user.get('username').hasError('required') && user.get('username').touched">
+        username is required
+      </span>
+      <span class="error" *ngIf="user.get('username').hasError('minlength') && user.get('username').touched">
+        Minimum of 2 characters
+      </span>
+    </div>
+    <div>
+      <md-select placeholder="Company Name" formControlName="company">
+        <md-option *ngFor="let company of companies" [value]="company.value">{{ company.viewValue}}</md-option>
+      </md-select>
+    </div>
+    <div formGroupName="account">
+      <md-input-container>
+        <input md-input type="email" name="email" placeholder="Email Address" formControlName="email">
+        <div class="error" *ngIf="user.get('account').get('email').hasError('required') && user.get('account').get('email').touched">
+          Email is required
+        </div>
+      </md-input-container>
+      <br>
+      <md-input-container>
+        <input md-input type="email" name="confirm" placeholder="Confirm Email Address" formControlName="confirm">
+        <div class="error" *ngIf="user.get('account').get('confirm').hasError('required') && user.get('account').get('confirm').touched">
+          Confirming email is required
+        </div>
+      </md-input-container>
+    </div>
+    <button md-raised-button color="primary" type="submit" [disabled]="user.invalid">Sign up</button>
+  </form>
+  {{ user.value | json }}
+</md-card>

@@ -13,6 +13,7 @@ import { LawTreeComponent } from '../law/law-tree/law-tree.component';
 import { LawUploadComponent } from '../law/law-upload/law-upload.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { ListUserComponent } from './admin-user/list-user/list-user.component';
+import { EditUserComponent } from './admin-user/edit-user/edit-user.component';
 
 const adminRoutes: Routes = [
   {
@@ -59,6 +60,10 @@ const adminRoutes: Routes = [
             path: 'list',
             component: ListUserComponent,
           },
+          {
+            path: 'add',
+            component: EditUserComponent,
+          }
         ]
       },
     ]
