@@ -12,6 +12,8 @@ export class UserService {
   // Tab Management
   private tabSource = new Subject<string>();
   tab$ = this.tabSource.asObservable();
+  private delTabSourCe = new Subject<string>();
+  deltab$ = this.tabSource.asObservable();
 
   constructor() { }
 
@@ -63,6 +65,10 @@ export class UserService {
   //addTab
   addTab(route: string) {
     this.tabSource.next(route);
+  }
+
+  delTab(route: string) {
+    this.delTabSourCe.next(route);
   }
 
 }

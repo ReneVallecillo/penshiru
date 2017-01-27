@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { User } from '../../../shared/models/user';
 
@@ -26,11 +26,12 @@ export class EditUserComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private router: ActivatedRoute,
+    private activedRoute: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
-    this.router.params
+    this.activedRoute.params
       .map((params: Params) => this.userService.getUserById(+params['id']))
       .subscribe(user => {
         this.editUser = user;
@@ -53,6 +54,8 @@ export class EditUserComponent implements OnInit {
     // console.log(this.user.value, this.user.valid);
 
     this.userService.updateUserById(this.user.value['id'], this.user.value);
+    this.userService.delTab('/admin/users/' + this.user.value['id']);
+    this.router.navigateByUrl('/admin/users/list');
   }
 
 }

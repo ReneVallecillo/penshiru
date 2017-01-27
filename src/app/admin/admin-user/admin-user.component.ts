@@ -32,6 +32,11 @@ export class AdminUserComponent implements OnInit {
         this.addTab(route);
       },
     );
+    this.userService.deltab$.subscribe(
+      route => {
+        this.delTab(route);
+      }
+    )
   }
 
   addTab(data: string) {
@@ -58,6 +63,10 @@ export class AdminUserComponent implements OnInit {
       this.activeLinkIndex = foundPos;
     }
 
+  }
+
+  delTab(tab: any) {
+    this.tabLinks.splice(this.tabLinks.indexOf(tab), 1);
   }
 
 }
