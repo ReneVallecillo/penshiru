@@ -33,10 +33,10 @@ export class AdminUserComponent implements OnInit {
       },
     );
     this.userService.deltab$.subscribe(
-      route => {
-        this.delTab(route);
+      delroute => {
+        this.delTab(delroute);
       }
-    )
+    );
   }
 
   addTab(data: string) {
@@ -52,10 +52,10 @@ export class AdminUserComponent implements OnInit {
 
     if (newTab) {
       this.tabLinks.splice(this.addTabPosition, 0, {
-        label: data,
-        link: '../users' + data
-      }
-      );
+        label: data.toString(),
+        link: '../users' + data.toString(),
+      });
+
       this.activeLinkIndex = this.addTabPosition;
       this.router.navigateByUrl('/admin/users/' + data);
     } else {
@@ -66,7 +66,10 @@ export class AdminUserComponent implements OnInit {
   }
 
   delTab(tab: any) {
+    console.log('del called inside Admin-user.component');
     this.tabLinks.splice(this.tabLinks.indexOf(tab), 1);
+    this.router.navigateByUrl('/admin/users/list');
+    this.activeLinkIndex = 0;
   }
 
 }

@@ -14,12 +14,6 @@ export class ListUserComponent implements OnInit {
   selectedUser: Object = null;
   users: User[] = [];
 
-
-  usersDummy = [
-    { id: 1, name: 'René Vallecillo', alias: 'reneval', company: 'RVC Consultores', active: false },
-    { id: 2, name: 'Rosario Daboub', alias: 'RosPrado', company: 'Lulemon', active: true },
-  ];
-
   columns2: ITdDataTableColumn[] = [
     { name: 'name', label: 'Usuario' },
     { name: 'alias', label: 'Alias' },
@@ -37,15 +31,15 @@ export class ListUserComponent implements OnInit {
 
     //dummy data:
     let user1: User = {
-      id: 1, name: 'René', lastName: 'Vallecillo', alias: 'reneval', company: 'rvc-consultores', active: false,
+      id: 1, name: 'René Vallecillo', alias: 'reneval', company: 'rvc-consultores', active: false,
       email: 'reneval@gmail.com'
     };
     let user2: User = {
-      id: 2, name: 'Rosario', lastName: 'Daboub', alias: 'RosPrado', company: 'lulemon', active: true,
+      id: 2, name: 'Rosario Daboub', alias: 'RosPrado', company: 'lulemon', active: true,
       email: 'ros@gmail.com'
     };
     let user3: User = {
-      id: 3, name: 'Nelly', lastName: 'Vega', alias: 'NellyV', company: 'retired', active: true,
+      id: 3, name: 'Nelly Vega', alias: 'NellyV', company: 'retired', active: true,
       email: 'nelly@gmail.com'
     };
 
@@ -66,7 +60,6 @@ export class ListUserComponent implements OnInit {
   selectEvent(event) {
     if (event.selected) {
       this.selectedUser = event.row;
-      console.log(this.selectedUser);
     } else {
       this.selectedUser = null;
     }

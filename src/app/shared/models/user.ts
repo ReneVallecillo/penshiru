@@ -1,7 +1,6 @@
 export class User {
     id: number;
     name: string;
-    lastName: string;
     active: boolean;
     alias: string;
     company: string;

@@ -2,3 +2,16 @@ md-card {
   margin: 16px;
   width: 540px;
 }
+
+.inline-columns-flex {
+  display: flex;
+  md-input-container:last-child {
+    margin-right: 0px;
+  }
+}
+
+.inline-column-item {
+  flex: 0 1 auto;
+  width: 100%;
+  margin-right: 10px;
+}

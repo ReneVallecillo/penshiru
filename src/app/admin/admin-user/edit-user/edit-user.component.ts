@@ -38,7 +38,6 @@ export class EditUserComponent implements OnInit {
         this.user = this.fb.group({
           id: [this.editUser.id],
           name: [this.editUser.name, [Validators.required, Validators.minLength(2)]],
-          lastname: [this.editUser.lastName, [Validators.required, Validators.minLength(2)]],
           username: [this.editUser.alias, [Validators.required, Validators.minLength(6)]],
           company: [this.editUser.company],
           active: [this.editUser.active],
@@ -51,11 +50,12 @@ export class EditUserComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log(this.user.value, this.user.valid);
+
+    console.log('console called');
+    console.log(this.user.value, this.user.valid);
 
     this.userService.updateUserById(this.user.value['id'], this.user.value);
     this.userService.delTab('/admin/users/' + this.user.value['id']);
-    this.router.navigateByUrl('/admin/users/list');
   }
 
 }
