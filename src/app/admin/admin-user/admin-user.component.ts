@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { UserService } from './user.service';
+
 
 @Component({
   selector: 'app-admin-user',
@@ -21,9 +23,15 @@ export class AdminUserComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private userService: UserService,
   ) { }
 
   ngOnInit() {
+    this.userService.tab$.subscribe(
+      route => {
+        this.addTab(route);
+      },
+    );
   }
 
   addTab(data: string) {

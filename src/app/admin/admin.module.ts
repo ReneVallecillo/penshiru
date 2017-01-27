@@ -6,11 +6,12 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { AdminLawComponent } from './admin-law/admin-law.component';
 
-import { LawAdminService } from './admin-law/admin-law.service';
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { ListUserComponent } from './admin-user/list-user/list-user.component';
 import { EditUserComponent } from './admin-user/edit-user/edit-user.component';
 
+import { LawAdminService } from './admin-law/admin-law.service';
+import { UserService } from './admin-user/user.service';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { EditUserComponent } from './admin-user/edit-user/edit-user.component';
     SharedModule,
   ],
   declarations: [DashboardComponent, AdminLawComponent, AdminUserComponent, ListUserComponent, EditUserComponent],
-  providers: [LawAdminService],
+  providers: [LawAdminService, UserService],
 })
 export class AdminModule { }

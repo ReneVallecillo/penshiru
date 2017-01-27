@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../shared/models/user';
 
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class UserService {
   lastID: number = 0;
-  users: User[] = []
+  users: User[] = [];
+
+  // Tab Management
+  private tabSource = new Subject<string>();
+  tab$ = this.tabSource.asObservable();
 
   constructor() { }
 
@@ -49,6 +56,11 @@ export class UserService {
       active: !user.active
     });
     return updatedUser;
+  }
+
+  //addTab
+  addTab(route: string) {
+    this.tabSource.next(route);
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ITdDataTableColumn, } from '@covalent/core';
 
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-list-user',
@@ -25,6 +26,15 @@ export class ListUserComponent implements OnInit {
     { name: 'active', label: 'Activo?' }
   ];
 
+
+
+  constructor(
+    private userService: UserService,
+  ) { }
+
+  ngOnInit() {
+  }
+
   selectEvent(event) {
     if (event.selected) {
       this.selectedUser = event.row;
@@ -34,9 +44,12 @@ export class ListUserComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  toogleActiveUser(event) {
+    console.log(event);
+  }
 
-  ngOnInit() {
+  editUser() {
+    this.userService.addTab(this.selectedUser['id']);
   }
 
 }

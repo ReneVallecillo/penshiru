@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { User } from '../../../shared/interfaces/user.interface';
 
+import { UserService } from '../user.service';
+
 
 @Component({
   selector: 'app-edit-user',
@@ -16,7 +18,10 @@ export class EditUserComponent implements OnInit {
     { value: 'lulemon', viewValue: 'Lulemon' },
   ];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+  ) { }
 
   ngOnInit() {
     this.user = this.fb.group({

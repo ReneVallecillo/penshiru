@@ -63,6 +63,10 @@ const adminRoutes: Routes = [
           {
             path: 'add',
             component: EditUserComponent,
+          },
+          {
+            path: ':id',
+            component: EditUserComponent,
           }
         ]
       },
