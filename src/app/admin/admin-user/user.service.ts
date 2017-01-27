@@ -32,6 +32,8 @@ export class UserService {
 
   updateUserById(id: number, values: Object = {}): User {
     let user = this.getUserById(id);
+    console.log(values);
+    console.log("id=" + id + " user:" + user);
     if (!user) {
       return null;
     }

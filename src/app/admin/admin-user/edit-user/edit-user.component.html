@@ -22,7 +22,7 @@
     </div>
     <div>
       <md-input-container>
-        <input md-input type="text" name="username" placeholder="Username" formControlusername="username">
+        <input md-input type="text" name="username" placeholder="Username" formControlName="username">
       </md-input-container>
       <span class="error" *ngIf="user.get('username').hasError('required') && user.get('username').touched">
         username is required
@@ -51,7 +51,12 @@
         </div>
       </md-input-container>
     </div>
-    <button md-raised-button color="primary" type="submit" [disabled]="user.invalid">Sign up</button>
+    <div>
+      <md-checkbox formControlName="active">
+        Activo?
+      </md-checkbox>
+    </div>
+    <button md-raised-button color="primary" type="submit" [disabled]="user.invalid">Edit</button>
   </form>
   {{ user.value | json }}
 </md-card>

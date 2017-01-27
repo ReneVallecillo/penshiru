@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ITdDataTableColumn, } from '@covalent/core';
 
 import { UserService } from '../user.service';
 
+import { User } from '../../../shared/models/user';
 @Component({
   selector: 'app-list-user',
   templateUrl: './list-user.component.html',
@@ -12,9 +12,10 @@ import { UserService } from '../user.service';
 export class ListUserComponent implements OnInit {
 
   selectedUser: Object = null;
+  users: User[] = [];
 
 
-  users = [
+  usersDummy = [
     { id: 1, name: 'René Vallecillo', alias: 'reneval', company: 'RVC Consultores', active: false },
     { id: 2, name: 'Rosario Daboub', alias: 'RosPrado', company: 'Lulemon', active: true },
   ];
@@ -33,6 +34,33 @@ export class ListUserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    //dummy data:
+    let user1: User = {
+      id: 1, name: 'René', lastName: 'Vallecillo', alias: 'reneval', company: 'rvc-consultores', active: false,
+      email: 'reneval@gmail.com'
+    };
+    let user2: User = {
+      id: 2, name: 'Rosario', lastName: 'Daboub', alias: 'RosPrado', company: 'lulemon', active: true,
+      email: 'ros@gmail.com'
+    };
+    let user3: User = {
+      id: 3, name: 'Nelly', lastName: 'Vega', alias: 'NellyV', company: 'retired', active: true,
+      email: 'nelly@gmail.com'
+    };
+
+    this.users = this.userService.getAllUsers();
+
+    if (this.users.length <= 0) {
+      this.userService.addUser(user1);
+      this.userService.addUser(user2);
+      this.userService.addUser(user3);
+      this.users = this.userService.getAllUsers();
+
+    }
+
+
+
   }
 
   selectEvent(event) {
