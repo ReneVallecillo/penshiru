@@ -12,6 +12,7 @@ import { EditUserComponent } from './admin-user/edit-user/edit-user.component';
 
 import { LawAdminService } from './admin-law/admin-law.service';
 import { UserService } from './admin-user/user.service';
+import { AddUserComponent } from './admin-user/add-user/add-user.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { UserService } from './admin-user/user.service';
     AdminRoutingModule,
     SharedModule,
   ],
-  declarations: [DashboardComponent, AdminLawComponent, AdminUserComponent, ListUserComponent, EditUserComponent],
+  declarations: [DashboardComponent, AdminLawComponent, AdminUserComponent, ListUserComponent, EditUserComponent, AddUserComponent],
   providers: [LawAdminService, UserService],
 })
 export class AdminModule { }
