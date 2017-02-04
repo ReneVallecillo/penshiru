@@ -14,6 +14,7 @@ import { LawUploadComponent } from '../law/law-upload/law-upload.component';
 import { AdminUserComponent } from './admin-user/admin-user.component';
 import { ListUserComponent } from './admin-user/list-user/list-user.component';
 import { EditUserComponent } from './admin-user/edit-user/edit-user.component';
+import { AddUserComponent } from './admin-user/add-user/add-user.component';
 
 const adminRoutes: Routes = [
   {
@@ -62,7 +63,7 @@ const adminRoutes: Routes = [
           },
           {
             path: 'add',
-            component: EditUserComponent,
+            component: AddUserComponent,
           },
           {
             path: ':id',

@@ -37,7 +37,7 @@ export class AppComponent {
   }
 
   showSidenav() {
-    console.log('showSideNav on appcomponent reached');
+    // console.log('showSideNav on appcomponent reached');
     this.toolbarService.showSidenav(!this.sidenav);
   }
 }

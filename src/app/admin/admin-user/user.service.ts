@@ -34,8 +34,6 @@ export class UserService {
 
   updateUserById(id: number, values: Object = {}): User {
     let user = this.getUserById(id);
-    console.log(values);
-    console.log("id=" + id + " user:" + user);
     if (!user) {
       return null;
     }
@@ -49,7 +47,7 @@ export class UserService {
   }
 
   getUserById(id: number): User {
-    console.log('real used');
+    // console.log('real used');
     return this.users
       .filter(user => user.id === id)
       .pop();
