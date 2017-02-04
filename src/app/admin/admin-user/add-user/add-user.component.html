@@ -36,12 +36,6 @@
           Email is required
         </div>
       </md-input-container>
-      <md-input-container class="inline-column-item">
-        <input md-input type="email" name="confirm" placeholder="Confirm Email Address" formControlName="confirm">
-        <div class="error" *ngIf="userForm.get('account').get('confirm').hasError('required') && userForm.get('account').get('confirm').touched">
-          Confirming email is required
-        </div>
-      </md-input-container>
     </div>
     <div class="md-input-wrapper">
       <md-checkbox formControlName="active">

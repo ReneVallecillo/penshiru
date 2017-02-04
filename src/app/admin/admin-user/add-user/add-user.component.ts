@@ -23,6 +23,10 @@ export class AddUserComponent implements OnInit {
 
   }
 
+  onSubmit() {
+    this.user = this.prepareSaveUser();
+  }
+
   private generateForm(user: User): FormGroup {
     return this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -30,10 +34,24 @@ export class AddUserComponent implements OnInit {
       company: '',
       active: false,
       account: this.fb.group({
-        email: ['', Validators.required],
-        confirm: ['', Validators.required],
+        email: ['', [Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       })
     });
+  }
+
+  private prepareSaveUser(): User {
+    const formModel = this.userForm.value;
+    const address = formModel.account.email;
+    const saveUser: User = {
+      id: 0,
+      name: formModel.name as string,
+      active: formModel.active,
+      alias: formModel.username as string,
+      company: formModel.company as string,
+      email: address as string
+    };
+
+    return saveUser;
   }
 
 }

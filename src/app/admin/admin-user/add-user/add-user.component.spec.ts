@@ -1,11 +1,13 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { AddUserComponent } from './add-user.component';
 import { Observable } from 'rxjs/Observable';
+import { validUser, invalidUser } from '../../../testing/mocks';
+import { User } from '../../../shared/models/user';
 
 
 describe('AddUserComponent', () => {
@@ -35,8 +37,62 @@ describe('AddUserComponent', () => {
   });
 
 
-  it('should create a `FormControl` for the user', () => {
-    component.ngOnInit();
-    expect(component.userForm.get('active').value).toBe(false);
+  it('should start with empty user', () => {
+    expect(component.user).toEqual(new User());
   });
+
+  it('should be valid with validUser', () => {
+    component.userForm.setValue({
+      name: validUser.name,
+      username: validUser.alias,
+      company: validUser.company,
+      active: validUser.active,
+      account: {
+        email: validUser.email,
+      }
+    });
+    expect(component.userForm.valid).toBe(true);
+
+  });
+
+  it('should be invalid with invalidUser', () => {
+    component.userForm.setValue({
+      name: invalidUser.name,
+      username: invalidUser.alias,
+      company: invalidUser.company,
+      active: invalidUser.active,
+      account: {
+        email: invalidUser.email,
+      }
+    });
+    expect(component.userForm.valid).toBe(false);
+  });
+
+  it('should be invalid with malformed email', () => {
+    component.userForm.setValue({
+      name: validUser.name,
+      username: validUser.alias,
+      company: validUser.company,
+      active: validUser.active,
+      account: {
+        email: 'invalidemail.com',
+      }
+    });
+    expect(component.userForm.valid).toBe(false);
+  });
+
+  it('should uopdate model on submit', fakeAsync(() => {
+    component.userForm.setValue({
+      name: validUser.name,
+      username: validUser.alias,
+      company: validUser.company,
+      active: validUser.active,
+      account: {
+        email: validUser.email,
+      }
+    });
+
+    component.onSubmit();
+    expect(component.user).toEqual(validUser);
+  }));
 });
