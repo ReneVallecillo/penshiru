@@ -49,6 +49,7 @@ export class UserService {
   }
 
   getUserById(id: number): User {
+    console.log('real used');
     return this.users
       .filter(user => user.id === id)
       .pop();

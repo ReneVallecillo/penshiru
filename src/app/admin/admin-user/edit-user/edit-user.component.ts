@@ -27,13 +27,13 @@ export class EditUserComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private activedRoute: ActivatedRoute,
-    private router: Router,
   ) { }
 
   ngOnInit() {
     this.activedRoute.params
       .map((params: Params) => this.userService.getUserById(+params['id']))
       .subscribe(user => {
+        console.log('User is:' + user);
         this.editUser = user;
         this.user = this.fb.group({
           id: [this.editUser.id],

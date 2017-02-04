@@ -16,7 +16,6 @@ export class AdminUserComponent implements OnInit {
     { label: 'Agregar ', link: '/admin/users/add' },
   ];
   activeLinkIndex = 0;
-  // activeTabIndex = 0;
   addTabPosition = this.tabLinks.length;
   gotoNewTabAfterAdding = false;
   createWithLongContent = false;
