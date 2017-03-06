@@ -1,10 +1,12 @@
 import { Title } from './title.model';
+import { Book } from './book.model';
 
 export class Law {
 
     constructor(
         id: number,
         public name: string,
+        public books: Book[],
         public titles: Title[],
         public approvalDate: Date,
         public publishData: Date,

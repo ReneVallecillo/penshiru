@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import {directory} from '../../shared/models/directory';
-import {Article} from '../../shared/models/article.model';
+import { directory } from '../../shared/models/directory';
+import { Article } from '../../shared/models/article.model';
 
 
-import {TitleCasePipe} from '../../shared/title-case.pipe';
-import {TruncatePipe} from '../../shared/truncate.pipe';
+import { TitleCasePipe } from '../../shared/title-case.pipe';
+import { TruncatePipe } from '../../shared/truncate.pipe';
 
-import {ReviewService} from '../shared/review.service';
+import { ReviewService } from '../shared/review.service';
 
 
 @Component({
@@ -16,47 +16,49 @@ import {ReviewService} from '../shared/review.service';
     styleUrls: ['./law-tree.component.scss'],
 })
 export class LawTreeComponent implements OnInit {
-    
-    @Input()
-    directories: Array<directory>
 
-    constructor(private reviewService:ReviewService) { }
+    @Input()
+    directories: Array<directory>;
+
+    constructor(private reviewService: ReviewService) { }
 
     ngOnInit() {
     }
 
-    toggle(dir:directory){
+    toggle(dir: directory) {
         dir.expanded = !dir.expanded;
-        console.log(dir)
+        console.log(dir);
     }
 
-    check(dir:directory){
+    check(dir: directory) {
         // let newState = !dir.reviewed;
         dir.reviewed = !dir.reviewed;
         // //this.checkRecursive(newState);
-        console.log("change tree")
-        this.itemSelected(dir)
+        console.log('change tree');
+        this.itemSelected(dir);
 
     }
-    
-    getIcon(dir:directory){
 
-        if(dir.expanded){
+    getIcon(dir: directory) {
+
+        if (dir.expanded) {
             return '-';
         }
 
         return '+';
     }
 
-    itemSelected(dir:directory){
-      this.reviewService.announceSelected(dir);      
+    itemSelected(dir: directory) {
+        this.reviewService.announceSelected(dir);
     }
 
-    checkClass(dir:directory):boolean{
-        //console.log(dir)
-        if(!dir.articles && !dir.chapters)
-        return false
-        else
-        return true
+    checkClass(dir: directory): boolean {
+        // console.log(dir)
+        if (!dir.articles && !dir.chapters && !dir.titles) {
+            return false;
+        } else {
+            return true;
+
+        }
     }
 }
