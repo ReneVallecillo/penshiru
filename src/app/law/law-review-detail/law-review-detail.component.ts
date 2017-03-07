@@ -41,6 +41,8 @@ export class LawReviewDetailComponent implements OnInit {
   history: string[] = [];
   selectedIndex: number = 0;
   currentLvl: directory;
+  currentFile: string;
+
 
   dialogRef: MdDialogRef<ConfirmDialogComponent>;
 
@@ -64,8 +66,8 @@ export class LawReviewDetailComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(
       params => {
-        let file = params['file'];
-        this.service.getTmpLaw(file).subscribe(
+        this.currentFile = params['file'];
+        this.service.getTmpLaw(this.currentFile).subscribe(
           law => {
             this.law = law;
           },
@@ -142,6 +144,7 @@ export class LawReviewDetailComponent implements OnInit {
           }
         }
       } else {
+        console.log(this.law)
         for (let t of this.law.titles) {
           if (t.reviewed == false) { return false; }
           if (t.chapters.length > 0) {
@@ -235,4 +238,9 @@ export class LawReviewDetailComponent implements OnInit {
     }
   }
 
+  update(uri: string) {
+    this.service.saveTmpLaw(uri, this.law).subscribe(
+      law => this.law = law
+    );
+  }
 }

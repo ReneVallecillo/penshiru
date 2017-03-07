@@ -51,6 +51,12 @@ export class LawService {
       .catch(this.handleError);
   }
 
+  saveTmpLaw(uri: string, law: Law): Observable<Law> {
+    return this.http.put(this.lawtmpurl + '/' + uri, JSON.stringify(law))
+      .map(this.extractLaw)
+      .catch(this.handleError);
+  }
+
   private extractData(res: Response) {
     let body = res.json();
     return body || {};

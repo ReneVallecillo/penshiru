@@ -1,6 +1,6 @@
 <div class="actions">
   <button md-raised-button color="warn" (click)="checkAll()">Check All</button>
-  <button md-raised-button>Update</button>
+  <button md-raised-button (click)="update(currentFile)">Update</button>
   <button md-raised-button color="primary" [disabled]="checkIfAll()==false" (click)="saveToDB(law)">Save to DB</button>
 </div>
 <div class="parent">
