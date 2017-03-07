@@ -27,13 +27,13 @@ export class EditUserComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private activedRoute: ActivatedRoute,
-    private router: Router,
   ) { }
 
   ngOnInit() {
     this.activedRoute.params
       .map((params: Params) => this.userService.getUserById(+params['id']))
       .subscribe(user => {
+        // console.log('User is:' + user);
         this.editUser = user;
         this.user = this.fb.group({
           id: [this.editUser.id],
@@ -50,10 +50,6 @@ export class EditUserComponent implements OnInit {
   }
 
   onSubmit() {
-
-    console.log('console called');
-    console.log(this.user.value, this.user.valid);
-
     this.userService.updateUserById(this.user.value['id'], this.user.value);
     this.userService.delTab('/admin/users/' + this.user.value['id']);
   }

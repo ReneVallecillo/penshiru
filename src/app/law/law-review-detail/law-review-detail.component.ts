@@ -83,7 +83,7 @@ export class LawReviewDetailComponent implements OnInit {
   check(dir: directory) {
     // let newState = !dir.reviewed;
     dir.reviewed = !dir.reviewed;
-    console.log('change main');
+    // console.log('change main');
     // this._changeDetectionRef.detectChanges();
     // this.checkRecursive(newState);
   }

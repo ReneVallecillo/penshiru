@@ -16,7 +16,6 @@ export class AdminUserComponent implements OnInit {
     { label: 'Agregar ', link: '/admin/users/add' },
   ];
   activeLinkIndex = 0;
-  // activeTabIndex = 0;
   addTabPosition = this.tabLinks.length;
   gotoNewTabAfterAdding = false;
   createWithLongContent = false;
@@ -66,7 +65,7 @@ export class AdminUserComponent implements OnInit {
   }
 
   delTab(tab: any) {
-    console.log('del called inside Admin-user.component');
+    // console.log('del called inside Admin-user.component');
     this.tabLinks.splice(this.tabLinks.indexOf(tab), 1);
     this.router.navigateByUrl('/admin/users/list');
     this.activeLinkIndex = 0;

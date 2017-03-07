@@ -23,10 +23,10 @@ export class DashboardComponent implements OnInit {
   }
 
   toogleSidenav() {
-    console.log('toogleSideNav on dashboard reached');
+    // console.log('toogleSideNav on dashboard reached');
     this.toolbarService.sideNav$.subscribe(
       () => { this.sidenav.toggle(); },
-    )
+    );
   }
 
 
