@@ -9,7 +9,7 @@ import {
 } from '../../shared/models/law.model';
 import {
   Article
-} from '../../shared/models/article.model'
+} from '../../shared/models/article.model';
 import {
   Router,
   ActivatedRoute
@@ -23,6 +23,7 @@ import {
 import {
   directory
 } from '../../shared/models/directory';
+import { LawAdminService } from '../../admin/admin-law/admin-law.service';
 import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dialog.component';
 // import {Autosize} from 'angular2-autosize/angular2-autosize';
 
@@ -53,6 +54,7 @@ export class LawReviewDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private service: LawService,
     private reviewService: ReviewService,
+    private lawAdminService: LawAdminService,
     public dialog: MdDialog) {
 
     this.reviewService.itemSelected$.subscribe(
@@ -72,20 +74,14 @@ export class LawReviewDetailComponent implements OnInit {
             this.law = law;
           },
           error => { },
-          () => {
-            // console.log(this.law);
-          }
+
         );
       }
     );
   }
 
   check(dir: directory) {
-    // let newState = !dir.reviewed;
     dir.reviewed = !dir.reviewed;
-    // console.log('change main');
-    // this._changeDetectionRef.detectChanges();
-    // this.checkRecursive(newState);
   }
 
 
@@ -172,7 +168,10 @@ export class LawReviewDetailComponent implements OnInit {
     law.init = this.currentFile;
     this.service.saveLawDB(law)
       .subscribe(
-      data => { console.log(data); },
+      data => {
+        console.log(data);
+        this.lawAdminService.delTab(this.currentFile)
+      },
       error => { console.log(error); }
       );
   }

@@ -30,11 +30,18 @@ export class AdminLawComponent implements OnInit {
         this.addTab(route);
       },
     );
+    this.lawAdminService.deltab$.subscribe(
+      delroute => {
+        this.deleteTab(delroute);
+      }
+    );
   }
 
   //TODO: Use Service to delete element from array
   deleteTab(tab: any) {
     this.tabLinks.splice(this.tabLinks.indexOf(tab), 1);
+    this.router.navigateByUrl('/admin/law/list');
+    this.activeLinkIndex = 0;
   }
 
   addTab(data: string) {
