@@ -144,7 +144,6 @@ export class LawReviewDetailComponent implements OnInit {
           }
         }
       } else {
-        console.log(this.law)
         for (let t of this.law.titles) {
           if (t.reviewed == false) { return false; }
           if (t.chapters.length > 0) {
@@ -170,6 +169,7 @@ export class LawReviewDetailComponent implements OnInit {
   }
 
   saveToDB(law: Law) {
+    law.init = this.currentFile;
     this.service.saveLawDB(law)
       .subscribe(
       data => { console.log(data); },

@@ -12,6 +12,7 @@ export class Law {
         public publishData: Date,
         public journal: string,
         public intro: string,
+        public init: string
     ) { }
 
     // tslint:disable-next-line:member-ordering
