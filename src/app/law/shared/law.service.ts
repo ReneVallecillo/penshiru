@@ -22,10 +22,11 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LawService {
 
-  constructor(private http: Http) { }
-
   private lawurl = 'http://localhost:8080/api/laws';
   private lawtmpurl = 'http://localhost:8080/api/tmp/laws';
+
+
+  constructor(private http: Http) { }
 
   getLaws(): Observable<Law[]> {
     return this.http.get(this.lawurl)
