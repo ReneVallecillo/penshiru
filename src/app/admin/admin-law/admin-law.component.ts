@@ -15,10 +15,11 @@ export class AdminLawComponent implements OnInit {
     { label: 'Agregar ', link: '/admin/law/upload' },
   ];
   activeLinkIndex = 0;
-  // activeTabIndex = 0;
   addTabPosition = this.tabLinks.length;
   gotoNewTabAfterAdding = false;
   createWithLongContent = false;
+
+  jsonRegex = new RegExp('.json$');
 
   constructor(
     private lawAdminService: LawAdminService,
@@ -47,6 +48,16 @@ export class AdminLawComponent implements OnInit {
   addTab(data: string) {
     let newTab = true;
     let foundPos = 0;
+    let label: string;
+    //TODO: usr/lawid and url/id/lawname should route to same component
+    let id: string;
+    if (this.jsonRegex.test(data)) {
+      label = data;
+      id = data;
+    } else {
+      label = data.slice(data.indexOf('/') + 1);
+      id = data.slice(0, data.indexOf('/'));
+    }
 
     this.tabLinks.forEach((item, index) => {
       if (item.label == data.toString()) {
@@ -57,14 +68,14 @@ export class AdminLawComponent implements OnInit {
 
     if (newTab) {
       this.tabLinks.splice(this.addTabPosition, 0, {
-        label: data,
-        link: '../law/review/' + data
+        label: label,
+        link: '../law/review/' + id
       }
       );
       this.activeLinkIndex = this.addTabPosition;
-      this.router.navigateByUrl('/admin/law/review/' + data);
+      this.router.navigateByUrl('/admin/law/review/' + id);
     } else {
-      this.router.navigateByUrl('/admin/law/review/' + data);
+      this.router.navigateByUrl('/admin/law/review/' + id);
       this.activeLinkIndex = foundPos;
     }
 

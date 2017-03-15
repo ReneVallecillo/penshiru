@@ -33,6 +33,11 @@ export class LawService {
       .map(this.extractDataT)
       .catch(this.handleError);
   }
+  getLaw(id: string): Observable<Law> {
+    return this.http.get(this.lawtmpurl + '/' + id)
+      .map(this.extractLaw)
+      .catch(this.handleError);
+  }
 
   getTmpLaws(): Observable<LawTmp[]> {
     return this.http.get(this.lawtmpurl)

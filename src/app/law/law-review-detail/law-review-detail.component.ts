@@ -44,6 +44,8 @@ export class LawReviewDetailComponent implements OnInit {
   currentLvl: directory;
   currentFile: string;
 
+  jsonRegex = new RegExp('.json$');
+
 
   dialogRef: MdDialogRef<ConfirmDialogComponent>;
 
@@ -69,17 +71,20 @@ export class LawReviewDetailComponent implements OnInit {
     this.sub = this.route.params.subscribe(
       params => {
         this.currentFile = params['file'];
-        this.service.getTmpLaw(this.currentFile).subscribe(
-          law => {
-            this.law = law;
-          },
-          error => { },
-
-        );
+        if (this.jsonRegex.test(this.currentFile)) {
+          this.service.getTmpLaw(this.currentFile).subscribe(
+            law => {
+              this.law = law;
+            },
+            error => { },
+          );
+        }
       }
+
+
     );
   }
-
+  s
   check(dir: directory) {
     dir.reviewed = !dir.reviewed;
   }
