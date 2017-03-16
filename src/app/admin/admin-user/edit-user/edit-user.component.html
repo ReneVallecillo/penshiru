@@ -2,7 +2,7 @@
   <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
     <div>
       <md-input-container style="width: 100%">
-        <input md-input type="text" name="name" placeholder="Full name" formControlName="name">
+        <input mdInput type="text" name="name" placeholder="Full name" formControlName="name">
       </md-input-container>
       <span class="error" *ngIf="user.get('name').hasError('required') && user.get('name').touched">
         Name is required
@@ -13,7 +13,7 @@
     </div>
     <div>
       <md-input-container style="width: 100%">
-        <input md-input type="text" name="username" placeholder="Desired Username" formControlName="username">
+        <input mdInput type="text" name="username" placeholder="Desired Username" formControlName="username">
       </md-input-container>
       <span class="error" *ngIf="user.get('username').hasError('required') && user.get('username').touched">
         username is required
@@ -31,13 +31,13 @@
     </div>
     <div formGroupName="account" class="inline-columns-flex">
       <md-input-container class="inline-column-item">
-        <input md-input type="email" name="email" placeholder="Email Address" formControlName="email">
+        <input mdInput type="email" name="email" placeholder="Email Address" formControlName="email">
         <div class="error" *ngIf="user.get('account').get('email').hasError('required') && user.get('account').get('email').touched">
           Email is required
         </div>
       </md-input-container>
       <md-input-container class="inline-column-item">
-        <input md-input type="email" name="confirm" placeholder="Confirm Email Address" formControlName="confirm">
+        <input mdInput type="email" name="confirm" placeholder="Confirm Email Address" formControlName="confirm">
         <div class="error" *ngIf="user.get('account').get('confirm').hasError('required') && user.get('account').get('confirm').touched">
           Confirming email is required
         </div>

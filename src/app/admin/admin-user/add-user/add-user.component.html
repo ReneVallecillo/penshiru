@@ -2,7 +2,7 @@
   <form novalidate (ngSubmit)="onSubmit(userForm)" [formGroup]="userForm">
     <div>
       <md-input-container style="width: 100%">
-        <input md-input type="text" name="name" placeholder="Full name" formControlName="name">
+        <input mdInput type="text" name="name" placeholder="Full name" formControlName="name">
       </md-input-container>
       <span class="error" *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">
         Name is required
@@ -13,7 +13,7 @@
     </div>
     <div>
       <md-input-container style="width: 100%">
-        <input md-input type="text" name="username" placeholder="Desired Username" formControlName="username">
+        <input mdInput type="text" name="username" placeholder="Desired Username" formControlName="username">
       </md-input-container>
       <span class="error" *ngIf="userForm.get('username').hasError('required') && userForm.get('username').touched">
         username is required
@@ -31,7 +31,7 @@
     </div>
     <div formGroupName="account" class="inline-columns-flex">
       <md-input-container class="inline-column-item">
-        <input md-input type="email" name="email" placeholder="Email Address" formControlName="email">
+        <input mdInput type="email" name="email" placeholder="Email Address" formControlName="email">
         <div class="error" *ngIf="userForm.get('account').get('email').hasError('required') && userForm.get('account').get('email').touched">
           Email is required
         </div>
