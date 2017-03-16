@@ -46,7 +46,7 @@ import 'hammerjs';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     FlexLayoutModule.forRoot(),
     SharedModule,
     routing,
