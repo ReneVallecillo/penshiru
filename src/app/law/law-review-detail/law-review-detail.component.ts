@@ -78,13 +78,19 @@ export class LawReviewDetailComponent implements OnInit {
             },
             error => { },
           );
+        } else {
+          this.service.getLaw(this.currentFile).subscribe(
+            law => this.law = law,
+            error => console.log(error),
+            () => console.log(this.law)
+          );
         }
       }
 
 
     );
   }
-  s
+
   check(dir: directory) {
     dir.reviewed = !dir.reviewed;
   }

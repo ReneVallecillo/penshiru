@@ -34,7 +34,7 @@ export class LawService {
       .catch(this.handleError);
   }
   getLaw(id: string): Observable<Law> {
-    return this.http.get(this.lawtmpurl + '/' + id)
+    return this.http.get(this.lawurl + '/' + id)
       .map(this.extractLaw)
       .catch(this.handleError);
   }
