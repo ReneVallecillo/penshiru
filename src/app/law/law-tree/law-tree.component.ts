@@ -27,14 +27,11 @@ export class LawTreeComponent implements OnInit {
 
     toggle(dir: directory) {
         dir.expanded = !dir.expanded;
-        console.log(dir);
     }
 
     check(dir: directory) {
-        // let newState = !dir.reviewed;
         dir.reviewed = !dir.reviewed;
-        // //this.checkRecursive(newState);
-        console.log('change tree');
+        // console.log('change tree');
         this.itemSelected(dir);
 
     }
@@ -49,7 +46,9 @@ export class LawTreeComponent implements OnInit {
     }
 
     itemSelected(dir: directory) {
-        this.reviewService.announceSelected(dir);
+        if (this.checkClass(dir)) {
+            this.reviewService.announceSelected(dir);
+        }
     }
 
     checkClass(dir: directory): boolean {

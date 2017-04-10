@@ -3,17 +3,15 @@
 }
 
 .law-tree {
-  background-color: #ffffff;
+  // background-color: #ffffff;
   ul {
-    padding-left: 10px;
-    // max-width: 300px;
+    padding-left: 10px; // max-width: 300px;
   }
   li {
     list-style: none;
     max-width: 320px;
     margin: 0;
-  }
-  //not working as of ng2 rc3
+  } //not working as of ng2 rc3
   .md-checkbox-background {
     background-color: #009688;
   }

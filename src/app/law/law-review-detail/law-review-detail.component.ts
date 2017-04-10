@@ -38,6 +38,7 @@ import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dial
 export class LawReviewDetailComponent implements OnInit {
 
   private sub: any;
+  intro = true;
   law: Law;
   history: string[] = [];
   selectedIndex: number = 0;
@@ -61,8 +62,9 @@ export class LawReviewDetailComponent implements OnInit {
 
     this.reviewService.itemSelected$.subscribe(
       dir => {
-        this.history.push(`Dir ${dir.name} was selected`);
+        // this.history.push(`Dir ${dir.name} was selected`);
         this.currentLvl = dir;
+        this.intro = false
       }
     );
   }
@@ -252,5 +254,10 @@ export class LawReviewDetailComponent implements OnInit {
     this.service.saveTmpLaw(uri, this.law).subscribe(
       law => this.law = law
     );
+  }
+
+  showIntro() {
+    this.intro = true;
+    this.currentLvl = null;
   }
 }
