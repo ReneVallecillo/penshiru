@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Result } from '../../models';
+import { SearchService } from './search.service'
+
+
 
 @Component({
   selector: 'app-search',
@@ -7,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  results: Result[];
+
+  constructor(private searchService: SearchService) { }
 
   ngOnInit() {
+  }
+
+  search(query: string) {
+    this.searchService.search(query)
+      .subscribe(
+      results => this.results = results
+      )
   }
 
 }

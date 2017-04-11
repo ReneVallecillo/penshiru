@@ -2,7 +2,7 @@
   <md-card-title>Buscador de Leyes</md-card-title>
   <md-card-content>
     <md-input-container>
-      <input mdInput [value]="query">
+      <input mdInput [value]="query" (keyup)="search.emit($event.target.value)">
     </md-input-container>
     <md-spinner [class.show]="searching"></md-spinner>
   </md-card-content>
