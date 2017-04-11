@@ -1,6 +1,8 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 import { DebugElement } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
@@ -17,7 +19,8 @@ describe('AddUserComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AddUserComponent],
-      imports: [ReactiveFormsModule, MaterialModule.forRoot()]
+      imports: [ReactiveFormsModule, MaterialModule.forRoot(),
+        NoopAnimationsModule]
     })
       .compileComponents();
   }));

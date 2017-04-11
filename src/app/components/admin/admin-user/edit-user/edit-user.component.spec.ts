@@ -1,6 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DebugElement } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MaterialModule } from '@angular/material';
@@ -32,7 +33,8 @@ describe('EditUserComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [EditUserComponent],
-      imports: [ReactiveFormsModule, FormsModule, MaterialModule.forRoot()],
+      imports: [ReactiveFormsModule, FormsModule,
+        MaterialModule.forRoot(), NoopAnimationsModule],
       providers: [
         { provide: UserService, useClass: UserServiceStub },
         { provide: ActivatedRoute, useValue: activatedRoute }

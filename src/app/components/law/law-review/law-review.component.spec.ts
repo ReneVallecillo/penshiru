@@ -30,7 +30,7 @@ describe('LawReviewComponent', () => {
       .overrideComponent(LawReviewComponent, {
         set: {
           providers: [
-            { provide: LawService, useClass: mockLawService }
+            { provide: LawService, useClass: MockLawService }
           ]
         }
       })

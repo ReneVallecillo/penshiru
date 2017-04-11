@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 // USE TO NOT TEST ROUTER
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { AbstractMockObservableService } from '../../testing/ObService';
+import { AbstractMockObservableService } from '../../../testing/ObService';
 import { LawAdminService } from './admin-law.service';
 import { Router } from '@angular/router';
 
