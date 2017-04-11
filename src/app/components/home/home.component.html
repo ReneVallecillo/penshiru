@@ -1,0 +1,29 @@
+<div class="intro">
+  <div class="fade">
+    <div class="fade-content">
+      <div class="welcome">{{ welcome }}</div>
+      <div class="app-name">{{ appname }}</div>
+      <div class="divider"></div>
+      <div class="slogan">{{ slogan }}</div>
+
+      <a routerLink="/login" md-raised-button color="accent">Entrar</a>
+    </div>
+  </div>
+</div>
+
+<div class="info">
+  <div class="info-text"> {{ infoText }}</div>
+  <div class="computer"></div>
+</div>
+
+<div class="subscribe">
+  <h1>{{ subscribeMSG }}</h1>
+
+  <div class="box">
+    <md-input-container dividerColor="accent">
+      <input class="subscribe-input" mdInput placeholder="your@email.com">
+    </md-input-container>
+  </div>
+  <button md-raised-button color="accent">Subscribirse</button>
+
+</div>
