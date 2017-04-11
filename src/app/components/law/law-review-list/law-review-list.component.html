@@ -1,0 +1,26 @@
+<!-- Update once angular 4.0 is released-->
+<div *ngIf="(laws$ | async)?.length > 0" class="card-container" align="center">
+  <md-card align="left">
+    <md-nav-list *ngFor="let law of laws$ | async">
+      <a md-list-item (click)="addTab(law.id +'/'+law.name)">
+        <h3 md-line>{{law.name}}</h3>
+        <p md-line class="secondary">
+          <span> rev: {{law.id}}</span>
+        </p>
+      </a>
+    </md-nav-list>
+  </md-card>
+</div>
+<div *ngIf="tmpLaws" class="card-container" align="center">
+  <md-card align="left">
+    <md-card-title>Pendientes de Revisar</md-card-title>
+    <md-nav-list *ngFor="let tlaw of tmpLaws">
+      <a md-list-item (click)="addTab([tlaw.name])">
+        <h3 md-line>{{tlaw.name}}</h3>
+        <p md-line class="secondary">
+          <span> path: {{tlaw.path}}</span>
+        </p>
+      </a>
+    </md-nav-list>
+  </md-card>
+</div>
