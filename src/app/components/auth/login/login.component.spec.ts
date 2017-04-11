@@ -9,8 +9,8 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LoginComponent } from './login.component';
-import { AuthService } from '../../shared/auth.service';
-import { AlertService } from '../../shared/alert.service';
+import { AuthService } from '../../../shared/auth.service';
+import { AlertService } from '../../../shared/alert.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;

@@ -6,7 +6,7 @@ import { DebugElement } from '@angular/core';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { LawReviewComponent } from './law-review.component';
 import { LawService } from '../shared/law.service';
-import { AbstractMockObservableService } from '../../testing/ObService';
+import { AbstractMockObservableService } from '../../../testing/ObService';
 
 describe('LawReviewComponent', () => {
   let component: LawReviewComponent;

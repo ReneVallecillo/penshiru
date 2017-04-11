@@ -3,14 +3,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { MaterialModule } from '@angular/material'
+import { MaterialModule } from '@angular/material';
 
 import { EditUserComponent } from './edit-user.component';
 import { UserService } from '../user.service'; // Remove
 
-import { ActivatedRoute } from '@angular/router'
-import { ActivatedRouteStub } from '../../../testing/router-stubs';
-import { UserServiceStub } from '../../../testing/user-stubs';
+import { ActivatedRoute } from '@angular/router';
+import { ActivatedRouteStub } from '../../../../testing/router-stubs';
+import { UserServiceStub } from '../../../../testing/user-stubs';
 import { Observable } from 'rxjs/Observable';
 
 
