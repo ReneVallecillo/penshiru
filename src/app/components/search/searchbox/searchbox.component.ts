@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  selector: 'app-search-box',
+  templateUrl: './searchbox.component.html',
+  styleUrls: ['./searchbox.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchBoxComponent implements OnInit {
 
   @Input() query = '';
   @Input() searching = false;
