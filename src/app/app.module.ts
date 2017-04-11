@@ -31,6 +31,8 @@ import { AuthModule } from './components/auth/auth.module';
 // Admin
 import { AdminModule } from './components/admin/admin.module';
 
+// Search
+import { SearchModule } from './components/search/search.module';
 // Covalent
 import { CovalentDataTableModule } from '@covalent/core';
 
@@ -54,6 +56,7 @@ import 'hammerjs';
     LawModule,
     AuthModule,
     AdminModule,
+    SearchModule,
     CovalentDataTableModule.forRoot(),
   ],
   providers: [MenuService, AlertService, AuthService, ToolbarService],
