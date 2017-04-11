@@ -7,8 +7,8 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { HomeModule } from './home/home.module';
-import { LawModule } from './law/law.module';
+import { HomeModule } from './components/home/home.module';
+import { LawModule } from './components/law/law.module';
 
 // providers
 import { MenuService } from './shared/menu.service';
@@ -26,10 +26,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './shared/shared.module';
 
 // Auth
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './components/auth/auth.module';
 
 // Admin
-import { AdminModule } from './admin/admin.module';
+import { AdminModule } from './components/admin/admin.module';
 
 // Covalent
 import { CovalentDataTableModule } from '@covalent/core';
