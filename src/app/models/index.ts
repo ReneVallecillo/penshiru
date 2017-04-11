@@ -5,3 +5,4 @@ export * from './law-tmp.model';
 export * from './title.model';
 export * from './directory';
 export * from './user';
+export * from './result';

@@ -1,3 +1,9 @@
-<p>
-  search works!
-</p>
+<md-card>
+  <md-card-title>Buscador de Leyes</md-card-title>
+  <md-card-content>
+    <md-input-container>
+      <input mdInput [value]="query">
+    </md-input-container>
+    <md-spinner [class.show]="searching"></md-spinner>
+  </md-card-content>
+</md-card>
