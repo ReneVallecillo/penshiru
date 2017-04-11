@@ -1,0 +1,14 @@
+<md-card>
+  <md-card-actions>
+    <button md-button routerLink="/list">Agregar</button>
+    <button md-button [disabled]="selectedUser==null" (click)="editUser()">Editar</button>
+  </md-card-actions>
+  <md-card-content>
+    <td-data-table [data]="users" [columns]="columns2" (rowSelect)="selectEvent($event)" selectable="true" [multiple]="false">
+      <template tdDataTableTemplate="active" let-value="value" let-row="row" let-column="column">
+        <span flex *ngIf="row[column]">Activo</span>
+        <span flex *ngIf="row[column]==false">Inactivo</span>
+      </template>
+    </td-data-table>
+  </md-card-content>
+</md-card>

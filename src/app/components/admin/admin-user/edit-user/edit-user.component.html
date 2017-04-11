@@ -1,0 +1,53 @@
+<md-card>
+  <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+    <div>
+      <md-input-container style="width: 100%">
+        <input mdInput type="text" name="name" placeholder="Full name" formControlName="name">
+      </md-input-container>
+      <span class="error" *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+        Name is required
+      </span>
+      <span class="error" *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+        Minimum of 2 characters
+      </span>
+    </div>
+    <div>
+      <md-input-container style="width: 100%">
+        <input mdInput type="text" name="username" placeholder="Desired Username" formControlName="username">
+      </md-input-container>
+      <span class="error" *ngIf="user.get('username').hasError('required') && user.get('username').touched">
+        username is required
+      </span>
+      <span class="error" *ngIf="user.get('username').hasError('minlength') && user.get('username').touched">
+        Minimum of 2 characters
+      </span>
+    </div>
+    <div>
+      <div class="md-input-wrapper">
+        <md-select placeholder="Company Name" formControlName="company">
+          <md-option *ngFor="let company of companies" [value]="company.value">{{ company.viewValue}}</md-option>
+        </md-select>
+      </div>
+    </div>
+    <div formGroupName="account" class="inline-columns-flex">
+      <md-input-container class="inline-column-item">
+        <input mdInput type="email" name="email" placeholder="Email Address" formControlName="email">
+        <div class="error" *ngIf="user.get('account').get('email').hasError('required') && user.get('account').get('email').touched">
+          Email is required
+        </div>
+      </md-input-container>
+      <md-input-container class="inline-column-item">
+        <input mdInput type="email" name="confirm" placeholder="Confirm Email Address" formControlName="confirm">
+        <div class="error" *ngIf="user.get('account').get('confirm').hasError('required') && user.get('account').get('confirm').touched">
+          Confirming email is required
+        </div>
+      </md-input-container>
+    </div>
+    <div class="md-input-wrapper">
+      <md-checkbox formControlName="active">
+        Activo?
+      </md-checkbox>
+    </div>
+    <button md-raised-button color="primary" type="submit" [disabled]="user.invalid">Edit</button>
+  </form>
+</md-card>
