@@ -1,0 +1,21 @@
+.result-item {
+  display: flex;
+  justify-content: center;
+  md-card {
+    margin-bottom: 5px;
+    margin: 0 10px 5px 10px;
+    width: 100%;
+  }
+  p {
+    max-width: 100%;
+  }
+  .name {
+    font-size: 1.17em;
+    font-weight: bold;
+  }
+  .law {
+    color: rgba(0, 0, 0, 0.7);
+    font-style: italic;
+    font-size: 1em;
+  }
+}

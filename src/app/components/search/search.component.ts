@@ -23,7 +23,7 @@ export class SearchComponent implements OnInit {
     this.searchService.search(query)
       .subscribe(
       results => this.results = results
-      )
+      );
   }
 
 }
