@@ -44,12 +44,20 @@
     </div>
     <div *ngIf="currentLvl?.titles">
       <h2>Títulos</h2>
-      <md-card *ngFor="let data of currentLvl.titles">
-        <md-checkbox [checked]="data.reviewed" (change)="check(data)">
-        </md-checkbox>
-        <md-input-container style="width: 100%">
-          <input mdInput [(ngModel)]="data.name">
-        </md-input-container>
+      <md-card *ngFor="let data of currentLvl.titles; let t = index">
+        <div class="reviewed" align="end">
+          <md-checkbox [checked]="data.reviewed" (change)="check(data)">
+          </md-checkbox>
+        </div>
+        <md-card-content>
+          <md-input-container style="width: 100%">
+            <input mdInput [(ngModel)]="data.name">
+          </md-input-container>
+        </md-card-content>
+        <md-card-actions>
+          <button md-raised-button color="primary" (click)="add(data.name, t)">Add</button>
+          <button md-raised-button color="warn" (click)="del(data.name, t)">Delete</button>
+        </md-card-actions>
       </md-card>
     </div>
     <div *ngIf="currentLvl?.chapters">

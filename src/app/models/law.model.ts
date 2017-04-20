@@ -9,7 +9,7 @@ export class Law {
         public books: Book[],
         public titles: Title[],
         public approvalDate: Date,
-        public publishData: Date,
+        public publishDate: Date,
         public journal: string,
         public intro: string,
         public init: string
