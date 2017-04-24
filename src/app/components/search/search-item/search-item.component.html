@@ -1,0 +1,22 @@
+<div class="result-item">
+  <md-card>
+    <md-card-content>
+      <div *ngIf="result.fragments.name" class="title">
+        <span class="type">{{result.fields.type}}</span>
+        <span class="name" [innerHTML]="result.fragments.name"></span>
+        <span> - </span>
+        <span class="law">{{result.fields.law_name}}</span>
+      </div>
+      <div *ngIf="!result.fragments.name" class="title">
+        <span class="type">{{result.fields.type}}</span>
+        <span class="name">{{result.fields.name}}</span>
+        <span> - </span>
+        <span class="law">{{result.fields.law_name}}</span>
+      </div>
+      <p *ngIf="result.fragments.content" [innerHTML]="result.fragments.content"></p>
+      <p *ngIf="!result.fragments.content">{{result.fields.content | truncate:"100"}}</p>
+    </md-card-content>
+
+  </md-card>
+
+</div>

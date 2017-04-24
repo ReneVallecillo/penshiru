@@ -1,0 +1,103 @@
+// /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#356aa0+0,356aa0+100;Blue+Flat */
+// .gradient {
+//     flex: 1 1 auto;
+//     height: 500px;
+//     position: relative;
+//     z-index: -1;
+//     margin-top: -115px;
+//     padding-top: 115px;
+//     background: #356aa0;
+//     /* Old browsers */
+//     background: -moz-linear-gradient(top, #356aa0 0%, #356aa0 100%);
+//     /* FF3.6-15 */
+//     background: -webkit-linear-gradient(top, #356aa0 0%, #356aa0 100%);
+//     /* Chrome10-25,Safari5.1-6 */
+//     background: linear-gradient(to bottom, #356aa0 0%, #356aa0 100%);
+//     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+//     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#356aa0', endColorstr='#356aa0', GradientType=0);
+//     /* IE6-9 */
+// }
+.intro {
+  height: 400px;
+  background: url('../../../assets/group.jpg');
+  background-size: cover;
+}
+
+.fade {
+  height: 400px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.fade-content {
+  width: 60%;
+  max-width: 900px;
+  margin: 100px 0 20px 0;
+  text-align: center;
+}
+
+.welcome {
+  font-size: 24px;
+}
+
+.app-name {
+  font-size: 36px;
+}
+
+.divider {
+  border-top: 1px solid #039BE5;
+  margin: 20px 0 20px 0;
+}
+
+.slogan {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.info {
+  height: 300px;
+  background-color: #00AA99;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-text {
+  font-size: 24px;
+  color: #ffffff;
+  width: 300px;
+  text-align: center;
+}
+
+.computer {
+  background: url('../../../assets/laptop.png');
+  background-size: cover;
+  width: 450px;
+  height: 235px;
+}
+
+.subscribe {
+  height: 150px;
+  background-color: #039BE5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    color: #ffffff;
+    font-size: 24px;
+    margin-top: 0px;
+  }
+}
+
+.subscribe-input {
+  font-size: 22px;
+  width: 400px;
+  color: #ffffff;
+}

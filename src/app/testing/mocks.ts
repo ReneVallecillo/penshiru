@@ -1,4 +1,4 @@
-import { User } from '../shared/models/user';
+import { User } from '../models/';
 
 export const emptyUser: User = {
     id: 0,
