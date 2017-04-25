@@ -10,11 +10,20 @@ export class SearchService {
   private _results: BehaviorSubject<Result[]> = new BehaviorSubject([]);
   public results: Observable<Result[]> = this._results.asObservable();
 
-  private url = 'http://localhost:8585/law/search?query=';
+  private searchAPI = 'http://localhost:8585/law/search';
+  private autoCompleteAPI = 'http://localhost:8080/api/law/autocomplete';
   constructor(private http: Http) { }
 
   search(query: string): Observable<Result[]> {
-    return this.http.get(this.url + query)
+    console.log('search reached');
+    return this.http.get(this.searchAPI + '?query=' + query)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  autoComplete(query: string): Observable<string[]> {
+    console.log('autocomplete reached');
+    return this.http.get(this.autoCompleteAPI + '?query=' + query)
       .map(this.extractData)
       .catch(this.handleError);
   }

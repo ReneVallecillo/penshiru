@@ -1,2 +1,3 @@
 <app-search-box (search)="search($event)"></app-search-box>
 <app-search-list [results]="results"></app-search-list>
+{{ autoItems | async | json}}
