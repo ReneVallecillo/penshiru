@@ -2,7 +2,12 @@
   <md-card-title>Buscador de Leyes</md-card-title>
   <md-card-content>
     <md-input-container>
-      <input mdInput [value]="query" (keyup)="search.emit($event.target.value)">
+      <input mdInput [value]="query" (keyup)="search.emit($event.target.value)" [mdAutocomplete]="auto">
+      <md-autocomplete #auto="mdAutocomplete">
+        <md-option *ngFor="let option of options | async" [value]="option">
+          {{ option }}
+        </md-option>
+      </md-autocomplete>
     </md-input-container>
     <md-spinner [class.show]="searching"></md-spinner>
   </md-card-content>
