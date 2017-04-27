@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LawListComponent implements OnInit {
 
-  constructor() {}
+  categories = [
+    { name: 'Tributación', color: 'Red' },
+    { name: 'Municipal', color: 'Red' },
+    { name: 'Civil', color: 'Red' },
+    { name: 'Penal', color: 'Red' },
+    { name: 'Ejecutivo', color: 'Red' },
+  ];
+
+  constructor() { }
 
   ngOnInit() {
   }

@@ -1,3 +1,6 @@
-<p>
-  law-list works!
-</p>
+<div class="cats">
+  <div class="row">
+    <button md-raised-button *ngFor="let category of categories" color="accent">
+      {{category.name}}</button>
+  </div>
+</div>
