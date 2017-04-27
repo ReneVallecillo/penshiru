@@ -11,7 +11,7 @@ import {
 import {
   Law,
   LawTmp
-} from '../../../models';
+} from '../../../../models';
 import {
   Observable
 } from 'rxjs/Observable';

@@ -1,11 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { directory } from '../../../models/';
-import { Article } from '../../../models/';
+import { Article, directory } from '../../../../models/';
 
 
-import { TitleCasePipe } from '../../../shared/title-case.pipe';
-import { TruncatePipe } from '../../../shared/truncate.pipe';
+import { TitleCasePipe } from '../../../../shared/title-case.pipe';
+import { TruncatePipe } from '../../../../shared/truncate.pipe';
 
 import { ReviewService } from '../shared/review.service';
 

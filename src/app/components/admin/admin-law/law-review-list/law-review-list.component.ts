@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { LawService } from '../shared/law.service';
-import { LawAdminService } from '../../admin/admin-law/admin-law.service';
 
-import { Law } from '../../../models/';
-import { LawTmp } from '../../../models/';
+import { Law, LawTmp } from '../../../../models/';
+import { LawAdminService } from '../admin-law.service';
 
 
 

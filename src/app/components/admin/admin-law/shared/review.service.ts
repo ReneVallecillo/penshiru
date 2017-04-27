@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Law } from '../../../models';
+import { Law, directory } from '../../../../models';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import { directory } from '../../../models/';
 
 interface Iteratable {
     name: string;

@@ -13,6 +13,11 @@ import { EditUserComponent } from './admin-user/edit-user/edit-user.component';
 import { LawAdminService } from './admin-law/admin-law.service';
 import { UserService } from './admin-user/user.service';
 import { AddUserComponent } from './admin-user/add-user/add-user.component';
+import { LawReviewComponent } from './admin-law/law-review/law-review.component';
+import { LawReviewDetailComponent } from './admin-law/law-review-detail/law-review-detail.component';
+import { LawReviewListComponent } from './admin-law/law-review-list/law-review-list.component';
+import { LawTreeComponent } from './admin-law/law-tree/law-tree.component';
+import { LawUploadComponent } from './admin-law/law-upload/law-upload.component';
 
 @NgModule({
   imports: [
@@ -20,7 +25,15 @@ import { AddUserComponent } from './admin-user/add-user/add-user.component';
     AdminRoutingModule,
     SharedModule,
   ],
-  declarations: [DashboardComponent, AdminLawComponent, AdminUserComponent, ListUserComponent, EditUserComponent, AddUserComponent],
+  declarations: [
+    DashboardComponent, AdminLawComponent,
+    AdminUserComponent, ListUserComponent,
+    EditUserComponent, AddUserComponent,
+    // AdminLaw
+    LawReviewComponent, LawReviewDetailComponent,
+    LawReviewListComponent, LawTreeComponent,
+    LawUploadComponent
+  ],
   providers: [LawAdminService, UserService],
 })
 export class AdminModule { }

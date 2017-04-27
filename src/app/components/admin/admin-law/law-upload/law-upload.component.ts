@@ -17,7 +17,7 @@ import { FileUploadService } from '../shared/file-upload.service';
 export class LawUploadComponent implements OnInit {
 
   api_domain = 'http://localhost:8080';
-  end_point: string = '/api/tmp/laws';
+  end_point = '/api/tmp/laws';
 
   url: string = this.api_domain + this.end_point;
   uploadProgress: number;
@@ -26,7 +26,7 @@ export class LawUploadComponent implements OnInit {
 
   @ViewChild('fileInput') fileInput: ElementRef;
 
-  inputTooltip: string = 'Click to Select File';
+  inputTooltip = 'Click to Select File';
   toUpload: Array<File> = [];
 
   constructor(private renderer: Renderer, private uploadService: FileUploadService) { }
@@ -35,7 +35,7 @@ export class LawUploadComponent implements OnInit {
   }
 
   showInputDialog() {
-    let event = new MouseEvent('click', { bubbles: true });
+    const event = new MouseEvent('click', { bubbles: true });
     event.stopPropagation();
 
     this.renderer.invokeElementMethod(
@@ -46,7 +46,7 @@ export class LawUploadComponent implements OnInit {
   fileChangeEvent(fileInput: any) {
     console.log('File Changed');
     this.inputTooltip = fileInput.target.files[0].name;
-    let fileList: FileList = fileInput.target.files;
+    const fileList: FileList = fileInput.target.files;
 
     for (let i = 0; i < fileList.length; i++) {
       this.toUpload.push(fileList.item(i));
@@ -72,7 +72,7 @@ export class LawUploadComponent implements OnInit {
   }
 
   private extractData(res: Response) {
-    let body = res.json();
+    const body = res.json();
     return body.data || {};
   }
 }
