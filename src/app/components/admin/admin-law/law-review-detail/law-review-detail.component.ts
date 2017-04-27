@@ -6,27 +6,15 @@ import {
   Input
 } from '@angular/core';
 import { MdDialogRef, MdDialog } from '@angular/material';
-import {
-  Law
-} from '../../../models/';
-import {
-  Article
-} from '../../../models/';
-import {
-  Router,
-  ActivatedRoute
-} from '@angular/router';
-import {
-  LawService
-} from '../shared/law.service';
-import {
-  ReviewService
-} from '../shared/review.service';
-import {
-  directory
-} from '../../../models';
-import { LawAdminService } from '../../admin/admin-law/admin-law.service';
-import { ConfirmDialogComponent } from '../../../shared/confirm-dialog/confirm-dialog.component';
+import { Law, Article, directory } from '../../../../models/';
+
+import { Router, ActivatedRoute } from '@angular/router';
+import { LawService } from '../shared/law.service';
+import { ReviewService } from '../shared/review.service';
+import { LawAdminService } from "../admin-law.service";
+import { ConfirmDialogComponent } from "../../../../shared/confirm-dialog/confirm-dialog.component";
+
+
 // import {Autosize} from 'angular2-autosize/angular2-autosize';
 
 interface Iteratable {
