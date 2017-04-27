@@ -7,9 +7,10 @@ import { MaterialModule } from '@angular/material';
 import { LawReviewListComponent } from './law-review-list.component';
 
 import { LawService } from '../shared/law.service';
-import { LawAdminService } from '../../admin/admin-law/admin-law.service';
 
-import { AbstractMockObservableService } from '../../../testing/ObService';
+
+import { AbstractMockObservableService } from '../../../../testing/ObService';
+import { LawAdminService } from '../admin-law.service';
 
 describe('LawReviewListComponent', () => {
   let component: LawReviewListComponent;
