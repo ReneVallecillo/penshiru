@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-search-box',
@@ -12,9 +13,15 @@ export class SearchBoxComponent implements OnInit {
   @Input() searching = false;
   @Output() search = new EventEmitter<string>();
   @Input() options: Observable<string[]>;
+  stateCtrl = new FormControl();
+  values$: Observable<any>;
 
   constructor() { }
 
   ngOnInit() {
+    // The "(change)='search.emit($event.target.value)'" on the html method doesn't always send the right value
+    this.values$ = this.stateCtrl.valueChanges;
+    this.values$.subscribe((value) => this.search.emit(value));
+
   }
 }

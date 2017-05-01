@@ -16,13 +16,15 @@ import 'rxjs/add/operator/partition';
 })
 export class SearchComponent implements OnInit {
 
+
   results: Observable<Result[]>;
   autoItems: Observable<string[]>;
-
   private queryTerms = new Subject<string>();
   private empty$ = new Subject<string[]>();
   private empty = this.empty$.asObservable();
   private autoTerms = new Observable<string>();
+  private coSearch$ = new Subject<string>();
+  private coSearch = this.coSearch$.asObservable();
   private searchTerms = new Observable<string>();
 
   constructor(private searchService: SearchService) { }
@@ -31,9 +33,9 @@ export class SearchComponent implements OnInit {
     [this.autoTerms, this.searchTerms] = this.queryTerms
       .debounceTime(500)
       .distinctUntilChanged()
-      .partition(input => (/^(Ley|ley|Codigo|codigo|Código|código)[a-zA-Z\u00C0-\u017F\s]*(?!\/)$/.test(input)));
+      .partition(input => (/^(LEY|Ley|ley|Codigo|CODIGO|CÓDIGO|codigo|Código|código)[a-zA-Z\u00C0-\u017F\s]*(?!\/)$/.test(input)));
 
-    this.results = this.searchTerms
+    this.results = Observable.merge(this.searchTerms, this.coSearch)
       .switchMap(term => term
         ? this.searchService.search(term)
         : Observable.of<Result[]>([]))
@@ -41,6 +43,7 @@ export class SearchComponent implements OnInit {
         console.log(error);
         return Observable.of<Result[]>([]);
       });
+
     this.autoItems = Observable.merge(this.autoTerms
       .switchMap(term => term
         ? this.searchService.autoComplete(term)
@@ -51,7 +54,16 @@ export class SearchComponent implements OnInit {
       }), this.empty);
 
     this.searchTerms.subscribe(
-      (term) => this.empty$.next(<string[]>([]))
+
+      (term) => {
+        this.empty$.next(<string[]>([]));
+        console.log('something to searchTerms observer');
+      }
+    );
+    this.autoTerms.subscribe(
+      (term) => {
+        this.coSearch$.next(term);
+      }
     );
   }
 

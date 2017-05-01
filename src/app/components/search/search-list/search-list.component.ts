@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Result } from '../../../models';
 
 @Component({
   selector: 'app-search-list',
@@ -6,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./search-list.component.scss']
 })
 export class SearchListComponent implements OnInit {
-  @Input() results;
+  @Input() results: Observable<Result[]>;
 
   constructor() { }
 

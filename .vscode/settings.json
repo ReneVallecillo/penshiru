@@ -1,4 +1,4 @@
 {
   "editor.formatOnSave": true,
-  "explorer.enableDragAndDrop": true
+  "explorer.enableDragAndDrop": false
 }
