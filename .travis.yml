@@ -10,9 +10,10 @@ branches:
 
 before_script:
   - npm install -g @angular/cli
+  - ng build --prod
 
 script:
-  - ng build --prod
+  - ng test --watch=false
 
 notifications:
   email:
