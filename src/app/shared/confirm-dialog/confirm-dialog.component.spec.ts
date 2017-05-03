@@ -10,12 +10,13 @@ import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@ang
 
 import { ConfirmDialogComponent } from './confirm-dialog.component';
 import { SharedModule } from '../shared.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [ConfirmDialogComponent],
   exports: [ConfirmDialogComponent],
   entryComponents: [ConfirmDialogComponent],
-  imports: [MdDialogModule],
+  imports: [MdDialogModule, NoopAnimationsModule],
 })
 class DialogTestModule { }
 
