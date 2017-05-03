@@ -5,10 +5,10 @@
   </md-card-actions>
   <md-card-content>
     <td-data-table [data]="users" [columns]="columns2" (rowSelect)="selectEvent($event)" selectable="true" [multiple]="false">
-      <template tdDataTableTemplate="active" let-value="value" let-row="row" let-column="column">
+      <ng-template tdDataTableTemplate="active" let-value="value" let-row="row" let-column="column">
         <span flex *ngIf="row[column]">Activo</span>
         <span flex *ngIf="row[column]==false">Inactivo</span>
-      </template>
+      </ng-template>
     </td-data-table>
   </md-card-content>
 </md-card>

@@ -1,5 +1,5 @@
 <md-card>
-  <form novalidate (ngSubmit)="onSubmit(userForm)" [formGroup]="userForm">
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userForm">
     <div>
       <md-input-container style="width: 100%">
         <input mdInput type="text" name="name" placeholder="Full name" formControlName="name">
@@ -42,6 +42,6 @@
         Activo?
       </md-checkbox>
     </div>
-    <button md-raised-button color="primary" type="submit" [disabled]="user.invalid">Edit</button>
+    <button md-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Edit</button>
   </form>
 </md-card>

@@ -49,9 +49,6 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {
-      "inlineTemplate": false,
-      "spec": true
-    }
+    "component": {}
   }
 }

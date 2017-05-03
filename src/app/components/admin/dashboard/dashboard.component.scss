@@ -1,11 +1,10 @@
 // Import theming functions
-@import '~@angular/material/core/theming/theming';
+@import '~@angular/material/theming';
 // Import your custom theme
 @import 'src/theme.scss';
 .admin-container {
   width: 100%;
-  height: 100vh;
-  // border: 1px solid rgba(0, 0, 0, 0.5);
+  height: 100vh; // border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .admin-sidenav-content {

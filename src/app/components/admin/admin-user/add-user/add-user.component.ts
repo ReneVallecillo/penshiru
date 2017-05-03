@@ -11,6 +11,7 @@ import { User } from '../../../../models/';
 export class AddUserComponent implements OnInit {
   userForm: FormGroup;
   user: User;
+  companies = ['Company 1', 'Company 2'];
 
   constructor(
     private fb: FormBuilder,
@@ -34,7 +35,8 @@ export class AddUserComponent implements OnInit {
       company: '',
       active: false,
       account: this.fb.group({
-        email: ['', [Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
+        email: ['', [Validators.required, Validators
+          .pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       })
     });
   }

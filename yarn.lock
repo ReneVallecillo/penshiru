@@ -90,7 +90,7 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.0.0.tgz#fd877e074b29dfa9c63b96a21995fc7556d423a3"
 
-"@angular/flex-layout@^2.0.0-beta.5":
+"@angular/flex-layout@^2.0.0-beta.7":
   version "2.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-2.0.0-rc.1.tgz#96fa7f85b2c4bacf2784913a2d607e2ed23dc7f1"
 
@@ -102,9 +102,9 @@
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.0.0.tgz#45a538eac42a0b13f3744c7e8bafeb17d58da31c"
 
-"@angular/material@2.0.0-beta.2", "@angular/material@^2.0.0-beta.2":
-  version "2.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.2.tgz#65ee8733990347b7518b7f42113e02e069dc109b"
+"@angular/material@2.0.0-beta.3", "@angular/material@^2.0.0-beta.3":
+  version "2.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@angular/material/-/material-2.0.0-beta.3.tgz#ec31dee61d7300ece28fee476852db236ded1e13"
 
 "@angular/platform-browser-dynamic@^4.0.0":
   version "4.0.0"
@@ -124,12 +124,12 @@
   dependencies:
     tsickle "^0.21.0"
 
-"@covalent/core@1.0.0-beta.2-1":
-  version "1.0.0-beta.2-1"
-  resolved "https://registry.yarnpkg.com/@covalent/core/-/core-1.0.0-beta.2-1.tgz#f16daeb6c6a6411853241f6d2497ac5b3d58cc10"
+"@covalent/core@1.0.0-beta.3-2":
+  version "1.0.0-beta.3-2"
+  resolved "https://registry.yarnpkg.com/@covalent/core/-/core-1.0.0-beta.3-2.tgz#f332d1485939458f0199c193e98bd0ea619beb9f"
   dependencies:
-    "@angular/flex-layout" "^2.0.0-beta.5"
-    "@angular/material" "2.0.0-beta.2"
+    "@angular/flex-layout" "^2.0.0-beta.7"
+    "@angular/material" "2.0.0-beta.3"
 
 "@ngrx/core@^1.2.0":
   version "1.2.0"
