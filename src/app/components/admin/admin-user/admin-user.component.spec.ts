@@ -35,8 +35,8 @@ describe('AdminUserComponent', () => {
       declarations: [AdminUserComponent, DummyComponent],
       imports: [
         RouterTestingModule.withRoutes([
-          { path: 'admin/user/list', component: DummyComponent },
-          { path: 'admin/user/add', component: DummyComponent },
+          { path: 'admin/users/list', component: DummyComponent },
+          { path: 'admin/users/add', component: DummyComponent },
 
         ]),
         MdTabsModule.forRoot()
