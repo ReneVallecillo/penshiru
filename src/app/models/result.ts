@@ -9,5 +9,5 @@ export interface Result {
         content: string;
         type: string;
         law_name: string;
-    }
+    };
 }
