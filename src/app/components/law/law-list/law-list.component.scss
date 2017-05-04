@@ -1,0 +1,36 @@
+  .cats {
+    width: 100%;
+    height: 75px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .row {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  button {
+    flex: 1 1 auto;
+    margin: 0 5px 0 5px;
+    height: 40px;
+  }
+
+  .law-list {
+    margin: 0 5px;
+    md-card {
+      margin-bottom: 5px;
+    }
+    .law-item-info {
+      color: rbga(0, 0, 0, 0.4);
+      font-style: italic;
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+    .law-item-name {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
