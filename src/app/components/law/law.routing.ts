@@ -13,6 +13,10 @@ const LawRouter: Routes = [
       {
         path: '',
         component: LawListComponent,
+      },
+      {
+        path: 'cat/:id',
+        component: LawListComponent,
       }
     ]
   }

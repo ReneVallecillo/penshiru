@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LawService } from "../law.service";
-import { Observable } from "rxjs/Observable";
-import { Law } from "../../../models";
+import { LawService } from '../law.service';
+import { Observable } from 'rxjs/Observable';
+import { Law } from '../../../models';
+import { ActivatedRoute, Params } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-law-list',
@@ -19,14 +21,22 @@ export class LawListComponent implements OnInit {
     { name: 'Ejecutivo', color: 'Red' },
   ];
 
-  constructor(private lawService: LawService) { }
+  constructor(private lawService: LawService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getLaws();
+    this.laws = this.route.params
+      // (+) converts string 'id' to a number
+      .switchMap((params: Params) => params['id']
+        ? this.getLawsByCat(params['id'])
+        : this.getLaws());
   }
 
-  getLaws() {
-    this.laws = this.lawService.getLaws();
+
+  getLaws(): Observable<Law[]> {
+    return this.lawService.getLaws();
   }
 
+  getLawsByCat(id: string): Observable<Law[]> {
+    return this.lawService.getLawsByCat();
+  }
 }

@@ -20,6 +20,11 @@ export class LawService {
       .catch(this.handleError)
   }
 
+  getLawsByCat() {
+    return Observable.of<Law[]>([]);
+
+  }
+
 
 
 
