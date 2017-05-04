@@ -6,12 +6,6 @@ import { LawComponent } from './law.component';
 import { LawListComponent } from './law-list';
 
 const LawRouter: Routes = [
-  { path: 'list', component: LawListComponent },
-  // {
-  //   path: '',
-  //   redirectTo: 'law',
-  //   pathMatch: 'full',
-  // },
   {
     path: 'law',
     component: LawComponent,

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LawService } from "../law.service";
+import { Observable } from "rxjs/Observable";
+import { Law } from "../../../models";
 
 @Component({
   selector: 'app-law-list',
@@ -6,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./law-list.component.scss']
 })
 export class LawListComponent implements OnInit {
+  laws: Observable<Law[]>;
 
   categories = [
     { name: 'Tributación', color: 'Red' },
@@ -15,24 +19,14 @@ export class LawListComponent implements OnInit {
     { name: 'Ejecutivo', color: 'Red' },
   ];
 
-  laws = [
-    {
-      name: 'Ley de Concertación', cat: 'Tributación', journal: '25',
-      journal_date: '25/11/84', approved: '23/11/84'
-    },
-    {
-      name: 'Ley de Equidad', cat: 'Tributación', journal: '25',
-      journal_date: '25/11/84', approved: '23/11/84'
-    },
-    {
-      name: 'Código de Trabajo', cat: 'Civil', journal: '25',
-      journal_date: '25/11/84', approved: '23/11/84'
-    },
-  ];
-
-  constructor() { }
+  constructor(private lawService: LawService) { }
 
   ngOnInit() {
+    this.getLaws();
+  }
+
+  getLaws() {
+    this.laws = this.lawService.getLaws();
   }
 
 }

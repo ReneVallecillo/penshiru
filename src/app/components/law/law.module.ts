@@ -12,6 +12,7 @@ import { LawListComponent } from './law-list';
 
 
 import { SharedModule } from '../../shared/shared.module';
+import { LawService } from './law.service';
 
 
 
@@ -28,5 +29,8 @@ import { SharedModule } from '../../shared/shared.module';
     LawComponent,
     LawListComponent,
   ],
+  providers: [
+    LawService,
+  ]
 })
 export class LawModule { }

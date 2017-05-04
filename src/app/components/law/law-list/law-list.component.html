@@ -5,12 +5,12 @@
   </div>
 </div>
 <div class="law-list">
-  <md-card *ngFor="let law of laws">
+  <md-card *ngFor="let law of laws | async">
     <md-card-content>
       <div class="law-item-info">
         <span class="info-name">{{law.cat}}</span>
-        <span class="info-publish">Aprovado: {{law.approved}}</span>
-        <span class="info-approved">Publicado: {{law.journal_date}}</span>
+        <span class="info-publish">Aprovado: {{law.approvalDate | date}}</span>
+        <span class="info-approved">Publicado: {{law.publishDate | date}}</span>
       </div>
       <div class="law-item-name">{{law.name}}</div>
     </md-card-content>
