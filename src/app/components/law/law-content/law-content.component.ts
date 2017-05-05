@@ -26,13 +26,11 @@ export class LawContentComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked() {
     this.route.fragment.subscribe(f => {
-      console.log(f);
       const element = document.querySelector('#' + f);
-      console.log(element);
 
       if (element) {
         element.scrollIntoView(element);
       }
-    })
+    });
   }
 }

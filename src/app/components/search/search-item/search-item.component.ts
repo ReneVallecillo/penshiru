@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Result } from '../../../models';
 import { Router, NavigationExtras } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-search-item',
@@ -9,7 +10,8 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class SearchItemComponent implements OnInit {
   @Input() result: Result;
-  constructor(private router: Router) { }
+  @Input() query: string;
+  constructor(private router: Router, private location: Location) { }
 
   ngOnInit() {
   }

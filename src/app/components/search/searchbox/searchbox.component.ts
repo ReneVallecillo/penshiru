@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
 })
 export class SearchBoxComponent implements OnInit {
 
-  @Input() query = '';
+  @Input() query: Observable<string>;
   @Input() searching = false;
   @Output() search = new EventEmitter<string>();
   @Input() options: Observable<string[]>;
@@ -22,6 +22,9 @@ export class SearchBoxComponent implements OnInit {
     // The "(change)='search.emit($event.target.value)'" on the html method doesn't always send the right value
     this.values$ = this.stateCtrl.valueChanges;
     this.values$.subscribe((value) => this.search.emit(value));
+    this.query.subscribe(
+      value => this.stateCtrl.setValue(value)
+    )
 
   }
 }

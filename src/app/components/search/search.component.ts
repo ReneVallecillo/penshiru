@@ -6,6 +6,8 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/partition';
+import { ActivatedRoute, Params } from '@angular/router';
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
 
 
@@ -19,7 +21,8 @@ export class SearchComponent implements OnInit {
 
   results: Observable<Result[]>;
   autoItems: Observable<string[]>;
-  private queryTerms = new Subject<string>();
+  private queryTerms = new BehaviorSubject<string>('');
+  public query = new BehaviorSubject<string>('');
   private empty$ = new Subject<string[]>();
   private empty = this.empty$.asObservable();
   private autoTerms = new Observable<string>();
@@ -27,7 +30,7 @@ export class SearchComponent implements OnInit {
   private coSearch = this.coSearch$.asObservable();
   private searchTerms = new Observable<string>();
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     [this.autoTerms, this.searchTerms] = this.queryTerms
@@ -54,19 +57,28 @@ export class SearchComponent implements OnInit {
       }), this.empty);
 
     this.searchTerms.subscribe(
-
       (term) => {
         this.empty$.next(<string[]>([]));
-        console.log('something to searchTerms observer');
       }
     );
+
     this.autoTerms.subscribe(
       (term) => {
-        this.coSearch$.next(term);
+        if (term) {
+          this.coSearch$.next(term);
+        }
       }
     );
-  }
 
+    this.route.queryParams
+      .subscribe((param: Params) =>
+        this.query.next(param['query'])
+      );
+
+    this.results.subscribe(
+      result => console.log(result)
+    );
+  }
   search(query: string) {
     this.queryTerms.next(query);
   }
