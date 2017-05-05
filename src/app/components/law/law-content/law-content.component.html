@@ -1,0 +1,30 @@
+<div class="law">
+  <div class="law-info">
+    <md-card>
+      <md-card-content>
+        {{ (law | async)?.intro }}
+      </md-card-content>
+    </md-card>
+  </div>
+  <div *ngFor="let book of (law | async)?.books" class="book">
+    <md-card>
+      Libro: {{book.name}}
+    </md-card>
+    <div *ngFor="let title of book.titles" class="title">
+      <md-card>
+        Título: {{title.name}}
+      </md-card>
+      <div *ngFor="let chapter of title.chapters" class="chapter">
+        <md-card>
+          Capítulo: {{chapter.name}}
+        </md-card>
+        <div *ngFor="let article of chapter.articles" class="article">
+          <md-card>
+            <md-card-title>{{article.name}}</md-card-title>
+            <md-card-content>{{article.text}}</md-card-content>
+          </md-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -13,6 +13,7 @@ import { LawListComponent } from './law-list';
 
 import { SharedModule } from '../../shared/shared.module';
 import { LawService } from './law.service';
+import { LawContentComponent } from './law-content/law-content.component';
 
 
 
@@ -28,6 +29,7 @@ import { LawService } from './law.service';
   declarations: [
     LawComponent,
     LawListComponent,
+    LawContentComponent,
   ],
   providers: [
     LawService,

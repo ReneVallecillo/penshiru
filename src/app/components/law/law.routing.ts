@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LawComponent } from './law.component';
 import { LawListComponent } from './law-list';
+import { LawContentComponent } from './law-content/law-content.component';
 
 const LawRouter: Routes = [
   {
@@ -17,7 +18,12 @@ const LawRouter: Routes = [
       {
         path: 'cat/:id',
         component: LawListComponent,
+      },
+      {
+        path: ':id',
+        component: LawContentComponent,
       }
+
     ]
   }
 ];

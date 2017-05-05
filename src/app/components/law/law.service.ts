@@ -17,7 +17,7 @@ export class LawService {
   getLaws(): Observable<Law[]> {
     return this.http.get(this.api + 'laws')
       .map(this.extractData)
-      .catch(this.handleError)
+      .catch(this.handleError);
   }
 
   getLawsByCat() {
@@ -25,7 +25,11 @@ export class LawService {
 
   }
 
-
+  getLawbyID(id: number): Observable<Law> {
+    return this.http.get(this.api + 'laws/' + id)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 
 
   private extractData(res: Response) {
