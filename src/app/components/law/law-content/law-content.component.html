@@ -27,4 +27,20 @@
       </div>
     </div>
   </div>
+  <div *ngFor="let title of (law | async)?.titles" class="title">
+    <md-card id="title-{{title.id}}">
+      Título: {{title.name}}
+    </md-card>
+    <div *ngFor="let chapter of title.chapters" class="chapter">
+      <md-card id="chapter-{{chapter.id}}">
+        Capítulo: {{chapter.name}}
+      </md-card>
+      <div *ngFor="let article of chapter.articles" class="article">
+        <md-card id="article-{{article.id}}">
+          <md-card-title>{{article.name}}</md-card-title>
+          <md-card-content>{{article.text}}</md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </div>
 </div>

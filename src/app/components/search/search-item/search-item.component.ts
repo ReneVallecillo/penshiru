@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Result } from '../../../models';
 import { Router, NavigationExtras } from '@angular/router';
 import { Location } from '@angular/common';
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'app-search-item',
@@ -10,7 +11,6 @@ import { Location } from '@angular/common';
 })
 export class SearchItemComponent implements OnInit {
   @Input() result: Result;
-  @Input() query: string;
   constructor(private router: Router, private location: Location) { }
 
   ngOnInit() {
@@ -21,6 +21,8 @@ export class SearchItemComponent implements OnInit {
     let navigationExtras: NavigationExtras = {
       fragment: id
     };
+    // this.location.replaceState('/search', 'query=' + this.query);
+
     this.router.navigate(['/law/' + result.fields.law_id], navigationExtras);
   }
 
