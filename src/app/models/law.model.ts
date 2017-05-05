@@ -4,7 +4,7 @@ import { Book } from './book.model';
 export class Law {
 
     constructor(
-        id: number,
+        public id: number,
         public name: string,
         public books: Book[],
         public titles: Title[],

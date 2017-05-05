@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Law } from '../../../models';
 import { LawService } from '../law.service';
@@ -9,7 +9,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   templateUrl: './law-content.component.html',
   styleUrls: ['./law-content.component.scss']
 })
-export class LawContentComponent implements OnInit {
+export class LawContentComponent implements OnInit, AfterViewChecked {
 
   law: Observable<Law>;
 
@@ -24,4 +24,15 @@ export class LawContentComponent implements OnInit {
     return this.lawService.getLawbyID(id);
   }
 
+  ngAfterViewChecked() {
+    this.route.fragment.subscribe(f => {
+      console.log(f);
+      const element = document.querySelector('#' + f);
+      console.log(element);
+
+      if (element) {
+        element.scrollIntoView(element);
+      }
+    })
+  }
 }

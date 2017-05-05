@@ -1,5 +1,5 @@
 export interface Result {
-    id: number;
+    id: string;
     fragments: {
         name: string;
         content: string;
@@ -9,5 +9,6 @@ export interface Result {
         content: string;
         type: string;
         law_name: string;
+        law_id: number;
     };
 }

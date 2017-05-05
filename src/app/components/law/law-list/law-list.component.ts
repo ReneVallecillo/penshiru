@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LawService } from '../law.service';
 import { Observable } from 'rxjs/Observable';
 import { Law } from '../../../models';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
@@ -21,7 +21,11 @@ export class LawListComponent implements OnInit {
     { name: 'Ejecutivo', color: 'Red' },
   ];
 
-  constructor(private lawService: LawService, private route: ActivatedRoute) { }
+  constructor(
+    private lawService: LawService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.laws = this.route.params
@@ -38,5 +42,9 @@ export class LawListComponent implements OnInit {
 
   getLawsByCat(id: string): Observable<Law[]> {
     return this.lawService.getLawsByCat();
+  }
+
+  navigate(law: Law) {
+    this.router.navigateByUrl('/law/' + law.id);
   }
 }

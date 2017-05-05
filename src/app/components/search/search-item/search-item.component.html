@@ -1,5 +1,5 @@
 <div class="result-item">
-  <md-card>
+  <md-card (click)="navigate(result)">
     <md-card-content>
       <div *ngIf="result.fragments.name" class="title">
         <span class="type">{{result.fields.type}}</span>

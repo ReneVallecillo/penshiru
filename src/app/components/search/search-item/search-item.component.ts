@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Result } from '../../../models';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-search-item',
@@ -8,9 +9,17 @@ import { Result } from '../../../models';
 })
 export class SearchItemComponent implements OnInit {
   @Input() result: Result;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  navigate(result: Result) {
+    let id = result.id.replace('.', '-');
+    let navigationExtras: NavigationExtras = {
+      fragment: id
+    };
+    this.router.navigate(['/law/' + result.fields.law_id], navigationExtras);
   }
 
 }

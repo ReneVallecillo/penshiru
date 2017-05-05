@@ -5,7 +5,7 @@
   </div>
 </div>
 <div class="law-list">
-  <md-card *ngFor="let law of laws | async">
+  <md-card *ngFor="let law of laws | async" (click)="navigate(law)">
     <md-card-content>
       <div class="law-item-info">
         <span class="info-name">{{law.cat}}</span>
