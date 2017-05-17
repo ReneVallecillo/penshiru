@@ -17,11 +17,11 @@ export class LawContentComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.law = this.route.params
-      .switchMap((params: Params) => this.getLawbyID(+params['id']));
+      .switchMap((params: Params) => this.getLawByID(+params['id']));
   }
 
-  getLawbyID(id: number): Observable<Law> {
-    return this.lawService.getLawbyID(id);
+  getLawByID(id: number): Observable<Law> {
+    return this.lawService.getLawByID(id);
   }
 
   ngAfterViewChecked() {

@@ -10,6 +10,10 @@ export class ActivatedRouteStub {
     private subject = new BehaviorSubject(this.testParams);
     params = this.subject.asObservable();
 
+    //Fragment
+    private fragmentSubject = new BehaviorSubject(this.testFragment)
+    fragment = this.subject.asObservable();
+
     // Test parameters
     private _testParams: {};
     get testParams() { return this._testParams; }
@@ -18,6 +22,12 @@ export class ActivatedRouteStub {
         this.subject.next(params);
     }
 
+    private _testFragment: {};
+    get testFragment() { return this._testFragment; }
+    set testFragment(fragment: {}) {
+        this._testFragment = fragment;
+        this.subject.next(fragment);
+    }
     // ActivatedRoute.snapshot.params
     get snapshot() {
         return { params: this.testParams };

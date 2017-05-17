@@ -25,7 +25,7 @@ export class LawService {
 
   }
 
-  getLawbyID(id: number): Observable<Law> {
+  getLawByID(id: number): Observable<Law> {
     return this.http.get(this.api + 'laws/' + id)
       .map(this.extractData)
       .catch(this.handleError);
