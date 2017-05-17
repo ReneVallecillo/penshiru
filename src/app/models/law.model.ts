@@ -3,17 +3,15 @@ import { Book } from './book.model';
 
 export class Law {
 
-    constructor(
-        public id: number,
-        public name: string,
-        public books: Book[],
-        public titles: Title[],
-        public approvalDate: Date,
-        public publishDate: Date,
-        public journal: string,
-        public intro: string,
-        public init: string
-    ) { }
+    public id: number;
+    public name: string;
+    public books: Book[];
+    public titles: Title[];
+    public approvalDate: Date;
+    public publishDate: Date;
+    public journal: string;
+    public intro: string;
+    public init: string;
 
     // tslint:disable-next-line:member-ordering
     static fromJSON(json: LawJSON | string): Law {
@@ -31,17 +29,9 @@ export class Law {
         return key === '' ? Law.fromJSON(value) : value;
     }
 
-    // static fromJson(json: string) {
-    //     var data = JSON.parse(json);
-    //     return new Law(
-    //         data.id,
-    //         data.name,
-    //         data.titles,
-    //         data.approvalDate,
-    //         data.publishData,
-    //         data.journal,
-    //         data.intro)
-    // }
+    constructor(values: Object = {}) {
+        Object.assign(this, values);
+    }
 
 }
 

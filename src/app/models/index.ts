@@ -6,3 +6,6 @@ export * from './title.model';
 export * from './directory';
 export * from './user';
 export * from './result';
+export * from './document';
+export * from './documentT';
+export * from './documentP';
