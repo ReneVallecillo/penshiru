@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Result } from '../../../models';
 import { Router, NavigationExtras } from '@angular/router';
 import { Location } from '@angular/common';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-search-item',
@@ -27,3 +27,4 @@ export class SearchItemComponent implements OnInit {
   }
 
 }
+

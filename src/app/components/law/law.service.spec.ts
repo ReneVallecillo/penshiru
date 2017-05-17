@@ -1,11 +1,17 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { LawService } from './law.service';
+import { MockBackend } from '@angular/http/testing';
+import { XHRBackend, HttpModule } from '@angular/http';
 
 describe('LawService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LawService]
+      imports: [HttpModule],
+      providers: [
+        LawService,
+        { provide: XHRBackend, UseClass: MockBackend }
+      ]
     });
   });
 

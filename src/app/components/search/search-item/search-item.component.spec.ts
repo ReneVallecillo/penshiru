@@ -6,6 +6,14 @@ import { Pipe, PipeTransform, DebugElement } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import { By } from '@angular/platform-browser';
 import { Result } from '../../../models';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+
+
+class RouterStub {
+  navigate(url: string) { return url; }
+}
+
 
 describe('SearchItemComponent', () => {
   let component: SearchItemComponent;
@@ -18,7 +26,10 @@ describe('SearchItemComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SearchItemComponent, MockPipe],
-      imports: [MaterialModule]
+      imports: [MaterialModule, RouterTestingModule],
+      providers: [
+        { provide: Router, UseClass: RouterStub }
+      ]
     })
       .compileComponents();
   }));
@@ -28,7 +39,7 @@ describe('SearchItemComponent', () => {
     component = fixture.componentInstance;
 
     expectedItem = {
-      id: 1,
+      id: '1',
       fragments: {
         name: 'Arto 42 - Gastos Deducibles',
         content: `Sit laboris proident voluptate aliqua. Enim deserunt in excepteur adipisicing. 
@@ -43,7 +54,8 @@ describe('SearchItemComponent', () => {
           labore voluptate ullamco veniam eiusmod consequat velit reprehenderit ad mollit pariatur. 
           Velit sint anim duis nostrud nulla. Mollit labore id voluptate exercitation do ullamco mollit fugiat.`,
         type: 'Article',
-        law_name: 'Ley de Concertacioón Tributaria'
+        law_name: 'Ley de Concertacioón Tributaria',
+        law_id: 1
       }
     };
     component.result = expectedItem;

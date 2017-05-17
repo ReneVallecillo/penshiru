@@ -38,6 +38,11 @@ export class LawServiceStub {
         return this.law;
     }
 
+    getLawsByCat(): Observable<Law[]> {
+        return Observable.of<Law[]>([]);
+    }
+
+
     getLaws() {
         let law1 = new Law({
             id: 1,

@@ -1,11 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchComponent } from './search.component';
-import { Component, Input, Injectable } from '@angular/core';
+import { Component, Input, Injectable, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Result } from '../../models';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { SearchService } from "./search.service";
+import { SearchService } from './search.service';
+import { ActivatedRoute } from '@angular/router';
+import { ActivatedRouteStub } from '../../testing/router-stubs';
 // SearchBoxStub
 @Component({
   template: '',
@@ -29,7 +31,7 @@ export class SearchServiceStub {
   search(query: string): Observable<Result[]> {
     return Observable.of([
       {
-        id: 1,
+        id: '1',
         fragments: {
           name: 'Ea deserunt commodo cillum fugiat eu commodo est occaecat.',
           content: 'Consequat dolore magna cillum ullamco consequat esse ea exercitation velit veniam amet deserunt ea commodo.',
@@ -38,8 +40,8 @@ export class SearchServiceStub {
           name: 'Ea deserunt commodo cillum fugiat eu commodo est occaecat.',
           content: 'Consequat dolore magna cillum ullamco consequat esse ea exercitation velit veniam amet deserunt ea commodo.',
           type: 'Article',
-          law_name: 'Excepteur velit deserunt deserunt in quis minim fugiat id enim sit sit.'
-
+          law_name: 'Excepteur velit deserunt deserunt in quis minim fugiat id enim sit sit.',
+          law_id: 1,
         }
       }
     ]);
@@ -54,18 +56,23 @@ export class SearchServiceStub {
 describe('SearchComponent', () => {
   let component: SearchComponent;
   let fixture: ComponentFixture<SearchComponent>;
+  let activatedRouteStub: ActivatedRouteStub;
 
   beforeEach(async(() => {
+    activatedRouteStub = new ActivatedRouteStub();
     TestBed.configureTestingModule({
       declarations: [SearchComponent, TestSearchBoxComponent, TestSearchListComponent],
       providers: [
-        { provide: SearchService, useClass: SearchServiceStub }
-      ]
+        { provide: SearchService, useClass: SearchServiceStub },
+        { provide: ActivatedRoute, useValue: activatedRouteStub }
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
+    activatedRouteStub.testParams = { id: 1 };
     fixture = TestBed.createComponent(SearchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
