@@ -16,6 +16,7 @@ import { LawReviewComponent } from './admin-law/law-review/law-review.component'
 import { LawReviewDetailComponent } from './admin-law/law-review-detail/law-review-detail.component';
 import { LawTreeComponent } from './admin-law/law-tree/law-tree.component';
 import { LawUploadComponent } from './admin-law/law-upload/law-upload.component';
+import { AdminPublicationComponent } from './admin-publication/admin-publication.component';
 
 const adminRoutes: Routes = [
   {
@@ -26,6 +27,10 @@ const adminRoutes: Routes = [
         path: 'law',
         component: AdminLawComponent,
         children: [
+          {
+            path: '',
+            component: LawReviewListComponent
+          },
           {
             path: 'list',
             component: LawReviewListComponent,
@@ -59,6 +64,10 @@ const adminRoutes: Routes = [
         component: AdminUserComponent,
         children: [
           {
+            path: '',
+            component: ListUserComponent,
+          },
+          {
             path: 'list',
             component: ListUserComponent,
           },
@@ -72,6 +81,10 @@ const adminRoutes: Routes = [
           }
         ]
       },
+      {
+        path: 'publications',
+        component: AdminPublicationComponent,
+      }
     ]
   },
 ];

@@ -18,6 +18,8 @@ import { LawReviewDetailComponent } from './admin-law/law-review-detail/law-revi
 import { LawReviewListComponent } from './admin-law/law-review-list/law-review-list.component';
 import { LawTreeComponent } from './admin-law/law-tree/law-tree.component';
 import { LawUploadComponent } from './admin-law/law-upload/law-upload.component';
+import { AdminPublicationComponent } from './admin-publication/admin-publication.component';
+import { ListPublicationComponent } from './admin-publication/list-publication/list-publication.component';
 
 @NgModule({
   imports: [
@@ -32,7 +34,9 @@ import { LawUploadComponent } from './admin-law/law-upload/law-upload.component'
     // AdminLaw
     LawReviewComponent, LawReviewDetailComponent,
     LawReviewListComponent, LawTreeComponent,
-    LawUploadComponent
+    LawUploadComponent,
+    AdminPublicationComponent,
+    ListPublicationComponent
   ],
   providers: [LawAdminService, UserService],
 })
