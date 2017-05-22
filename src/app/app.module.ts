@@ -38,6 +38,8 @@ import { CovalentDataTableModule } from '@covalent/core';
 
 import 'hammerjs';
 
+import { APP_CONFIG, AppConfig } from './config/app.config';
+
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import 'hammerjs';
     SearchModule,
     CovalentDataTableModule.forRoot(),
   ],
-  providers: [MenuService, AlertService, AuthService, ToolbarService],
+  providers: [MenuService, AlertService, AuthService, ToolbarService,
+    { provide: APP_CONFIG, useValue: AppConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
