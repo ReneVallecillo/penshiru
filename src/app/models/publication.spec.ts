@@ -1,4 +1,4 @@
-import { Document } from './';
+import { Publication } from './';
 
 describe('Document', () => {
     it('should create an instance', () => {
@@ -6,11 +6,11 @@ describe('Document', () => {
     });
 
     it('should accept values in the constructor', () => {
-        let document = new Document({
+        let publication = new Publication({
             title: 'hello',
             reviewed: true
         });
-        expect(document.title).toEqual('hello');
-        expect(document.reviewed).toEqual(true);
+        expect(publication.title).toEqual('hello');
+        expect(publication.reviewed).toEqual(true);
     });
 });

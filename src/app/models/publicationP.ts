@@ -1,4 +1,4 @@
-export class DocumentP {
+export class PublicationP {
     id: number;
     text: string;
 

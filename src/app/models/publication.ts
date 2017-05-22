@@ -1,9 +1,10 @@
-import { DocumentP } from './documentP';
+import { PublicationT } from './';
 
-export class DocumentT {
+export class Publication {
     id: number;
     title: string;
-    paragraphs: DocumentP[];
+    titles: PublicationT[];
+    reviewed: boolean;
 
     constructor(values: Object = {}) {
         Object.assign(this, values);
