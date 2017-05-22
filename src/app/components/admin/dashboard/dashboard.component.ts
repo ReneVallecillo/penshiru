@@ -10,6 +10,11 @@ import { MdSidenav } from '@angular/material';
 export class DashboardComponent implements OnInit {
 
   @ViewChild('sidenav') sidenav: MdSidenav;
+  menu = [
+    { name: 'Usuarios', path: '/admin/users' },
+    { name: 'Leyes', path: '/admin/law' },
+    { name: 'Publicaciones', path: '/admin/publications' }
+  ];
 
   constructor(private toolbarService: ToolbarService) { }
 

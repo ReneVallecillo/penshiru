@@ -12,9 +12,10 @@
       </div>
     </div>
     <md-list>
-      <md-list-item routerLink="/admin/users"> Usuarios </md-list-item>
-      <a md-list-item routerLink="/admin/law"> Leyes </a>
-      <md-list-item> Info </md-list-item>
+      <a *ngFor="let item of menu" [routerLink]="[item.path]">
+        <md-list-item>{{item.name}}</md-list-item>
+      </a>
+
     </md-list>
   </md-sidenav>
   <div class="admin-sidenav-content ">
