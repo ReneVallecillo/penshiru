@@ -2,11 +2,11 @@ import { InjectionToken } from '@angular/core';
 
 export let APP_CONFIG = new InjectionToken('app.config');
 
-export interface IAppConfig {
+export class Config {
     apiEndpoint: string;
 }
 
-export const AppConfig: IAppConfig = {
+export const AppConfig: Config = {
     apiEndpoint: 'http://localhost:8080/api/'
 };
 
