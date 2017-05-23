@@ -10,7 +10,7 @@ import {
 
 import {
   Law,
-  LawTmp
+  CommonFile,
 } from '../../../../models';
 import {
   Observable
@@ -39,7 +39,7 @@ export class LawService {
       .catch(this.handleError);
   }
 
-  getTmpLaws(): Observable<LawTmp[]> {
+  getTmpLaws(): Observable<CommonFile[]> {
     return this.http.get(this.lawtmpurl)
       .map(this.extractDataT)
       .catch(this.handleError);

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { LawService } from '../shared/law.service';
 
-import { Law, LawTmp } from '../../../../models/';
+import { Law, CommonFile } from '../../../../models/';
 import { LawAdminService } from '../admin-law.service';
 
 
@@ -20,7 +20,7 @@ export class LawReviewListComponent implements OnInit {
   id: number;
   errorMessage: string;
   laws$: Observable<Law[]>;
-  tmpLaws: LawTmp[];
+  tmpLaws: CommonFile[];
 
   constructor(
     private lawService: LawService,
