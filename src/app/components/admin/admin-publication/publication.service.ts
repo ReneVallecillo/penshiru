@@ -2,7 +2,7 @@ import { Injectable, Inject } from '@angular/core';
 import { APP_CONFIG, Config } from '../../../config/app.config';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { Publication } from '../../../models';
+import { Publication, CommonFile } from '../../../models';
 
 
 
@@ -17,6 +17,11 @@ export class PublicationService {
       .catch(this.handleError);
   }
 
+  getTmpPub(): Observable<CommonFile[]> {
+    return this.http.get(this.config.apiEndpoint + 'tmp/publications')
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 
   private extractData(res: Response) {
     let body = res.json();
