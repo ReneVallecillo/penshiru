@@ -17,6 +17,7 @@ import { LawReviewDetailComponent } from './admin-law/law-review-detail/law-revi
 import { LawTreeComponent } from './admin-law/law-tree/law-tree.component';
 import { LawUploadComponent } from './admin-law/law-upload/law-upload.component';
 import { AdminPublicationComponent } from './admin-publication/admin-publication.component';
+import { ListPublicationComponent } from "./admin-publication/list-publication/list-publication.component";
 
 const adminRoutes: Routes = [
   {
@@ -84,6 +85,16 @@ const adminRoutes: Routes = [
       {
         path: 'publications',
         component: AdminPublicationComponent,
+        children: [
+          {
+            path: '',
+            component: ListPublicationComponent,
+          },
+          {
+            path: 'list',
+            component: ListPublicationComponent,
+          },
+        ]
       }
     ]
   },

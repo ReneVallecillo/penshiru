@@ -7,7 +7,7 @@ import { TabService } from '../../../shared/tab.service';
   selector: 'app-admin-publication',
   templateUrl: './admin-publication.component.html',
   styleUrls: ['./admin-publication.component.scss'],
-  providers: [TabService]
+  providers: [TabService, PublicationService]
 })
 export class AdminPublicationComponent implements OnInit {
 
