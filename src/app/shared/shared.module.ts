@@ -14,15 +14,15 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 // Covalent
 import { CovalentDataTableModule } from '@covalent/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 
 @NgModule({
     imports: [CommonModule, MaterialModule, FormsModule, FlexLayoutModule, CovalentDataTableModule, ReactiveFormsModule,
         BrowserAnimationsModule],
     exports: [TitleCasePipe, TruncatePipe, MaterialModule, FormsModule, FlexLayoutModule, CovalentDataTableModule, ReactiveFormsModule,
-        BrowserAnimationsModule],
-    declarations: [TitleCasePipe, TruncatePipe, ConfirmDialogComponent],
+        BrowserAnimationsModule, FileUploadComponent],
+    declarations: [TitleCasePipe, TruncatePipe, ConfirmDialogComponent, FileUploadComponent],
     entryComponents: [ConfirmDialogComponent],
-    providers: [],
 })
 export class SharedModule { }
