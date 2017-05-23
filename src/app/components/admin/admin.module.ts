@@ -20,6 +20,7 @@ import { LawTreeComponent } from './admin-law/law-tree/law-tree.component';
 import { LawUploadComponent } from './admin-law/law-upload/law-upload.component';
 import { ListPublicationComponent } from './admin-publication/list-publication/list-publication.component';
 import { AdminPublicationComponent } from './admin-publication/admin-publication.component';
+import { AddPublicationComponent } from './admin-publication/add-publication/add-publication.component';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { AdminPublicationComponent } from './admin-publication/admin-publication
     LawReviewListComponent, LawTreeComponent,
     LawUploadComponent,
     AdminPublicationComponent,
-    ListPublicationComponent
+    ListPublicationComponent,
+    AddPublicationComponent
   ],
   providers: [LawAdminService, UserService],
 })

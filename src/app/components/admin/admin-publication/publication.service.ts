@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { APP_CONFIG, IAppConfig } from '../../../config/app.config';
+import { APP_CONFIG, Config } from '../../../config/app.config';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Publication } from '../../../models';
@@ -9,7 +9,7 @@ import { Publication } from '../../../models';
 @Injectable()
 export class PublicationService {
 
-  constructor( @Inject(APP_CONFIG) private config: IAppConfig, private http: Http) { }
+  constructor( @Inject(APP_CONFIG) private config: Config, private http: Http) { }
 
   getPublications(): Observable<Publication[]> {
     return this.http.get(this.config.apiEndpoint + 'publications')
