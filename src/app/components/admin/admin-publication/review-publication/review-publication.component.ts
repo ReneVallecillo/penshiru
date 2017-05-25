@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Publication } from '../../../../models';
+import { Publication, directory } from '../../../../models';
 import { ActivatedRoute } from '@angular/router';
 import { PublicationService } from '../publication.service';
 
@@ -38,6 +38,10 @@ export class ReviewPublicationComponent implements OnInit {
           );
         }
       });
+  }
+
+  select(dir: directory) {
+    console.log(dir);
   }
 }
 

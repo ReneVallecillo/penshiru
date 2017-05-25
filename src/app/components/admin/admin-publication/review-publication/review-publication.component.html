@@ -1,1 +1,3 @@
-<app-tree-view *ngIf="pub" [directories]="pub.titles"></app-tree-view>
+<app-tree-view *ngIf="pub" [directories]="pub.titles" (selected)="select($event)">
+
+</app-tree-view>

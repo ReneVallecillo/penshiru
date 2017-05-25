@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { directory } from '../../models';
 
 @Component({
@@ -9,15 +9,14 @@ import { directory } from '../../models';
 export class TreeViewComponent implements OnInit {
 
   @Input() directories: directory[];
+  @Output() selected: EventEmitter<directory> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
-    // console.log(this.directories);
   }
 
   getDirectories(dir: directory): directory[] {
-    console.log(dir)
     if (dir) {
       if (dir.books) {
         return dir.books;
@@ -37,34 +36,26 @@ export class TreeViewComponent implements OnInit {
 
   check(dir: directory) {
     dir.reviewed = !dir.reviewed;
-    // console.log('change tree');
-    this.itemSelected(dir);
-
   }
 
   getIcon(dir: directory) {
-
     if (dir.expanded) {
       return '-';
     }
-
     return '+';
   }
 
-  itemSelected(dir: directory) {
+  selectItem(dir: directory) {
     if (this.checkClass(dir)) {
-      // this.reviewService.announceSelected(dir);
+      this.selected.emit(dir);
     }
   }
 
   checkClass(dir: directory): boolean {
-    // console.log(dir)
     if (!dir.articles && !dir.chapters && !dir.titles) {
       return false;
     } else {
       return true;
-
     }
   }
-
 }
