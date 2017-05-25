@@ -2,7 +2,7 @@ import { PublicationT } from './';
 
 export class Publication {
     id: number;
-    title: string;
+    name: string;
     titles: PublicationT[];
     reviewed: boolean;
 

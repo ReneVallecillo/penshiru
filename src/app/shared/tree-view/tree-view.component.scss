@@ -1,0 +1,31 @@
+.md-ink-ripple {
+  display: none
+}
+
+.tree {
+  // background-color: #ffffff;
+  ul {
+    padding-left: 10px; // max-width: 300px;
+  }
+  li {
+    list-style: none;
+    max-width: 320px;
+    margin: 0;
+  } //not working as of ng2 rc3
+  .md-checkbox-background {
+    background-color: #009688;
+  }
+}
+
+:host {
+  display: block;
+}
+
+.iconButton {
+  width: 10px;
+  display: inline-block;
+}
+
+.article {
+  margin-left: 15px;
+}
