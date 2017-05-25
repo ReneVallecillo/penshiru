@@ -19,6 +19,7 @@ import { LawUploadComponent } from './admin-law/law-upload/law-upload.component'
 import { AdminPublicationComponent } from './admin-publication/admin-publication.component';
 import { ListPublicationComponent } from './admin-publication/list-publication/list-publication.component';
 import { AddPublicationComponent } from './admin-publication/add-publication/add-publication.component';
+import { ReviewPublicationComponent } from "./admin-publication/review-publication/review-publication.component";
 
 const adminRoutes: Routes = [
   {
@@ -98,6 +99,10 @@ const adminRoutes: Routes = [
           {
             path: 'add',
             component: AddPublicationComponent,
+          },
+          {
+            path: ':name',
+            component: ReviewPublicationComponent
           }
         ]
       }

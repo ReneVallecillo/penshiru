@@ -52,7 +52,7 @@ export class AdminPublicationComponent implements OnInit {
     if (newTab) {
       this.tabLinks.splice(this.addTabPosition, 0, {
         label: data.toString(),
-        link: '../publications' + data.toString(),
+        link: '../publications/' + data.toString(),
       });
 
       this.activeLinkIndex = this.addTabPosition;

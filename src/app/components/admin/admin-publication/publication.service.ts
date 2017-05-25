@@ -17,11 +17,18 @@ export class PublicationService {
       .catch(this.handleError);
   }
 
-  getTmpPub(): Observable<CommonFile[]> {
+  getTmpPublications(): Observable<CommonFile[]> {
     return this.http.get(this.config.apiEndpoint + 'tmp/publications')
       .map(this.extractData)
       .catch(this.handleError);
   }
+
+  getTmpPublication(name: string): Observable<Publication> {
+    return this.http.get(this.config.apiEndpoint + 'tmp/publications/' + name)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
 
   private extractData(res: Response) {
     let body = res.json();

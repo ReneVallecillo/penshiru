@@ -29,7 +29,7 @@ export class ListPublicationComponent implements OnInit {
   }
 
   getTmpPublications() {
-    this.files = this.publicationService.getTmpPub();
+    this.files = this.publicationService.getTmpPublications();
   }
 
   navigate(publication: Publication) {
