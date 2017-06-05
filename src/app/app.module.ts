@@ -19,9 +19,6 @@ import { ToolbarService } from './shared/toolbar.service';
 // Material
 import { MaterialModule } from '@angular/material';
 
-// Layout
-import { FlexLayoutModule } from '@angular/flex-layout';
-
 // Shared
 import { SharedModule } from './shared/shared.module';
 
@@ -51,7 +48,6 @@ import { APP_CONFIG, AppConfig } from './config/app.config';
     FormsModule,
     HttpModule,
     MaterialModule,
-    FlexLayoutModule.forRoot(),
     SharedModule,
     routing,
     HomeModule,
@@ -59,7 +55,7 @@ import { APP_CONFIG, AppConfig } from './config/app.config';
     AuthModule,
     AdminModule,
     SearchModule,
-    CovalentDataTableModule.forRoot(),
+    CovalentDataTableModule,
   ],
   providers: [MenuService, AlertService, AuthService, ToolbarService,
     { provide: APP_CONFIG, useValue: AppConfig }
