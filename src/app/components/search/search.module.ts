@@ -7,11 +7,10 @@ import { SharedModule } from '../../shared/shared.module';
 import { SearchComponent } from './search.component';
 import { SearchListComponent } from './search-list/search-list.component';
 import { SearchItemComponent } from './search-item/search-item.component';
-import { SearchService } from './search.service'
+import { SearchService } from './search.service';
 
 @NgModule({
   imports: [
-    CommonModule,
     SearchRoutingModule,
     SharedModule,
   ],

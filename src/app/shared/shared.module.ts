@@ -20,7 +20,7 @@ import { TreeViewComponent } from './tree-view/tree-view.component';
     imports: [CommonModule, PenshiruMaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule,
         BrowserAnimationsModule],
     exports: [TitleCasePipe, TruncatePipe, PenshiruMaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule,
-        BrowserAnimationsModule, FileUploadComponent, TreeViewComponent],
+        BrowserAnimationsModule, FileUploadComponent, TreeViewComponent, CommonModule],
     declarations: [TitleCasePipe, TruncatePipe, ConfirmDialogComponent, FileUploadComponent, TreeViewComponent],
     entryComponents: [ConfirmDialogComponent],
 })
