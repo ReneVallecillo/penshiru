@@ -19,7 +19,7 @@ describe('AddUserComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AddUserComponent],
-      imports: [ReactiveFormsModule, MaterialModule.forRoot(),
+      imports: [ReactiveFormsModule, MaterialModule,
         NoopAnimationsModule]
     })
       .compileComponents();

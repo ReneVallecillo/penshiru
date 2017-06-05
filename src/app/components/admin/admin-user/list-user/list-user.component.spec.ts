@@ -20,7 +20,7 @@ describe('ListUserComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ListUserComponent],
-      imports: [MaterialModule.forRoot(), CovalentDataTableModule.forRoot()],
+      imports: [MaterialModule, CovalentDataTableModule.forRoot()],
       providers: [
         { provide: UserService, useClass: UserServiceStub },
       ]

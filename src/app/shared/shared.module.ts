@@ -6,8 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TitleCasePipe, TruncatePipe } from './';
 
 // Material
-import { MaterialModule } from '@angular/material';
-
+import { PenshiruMaterialModule } from '../shared/penshiru-material.module';
 // Layout
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 // Covalent
@@ -18,9 +17,9 @@ import { TreeViewComponent } from './tree-view/tree-view.component';
 
 
 @NgModule({
-    imports: [CommonModule, MaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule,
+    imports: [CommonModule, PenshiruMaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule,
         BrowserAnimationsModule],
-    exports: [TitleCasePipe, TruncatePipe, MaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule,
+    exports: [TitleCasePipe, TruncatePipe, PenshiruMaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule,
         BrowserAnimationsModule, FileUploadComponent, TreeViewComponent],
     declarations: [TitleCasePipe, TruncatePipe, ConfirmDialogComponent, FileUploadComponent, TreeViewComponent],
     entryComponents: [ConfirmDialogComponent],

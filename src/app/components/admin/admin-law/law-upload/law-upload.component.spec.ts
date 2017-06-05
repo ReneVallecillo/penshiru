@@ -14,7 +14,7 @@ describe('LawUploadComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [LawUploadComponent],
-      imports: [MaterialModule.forRoot()],
+      imports: [MaterialModule],
     })
       .compileComponents();
   }));

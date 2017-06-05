@@ -26,7 +26,7 @@ describe('AppComponent', function () {
 
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [MaterialModule.forRoot()],
+      imports: [MaterialModule],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
         MenuService, ToolbarService

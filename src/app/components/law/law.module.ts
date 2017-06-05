@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 
@@ -22,7 +21,6 @@ import { LawContentComponent } from './law-content/law-content.component';
   imports: [
     CommonModule,
     lawRouting,
-    MaterialModule,
     FormsModule,
     SharedModule,
   ],

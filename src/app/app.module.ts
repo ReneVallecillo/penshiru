@@ -16,9 +16,6 @@ import { AuthService } from './shared/auth.service';
 import { AlertService } from './shared/alert.service';
 import { ToolbarService } from './shared/toolbar.service';
 
-// Material
-import { MaterialModule } from '@angular/material';
-
 // Shared
 import { SharedModule } from './shared/shared.module';
 
@@ -47,7 +44,6 @@ import { APP_CONFIG, AppConfig } from './config/app.config';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
     SharedModule,
     routing,
     HomeModule,

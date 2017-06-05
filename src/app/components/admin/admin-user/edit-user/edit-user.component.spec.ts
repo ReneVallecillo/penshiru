@@ -34,7 +34,7 @@ describe('EditUserComponent', () => {
     TestBed.configureTestingModule({
       declarations: [EditUserComponent],
       imports: [ReactiveFormsModule, FormsModule,
-        MaterialModule.forRoot(), NoopAnimationsModule],
+        MaterialModule, NoopAnimationsModule],
       providers: [
         { provide: UserService, useClass: UserServiceStub },
         { provide: ActivatedRoute, useValue: activatedRoute }

@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { By, BrowserModule } from '@angular/platform-browser';
 import { DebugElement, NgModule } from '@angular/core';
-import { MdDialogModule, MdDialog, OverlayContainer, MaterialModule } from '@angular/material';
+import { MdDialogModule, MdDialog, OverlayContainer } from '@angular/material';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 
 
@@ -32,7 +32,7 @@ describe('ConfirmDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [DialogTestModule, MdDialogModule.forRoot()],
+      imports: [DialogTestModule, MdDialogModule],
       providers: [
         {
           provide: OverlayContainer, useFactory: () => {

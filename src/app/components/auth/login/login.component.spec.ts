@@ -29,7 +29,7 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [LoginComponent],
-      imports: [MaterialModule.forRoot(), FormsModule],
+      imports: [MaterialModule, FormsModule],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
         { provide: Router, useClass: RouterStub },
