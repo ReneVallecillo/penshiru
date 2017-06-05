@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { PenshiruMaterialModule } from '../../../../shared/penshiru-material.module';
 
 import { LawReviewListComponent } from './law-review-list.component';
 
@@ -35,7 +35,7 @@ describe('LawReviewListComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [LawReviewListComponent],
-      imports: [MaterialModule],
+      imports: [PenshiruMaterialModule],
       providers: [
         { provide: LawAdminService, classValue: mockLawAdminService },
       ]

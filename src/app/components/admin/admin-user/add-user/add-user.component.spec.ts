@@ -5,7 +5,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DebugElement } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
+import { PenshiruMaterialModule } from '../../../../shared/penshiru-material.module';
 import { AddUserComponent } from './add-user.component';
 import { Observable } from 'rxjs/Observable';
 import { validUser, invalidUser } from '../../../../testing/mocks';
@@ -19,7 +19,7 @@ describe('AddUserComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AddUserComponent],
-      imports: [ReactiveFormsModule, MaterialModule,
+      imports: [ReactiveFormsModule, PenshiruMaterialModule,
         NoopAnimationsModule]
     })
       .compileComponents();

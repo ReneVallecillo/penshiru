@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchBoxComponent } from './searchbox.component';
-import { MaterialModule } from '@angular/material';
+import { PenshiruMaterialModule } from '../../../shared/penshiru-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 
 describe('SearchBoxComponent', () => {
   let component: SearchBoxComponent;
@@ -13,7 +13,7 @@ describe('SearchBoxComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SearchBoxComponent],
-      imports: [MaterialModule, ReactiveFormsModule, NoopAnimationsModule]
+      imports: [PenshiruMaterialModule, ReactiveFormsModule, NoopAnimationsModule]
     })
       .compileComponents();
   }));

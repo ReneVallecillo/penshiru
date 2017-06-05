@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { PenshiruMaterialModule } from '../../../../shared/penshiru-material.module';
 import { CovalentDataTableModule } from '@covalent/core';
 import { UserServiceStub } from '../../../../testing/user-stubs';
 import { UserService } from '../user.service'; // Remove
@@ -20,7 +20,7 @@ describe('ListUserComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ListUserComponent],
-      imports: [MaterialModule, CovalentDataTableModule.forRoot()],
+      imports: [PenshiruMaterialModule, CovalentDataTableModule.forRoot()],
       providers: [
         { provide: UserService, useClass: UserServiceStub },
       ]

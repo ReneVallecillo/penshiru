@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchItemComponent } from './search-item.component';
 import { TitleCasePipe } from '../../../shared/title-case.pipe';
 import { Pipe, PipeTransform, DebugElement } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { PenshiruMaterialModule } from '../../../shared/penshiru-material.module';
 import { By } from '@angular/platform-browser';
 import { Result } from '../../../models';
 import { Router } from '@angular/router';
@@ -26,7 +26,7 @@ describe('SearchItemComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SearchItemComponent, MockPipe],
-      imports: [MaterialModule, RouterTestingModule],
+      imports: [PenshiruMaterialModule, RouterTestingModule],
       providers: [
         { provide: Router, UseClass: RouterStub }
       ]

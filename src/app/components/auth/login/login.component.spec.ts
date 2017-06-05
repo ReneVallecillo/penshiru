@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { PenshiruMaterialModule } from '../../../shared/penshiru-material.module';
 import { FormsModule } from '@angular/forms';
 // USE TO NOT TEST ROUTER
 import { NO_ERRORS_SCHEMA } from '@angular/core';
@@ -29,7 +29,7 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [LoginComponent],
-      imports: [MaterialModule, FormsModule],
+      imports: [PenshiruMaterialModule, FormsModule],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
         { provide: Router, useClass: RouterStub },

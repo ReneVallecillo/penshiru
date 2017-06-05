@@ -2,7 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { PenshiruMaterialModule } from '../../../../shared/penshiru-material.module';
 
 
 import { LawUploadComponent } from './law-upload.component';
@@ -14,7 +14,7 @@ describe('LawUploadComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [LawUploadComponent],
-      imports: [MaterialModule],
+      imports: [PenshiruMaterialModule],
     })
       .compileComponents();
   }));

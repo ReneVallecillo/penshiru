@@ -4,7 +4,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { MaterialModule } from '@angular/material';
+import { PenshiruMaterialModule } from './shared/penshiru-material.module';
 // USE TO NOT TEST ROUTER
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
@@ -26,7 +26,7 @@ describe('AppComponent', function () {
 
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [MaterialModule],
+      imports: [PenshiruMaterialModule],
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
         MenuService, ToolbarService

@@ -3,8 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DebugElement } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { MaterialModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PenshiruMaterialModule } from '../../../../shared/penshiru-material.module';
 
 import { EditUserComponent } from './edit-user.component';
 import { UserService } from '../user.service'; // Remove
@@ -34,7 +34,7 @@ describe('EditUserComponent', () => {
     TestBed.configureTestingModule({
       declarations: [EditUserComponent],
       imports: [ReactiveFormsModule, FormsModule,
-        MaterialModule, NoopAnimationsModule],
+        PenshiruMaterialModule, NoopAnimationsModule],
       providers: [
         { provide: UserService, useClass: UserServiceStub },
         { provide: ActivatedRoute, useValue: activatedRoute }
