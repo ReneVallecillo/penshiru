@@ -1,0 +1,32 @@
+<div *ngIf="current" class="data">
+  <md-card class="main">
+    <div class="reviewed" align="end">
+      <md-checkbox [checked]="current.reviewed" (change)="check(current)">
+        Revisado
+      </md-checkbox>
+    </div>
+    <md-input-container style="width:100%">
+      <input mdInput [(ngModel)]="current.name">
+    </md-input-container>
+    <div class="paragraphs" *ngIf="current.paragraph">
+      <div class="paragraph" *ngFor="let data of current.paragraph">
+        <textarea [rows]="8" mdInput [(ngModel)]="data.text"></textarea>
+      </div>
+    </div>
+  </md-card>
+
+  <h2 *ngIf="getDirectories(current)">Subtitulos</h2>
+  <md-card class="subitem" *ngFor="let data of getDirectories(current)">
+    <div class="reviewed" align="end">
+      <md-checkbox [checked]="data.reviewed" [disabled]="true">
+        Revisado
+      </md-checkbox>
+    </div>
+    <md-card-content>
+      <md-input-container style="width:100%">
+        <input mdInput [(ngModel)]="data.name">
+      </md-input-container>
+    </md-card-content>
+  </md-card>
+
+</div>

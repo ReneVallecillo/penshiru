@@ -22,6 +22,7 @@ import { ListPublicationComponent } from './admin-publication/list-publication/l
 import { AdminPublicationComponent } from './admin-publication/admin-publication.component';
 import { AddPublicationComponent } from './admin-publication/add-publication/add-publication.component';
 import { ReviewPublicationComponent } from './admin-publication/review-publication/review-publication.component';
+import { InspectPublicationComponent } from './admin-publication/inspect-publication/inspect-publication.component';
 
 @NgModule({
   imports: [
@@ -40,7 +41,8 @@ import { ReviewPublicationComponent } from './admin-publication/review-publicati
     AdminPublicationComponent,
     ListPublicationComponent,
     AddPublicationComponent,
-    ReviewPublicationComponent
+    ReviewPublicationComponent,
+    InspectPublicationComponent
   ],
   providers: [LawAdminService, UserService],
 })

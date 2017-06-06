@@ -45,10 +45,11 @@ export class TreeViewComponent implements OnInit {
     return '+';
   }
 
-  selectItem(dir: directory) {
+  select(dir: directory) {
     if (this.checkClass(dir)) {
       this.selected.emit(dir);
     }
+    this.selected.emit(dir);
   }
 
   checkClass(dir: directory): boolean {

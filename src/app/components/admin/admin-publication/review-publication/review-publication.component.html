@@ -1,3 +1,11 @@
-<app-tree-view *ngIf="pub" [directories]="pub.titles" (selected)="select($event)">
+<div class="pub-container">
+  <md-card class="tree">
+    <app-tree-view *ngIf="pub" [directories]="pub.titles" (selected)="select($event)">
+    </app-tree-view>
+  </md-card>
 
-</app-tree-view>
+  <div class="pub-data">
+    <app-inspect-publication [current]="current">
+    </app-inspect-publication>
+  </div>
+</div>

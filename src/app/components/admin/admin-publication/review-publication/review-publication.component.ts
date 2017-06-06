@@ -12,6 +12,7 @@ export class ReviewPublicationComponent implements OnInit {
 
   pub: Publication;
   currentFile: string;
+  current: directory;
   jsonRegex = new RegExp('.json$');
 
   constructor(
@@ -41,7 +42,7 @@ export class ReviewPublicationComponent implements OnInit {
   }
 
   select(dir: directory) {
-    console.log(dir);
+    this.current = dir;
   }
 }
 
