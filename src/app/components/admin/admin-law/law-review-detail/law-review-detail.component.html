@@ -1,96 +1,96 @@
 <div class="top-actions">
-  <md-card class="intro" (click)="showIntro()">
+  <mat-card class="intro" (click)="showIntro()">
     Generalidades
-  </md-card>
+  </mat-card>
   <div class="actions">
-    <button md-raised-button color="warn" (click)="checkAll()">Check All</button>
-    <button md-raised-button (click)="update(currentFile)">Update</button>
-    <button md-raised-button color="primary" [disabled]="checkIfAll()==false" (click)="saveToDB(law)">Save to DB</button>
+    <button mat-raised-button color="warn" (click)="checkAll()">Check All</button>
+    <button mat-raised-button (click)="update(currentFile)">Update</button>
+    <button mat-raised-button color="primary" [disabled]="checkIfAll()==false" (click)="saveToDB(law)">Save to DB</button>
   </div>
 </div>
 
 
 
 <div class="parent">
-  <md-card>
+  <mat-card>
     <law-tree *ngIf="law?.titles" class="tree" [directories]="law?.titles"></law-tree>
     <law-tree *ngIf="law?.books" class="tree" [directories]="law?.books"></law-tree>
-  </md-card>
+  </mat-card>
   <div class="detail-container">
     <div *ngIf="intro" class="intro">
-      <md-card>
+      <mat-card>
         <h2>Generalidades</h2>
-        <md-card-content>
-          <md-input-container class="form-full-width">
-            <input mdInput placeholder="Nombre" [ngModel]="law?.name" (ngModelChange)="law.name = $event">
-          </md-input-container>
-          <md-input-container class="form-full-width">
-            <input mdInput placeholder="Gaceta" [ngModel]="law?.journal" (ngModelChange)="law.journal = $event">
-          </md-input-container>
-          <md-input-container>
-            <input mdInput placeholder="Fecha de Aprobación" [ngModel]="law?.approvalDate | date:'y-MM-dd'" (ngModelChange)="law.approvalDate = $event"
+        <mat-card-content>
+          <mat-form-field class="form-full-width">
+            <input matInput placeholder="Nombre" [ngModel]="law?.name" (ngModelChange)="law.name = $event">
+          </mat-form-field>
+          <mat-form-field class="form-full-width">
+            <input matInput placeholder="Gaceta" [ngModel]="law?.journal" (ngModelChange)="law.journal = $event">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Fecha de Aprobación" [ngModel]="law?.approvalDate | date:'y-MM-dd'" (ngModelChange)="law.approvalDate = $event"
               type="date">
-          </md-input-container>
-          <md-input-container>
-            <input mdInput placeholder="Fecha de Publicación" [ngModel]="law?.publishDate | date:'y-MM-dd'" (ngModelChange)="law.publishDate = $event"
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Fecha de Publicación" [ngModel]="law?.publishDate | date:'y-MM-dd'" (ngModelChange)="law.publishDate = $event"
               type="date">
-          </md-input-container>
-          <md-input-container class="form-full-width">
-            <textarea [rows]="8" mdInput placeholder="Introducción" [ngModel]="law?.intro" (ngModelChange)="law.intro = $event">
+          </mat-form-field>
+          <mat-form-field class="form-full-width">
+            <textarea [rows]="8" matInput placeholder="Introducción" [ngModel]="law?.intro" (ngModelChange)="law.intro = $event">
             </textarea>
-          </md-input-container>
-        </md-card-content>
-      </md-card>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
     </div>
     <div *ngIf="currentLvl?.titles">
       <h2>Títulos</h2>
-      <md-card *ngFor="let data of currentLvl.titles; let t = index">
+      <mat-card *ngFor="let data of currentLvl.titles; let t = index">
         <div class="reviewed" align="end">
-          <md-checkbox [checked]="data.reviewed" (change)="check(data)">
-          </md-checkbox>
+          <mat-checkbox [checked]="data.reviewed" (change)="check(data)">
+          </mat-checkbox>
         </div>
-        <md-card-content>
-          <md-input-container style="width: 100%">
-            <input mdInput [(ngModel)]="data.name">
-          </md-input-container>
-        </md-card-content>
-        <md-card-actions>
-          <button md-raised-button color="primary" (click)="add(data.name, t)">Add</button>
-          <button md-raised-button color="warn" (click)="del(data.name, t)">Delete</button>
-        </md-card-actions>
-      </md-card>
+        <mat-card-content>
+          <mat-form-field style="width: 100%">
+            <input matInput [(ngModel)]="data.name">
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="add(data.name, t)">Add</button>
+          <button mat-raised-button color="warn" (click)="del(data.name, t)">Delete</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
     <div *ngIf="currentLvl?.chapters">
       <h2>Capítulos</h2>
-      <md-card *ngFor="let data of currentLvl.chapters">
-        <md-checkbox [checked]="data.reviewed" (change)="check(data)">
-        </md-checkbox>
-        <md-input-container style="width: 100%">
-          <input mdInput [(ngModel)]="data.name">
-        </md-input-container>
-      </md-card>
+      <mat-card *ngFor="let data of currentLvl.chapters">
+        <mat-checkbox [checked]="data.reviewed" (change)="check(data)">
+        </mat-checkbox>
+        <mat-form-field style="width: 100%">
+          <input matInput [(ngModel)]="data.name">
+        </mat-form-field>
+      </mat-card>
     </div>
     <div *ngIf="currentLvl?.articles">
       <h2>Artículos</h2>
-      <md-card *ngFor="let data of currentLvl.articles; let i = index">
+      <mat-card *ngFor="let data of currentLvl.articles; let i = index">
         <div class="reviewed" align="end">
-          <md-checkbox [checked]="data.reviewed" (change)="check(data)">
+          <mat-checkbox [checked]="data.reviewed" (change)="check(data)">
             Revisado
-          </md-checkbox>
+          </mat-checkbox>
         </div>
-        <md-card-content>
-          <md-input-container style="width:100%">
-            <input mdInput [(ngModel)]="data.name">
-          </md-input-container>
+        <mat-card-content>
+          <mat-form-field style="width:100%">
+            <input matInput [(ngModel)]="data.name">
+          </mat-form-field>
           <textarea [(ngModel)]="data.text">
           {{data.text}}
           </textarea>
-        </md-card-content>
-        <md-card-actions>
-          <button md-raised-button color="primary" (click)="add(data.name, i)">Add</button>
-          <button md-raised-button color="warn" (click)="delete(data.name, i)">Delete</button>
-        </md-card-actions>
-      </md-card>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" (click)="add(data.name, i)">Add</button>
+          <button mat-raised-button color="warn" (click)="delete(data.name, i)">Delete</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
   <!--<h3>History</h3>

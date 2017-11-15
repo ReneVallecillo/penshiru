@@ -14,6 +14,7 @@ export class ReviewPublicationComponent implements OnInit {
   currentFile: string;
   current: directory;
   jsonRegex = new RegExp('.json$');
+  allreviewed = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,5 +45,56 @@ export class ReviewPublicationComponent implements OnInit {
   select(dir: directory) {
     this.current = dir;
   }
+
+  checkAll(dir: directory) {
+    dir.reviewed = true
+    if (dir.paragraph) {
+      for (const p of dir.paragraph) {
+        p.checked = true;
+      }
+    }
+
+    for (const currentdir of dir.titles) {
+      currentdir.reviewed = true;
+      if (currentdir.titles) {
+        this.checkAll(currentdir);
+      }
+    }
+  }
+
+  checkIfAll(dir: directory): boolean {
+    console.log('called')
+    if (dir) {
+      if (!dir.reviewed) {
+        console.log('aca salio:')
+        console.log(dir.name);
+        return false;
+      }
+      // if (dir.paragraph) {
+      //   for (const p of dir.paragraph) {
+      //     if (!p.checked) {
+      //       return false;
+      //     }
+      //   }
+      // }
+      for (const currentdir of dir.titles) {
+        if (!currentdir.reviewed) {
+          console.log('aca salio:')
+          console.log(currentdir.name);
+          return false
+        }
+        if (currentdir.titles) {
+          return this.checkIfAll(currentdir);
+        }
+      }
+      return true;
+    }
+
+  }
+
+  saveToDB() {
+
+  }
+
 }
 

@@ -1,32 +1,32 @@
 <div *ngIf="current" class="data">
-  <md-card class="main">
+  <mat-card class="main">
     <div class="reviewed" align="end">
-      <md-checkbox [checked]="current.reviewed" (change)="check(current)">
+      <mat-checkbox [checked]="current.reviewed" (change)="check(current)">
         Revisado
-      </md-checkbox>
+      </mat-checkbox>
     </div>
-    <md-input-container style="width:100%">
-      <input mdInput [(ngModel)]="current.name">
-    </md-input-container>
+    <mat-form-field style="width:100%">
+      <input matInput [(ngModel)]="current.name">
+    </mat-form-field>
     <div class="paragraphs" *ngIf="current.paragraph">
       <div class="paragraph" *ngFor="let data of current.paragraph">
-        <textarea [rows]="8" mdInput [(ngModel)]="data.text"></textarea>
+        <textarea [rows]="8" matInput [(ngModel)]="data.text"></textarea>
       </div>
     </div>
-  </md-card>
+  </mat-card>
 
   <h2 *ngIf="getDirectories(current)">Subtitulos</h2>
-  <md-card class="subitem" *ngFor="let data of getDirectories(current)">
+  <mat-card class="subitem" *ngFor="let data of getDirectories(current)">
     <div class="reviewed" align="end">
-      <md-checkbox [checked]="data.reviewed" [disabled]="true">
+      <mat-checkbox [checked]="data.reviewed" [disabled]="true">
         Revisado
-      </md-checkbox>
+      </mat-checkbox>
     </div>
-    <md-card-content>
-      <md-input-container style="width:100%">
-        <input mdInput [(ngModel)]="data.name">
-      </md-input-container>
-    </md-card-content>
-  </md-card>
+    <mat-card-content>
+      <mat-form-field style="width:100%">
+        <input matInput [(ngModel)]="data.name">
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
 
 </div>

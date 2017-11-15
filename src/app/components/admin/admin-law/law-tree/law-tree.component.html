@@ -5,9 +5,9 @@
     <li *ngIf="directories[0].articles">Capítulos</li>
     <li *ngFor="let dir of directories">
       <span *ngIf="checkClass(dir)==true" class="iconButton" (click)="toggle(dir)">{{getIcon(dir)}}</span>
-      <md-checkbox [checked]="dir.reviewed" (change)="check(dir)" [class.article]="checkClass(dir)==false">
+      <mat-checkbox [checked]="dir.reviewed" (change)="check(dir)" [class.article]="checkClass(dir)==false">
         {{ dir.name | titleCase | truncate:30:'...' }}
-      </md-checkbox>
+      </mat-checkbox>
       <div *ngIf="dir.expanded">
         <law-tree *ngIf="dir.titles" [directories]="dir.titles"></law-tree>
         <law-tree *ngIf="dir.chapters" [directories]="dir.chapters"></law-tree>

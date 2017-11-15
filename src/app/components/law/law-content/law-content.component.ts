@@ -29,7 +29,7 @@ export class LawContentComponent implements OnInit, AfterViewChecked {
       const element = document.querySelector('#' + f);
 
       if (element) {
-        element.scrollIntoView(element);
+        // element.scrollIntoView(element); TODO: REVIEW WHAT TO DO HERE
       }
     });
   }

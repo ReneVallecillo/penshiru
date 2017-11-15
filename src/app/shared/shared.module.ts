@@ -11,16 +11,14 @@ import { PenshiruMaterialModule } from '../shared/penshiru-material.module';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 // Covalent
 import { CovalentDataTableModule } from '@covalent/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { TreeViewComponent } from './tree-view/tree-view.component';
 
 
 @NgModule({
-    imports: [CommonModule, PenshiruMaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule,
-        BrowserAnimationsModule],
+    imports: [CommonModule, PenshiruMaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule],
     exports: [TitleCasePipe, TruncatePipe, PenshiruMaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule,
-        BrowserAnimationsModule, FileUploadComponent, TreeViewComponent, CommonModule],
+        FileUploadComponent, TreeViewComponent, CommonModule],
     declarations: [TitleCasePipe, TruncatePipe, ConfirmDialogComponent, FileUploadComponent, TreeViewComponent],
     entryComponents: [ConfirmDialogComponent],
 })

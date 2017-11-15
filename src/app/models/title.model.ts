@@ -16,6 +16,7 @@ export class Title implements directory {
         public lawid: number,
         public reviewed: boolean,
         public expanded: boolean = false,
-        public type: string = 'title'
+        public type: string = 'title',
+        public titles: Title[],
     ) { }
 }

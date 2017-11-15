@@ -1,11 +1,11 @@
-md-card {
+mat-card {
   margin: 16px;
   width: 540px;
 }
 
 .inline-columns-flex {
   display: flex;
-  md-input-container:last-child {
+  mat-form-field:last-child {
     margin-right: 0px;
   }
 }

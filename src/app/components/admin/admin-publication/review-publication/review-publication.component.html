@@ -1,8 +1,15 @@
 <div class="pub-container">
-  <md-card class="tree">
+  <div class="top-actions">
+
+    <div class="actions">
+      <button mat-raised-button color="warn" (click)="checkAll(pub)">Check All</button>
+      <button mat-raised-button color="primary" [disabled]="checkIfAll(pub)==false" (click)="saveToDB()">Save to DB</button>
+    </div>
+  </div>
+  <mat-card class="tree">
     <app-tree-view *ngIf="pub" [directories]="pub.titles" (selected)="select($event)">
     </app-tree-view>
-  </md-card>
+  </mat-card>
 
   <div class="pub-data">
     <app-inspect-publication [current]="current">

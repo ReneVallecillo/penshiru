@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToolbarService } from '../../../shared/toolbar.service';
-import { MdSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +9,7 @@ import { MdSidenav } from '@angular/material';
 })
 export class DashboardComponent implements OnInit {
 
-  @ViewChild('sidenav') sidenav: MdSidenav;
+  @ViewChild('sidenav') sidenav: MatSidenav;
   menu = [
     { name: 'Usuarios', path: '/admin/users' },
     { name: 'Leyes', path: '/admin/law' },

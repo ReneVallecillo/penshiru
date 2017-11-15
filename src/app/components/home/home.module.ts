@@ -26,8 +26,8 @@ export class HomeModule implements OnInit {
 
   ngOnInit() {
     this.menuService.showMenu(false);
-    //TODO: It does not get call once you enter home page for
-    //second time.
+    // TODO: It does not get call once you enter home page for
+    // second time.
     this.toolbarService.showSidenavToggler(false);
   }
 }

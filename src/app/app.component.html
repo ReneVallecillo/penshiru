@@ -1,13 +1,13 @@
 <div>
-  <md-toolbar color="primary">
-    <button *ngIf="(sidenavToggler$ | async)" md-icon-button (click)="showSidenav()">
+  <mat-toolbar color="primary">
+    <button *ngIf="(sidenavToggler$ | async)" mat-icon-button (click)="showSidenav()">
           <svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
           </svg>
     </button>
-    <md-icon class="icon-20">create</md-icon>
+    <mat-icon class="icon-20">create</mat-icon>
     <a routerLink="home" class="appName">Penshiru</a>
-  </md-toolbar>
+  </mat-toolbar>
 </div>
 <div class="content">
   <router-outlet></router-outlet>

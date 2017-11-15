@@ -1,5 +1,5 @@
-<md-sidenav-container class="admin-container">
-  <md-sidenav #sidenav class="admin-sidenav" opened="true">
+<mat-sidenav-container class="admin-container">
+  <mat-sidenav #sidenav class="admin-sidenav" opened="true">
     <div class=" admin-sidenave-header ">
       <div class="circle ">
         <div class="letter ">
@@ -11,14 +11,14 @@
         <div class="email ">reneval23@patience.com</div>
       </div>
     </div>
-    <md-list>
+    <mat-list>
       <a *ngFor="let item of menu" [routerLink]="[item.path]">
-        <md-list-item>{{item.name}}</md-list-item>
+        <mat-list-item>{{item.name}}</mat-list-item>
       </a>
 
-    </md-list>
-  </md-sidenav>
+    </mat-list>
+  </mat-sidenav>
   <div class="admin-sidenav-content ">
     <router-outlet></router-outlet>
   </div>
-</md-sidenav-container>
+</mat-sidenav-container>

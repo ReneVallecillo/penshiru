@@ -54,7 +54,7 @@ import { APP_CONFIG, AppConfig } from './config/app.config';
     CovalentDataTableModule,
   ],
   providers: [MenuService, AlertService, AuthService, ToolbarService,
-    { provide: APP_CONFIG, useValue: AppConfig }
+    { provide: APP_CONFIG, useValue: AppConfig },
   ],
   bootstrap: [AppComponent]
 })

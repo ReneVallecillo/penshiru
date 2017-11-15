@@ -5,7 +5,7 @@ import {
   ApplicationRef,
   Input
 } from '@angular/core';
-import { MdDialogRef, MdDialog } from '@angular/material';
+import { MatDialogRef, MatDialog } from '@angular/material';
 import { Law, Article, directory } from '../../../../models/';
 
 import { Router, ActivatedRoute } from '@angular/router';
@@ -42,7 +42,7 @@ export class LawReviewDetailComponent implements OnInit {
   jsonRegex = new RegExp('.json$');
 
 
-  dialogRef: MdDialogRef<ConfirmDialogComponent>;
+  dialogRef: MatDialogRef<ConfirmDialogComponent>;
 
 
 
@@ -52,7 +52,7 @@ export class LawReviewDetailComponent implements OnInit {
     private service: LawService,
     private reviewService: ReviewService,
     private lawAdminService: LawAdminService,
-    public dialog: MdDialog,
+    public dialog: MatDialog,
     private ref: ApplicationRef) {
 
     this.reviewService.itemSelected$.subscribe(

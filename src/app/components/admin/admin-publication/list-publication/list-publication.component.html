@@ -1,25 +1,25 @@
 <div *ngIf="(publications | async)?.length > 0" class="card-container" align="center">
-  <md-card align="left">
-    <md-nav-list *ngFor="let pub of publications | async">
-      <a md-list-item (click)="addTab(pub.id +'/'+pub.name)">
-        <h3 md-line>{{pub.name}}</h3>
-        <p md-line class="secondary">
+  <mat-card align="left">
+    <mat-nav-list *ngFor="let pub of publications | async">
+      <a mat-list-item (click)="addTab(pub.id +'/'+pub.name)">
+        <h3 matLine>{{pub.name}}</h3>
+        <p matLine class="secondary">
           <span> rev: {{pub.id}}</span>
         </p>
       </a>
-    </md-nav-list>
-  </md-card>
+    </mat-nav-list>
+  </mat-card>
 </div>
 <div *ngIf="files" class="card-container" align="center">
-  <md-card align="left">
-    <md-card-title>Pendientes de Revisar</md-card-title>
-    <md-nav-list *ngFor="let file of files | async">
-      <a md-list-item (click)="addTab([file.name])">
-        <h3 md-line>{{file.name}}</h3>
-        <p md-line class="secondary">
+  <mat-card align="left">
+    <mat-card-title>Pendientes de Revisar</mat-card-title>
+    <mat-nav-list *ngFor="let file of files | async">
+      <a mat-list-item (click)="addTab([file.name])">
+        <h3 matLine>{{file.name}}</h3>
+        <p matLine class="secondary">
           <span> path: {{file.path}}</span>
         </p>
       </a>
-    </md-nav-list>
-  </md-card>
+    </mat-nav-list>
+  </mat-card>
 </div>

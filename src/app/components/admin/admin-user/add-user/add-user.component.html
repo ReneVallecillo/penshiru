@@ -1,9 +1,9 @@
-<md-card>
+<mat-card>
   <form novalidate (ngSubmit)="onSubmit()" [formGroup]="userForm">
     <div>
-      <md-input-container style="width: 100%">
-        <input mdInput type="text" name="name" placeholder="Full name" formControlName="name">
-      </md-input-container>
+      <mat-form-field style="width: 100%">
+        <input matInput type="text" name="name" placeholder="Full name" formControlName="name">
+      </mat-form-field>
       <span class="error" *ngIf="userForm.get('name').hasError('required') && userForm.get('name').touched">
         Name is required
       </span>
@@ -12,9 +12,9 @@
       </span>
     </div>
     <div>
-      <md-input-container style="width: 100%">
-        <input mdInput type="text" name="username" placeholder="Desired Username" formControlName="username">
-      </md-input-container>
+      <mat-form-field style="width: 100%">
+        <input matInput type="text" name="username" placeholder="Desired Username" formControlName="username">
+      </mat-form-field>
       <span class="error" *ngIf="userForm.get('username').hasError('required') && userForm.get('username').touched">
         username is required
       </span>
@@ -24,24 +24,24 @@
     </div>
     <div>
       <div class="md-input-wrapper">
-        <md-select placeholder="Company Name" formControlName="company">
-          <md-option *ngFor="let company of companies" [value]="company.value">{{ company.viewValue}}</md-option>
-        </md-select>
+        <mat-select placeholder="Company Name" formControlName="company">
+          <mat-option *ngFor="let company of companies" [value]="company.value">{{ company.viewValue}}</mat-option>
+        </mat-select>
       </div>
     </div>
     <div formGroupName="account" class="inline-columns-flex">
-      <md-input-container class="inline-column-item">
-        <input mdInput type="email" name="email" placeholder="Email Address" formControlName="email">
+      <mat-form-field class="inline-column-item">
+        <input matInput type="email" name="email" placeholder="Email Address" formControlName="email">
         <div class="error" *ngIf="userForm.get('account').get('email').hasError('required') && userForm.get('account').get('email').touched">
           Email is required
         </div>
-      </md-input-container>
+      </mat-form-field>
     </div>
     <div class="md-input-wrapper">
-      <md-checkbox formControlName="active">
+      <mat-checkbox formControlName="active">
         Activo?
-      </md-checkbox>
+      </mat-checkbox>
     </div>
-    <button md-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Edit</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">Edit</button>
   </form>
-</md-card>
+</mat-card>

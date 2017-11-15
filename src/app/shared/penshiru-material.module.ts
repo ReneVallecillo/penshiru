@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {
-    MdDialogModule, MdCheckboxModule, MdCardModule, MdInputModule,
-    MdButtonModule, MdTabsModule, MdOptionModule, MdAutocompleteModule,
-    MdToolbarModule, MdIconModule, MdSidenavModule, MdListModule
+    MatDialogModule, MatCheckboxModule, MatCardModule, MatInputModule,
+    MatButtonModule, MatTabsModule, MatOptionModule, MatAutocompleteModule,
+    MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatSelectModule, MatProgressSpinnerModule
 } from '@angular/material';
 
 
 @NgModule({
-    imports: [MdDialogModule, MdCheckboxModule, MdCardModule, MdInputModule,
-        MdButtonModule, MdTabsModule, MdOptionModule, MdAutocompleteModule,
-        MdToolbarModule, MdIconModule, MdSidenavModule, MdListModule],
-    exports: [MdDialogModule, MdCheckboxModule, MdCardModule, MdInputModule,
-        MdAutocompleteModule, MdButtonModule, MdTabsModule, MdOptionModule,
-        MdToolbarModule, MdIconModule, MdSidenavModule, MdListModule],
+    imports: [MatDialogModule, MatCheckboxModule, MatCardModule, MatInputModule,
+        MatButtonModule, MatTabsModule, MatOptionModule, MatAutocompleteModule,
+        MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatSelectModule, MatProgressSpinnerModule,
+        BrowserAnimationsModule],
+    exports: [MatDialogModule, MatCheckboxModule, MatCardModule, MatInputModule,
+        MatAutocompleteModule, MatButtonModule, MatTabsModule, MatOptionModule,
+        MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatSelectModule, MatProgressSpinnerModule],
     declarations: [],
     providers: [],
 })

@@ -1,14 +1,14 @@
-<md-card>
-  <md-card-title>Buscador de Leyes</md-card-title>
-  <md-card-content>
-    <md-input-container>
-      <input mdInput [formControl]="stateCtrl" (keyup)="search.emit($event.target.value)" [mdAutocomplete]="auto">
-      <md-autocomplete #auto="mdAutocomplete">
-        <md-option *ngFor="let option of options | async" [value]="option + ' |'">
+<mat-card>
+  <mat-card-title>Buscador de Leyes</mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput [formControl]="stateCtrl" (keyup)="search.emit($event.target.value)" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options | async" [value]="option + ' |'">
           {{ option }}
-        </md-option>
-      </md-autocomplete>
-    </md-input-container>
-    <md-spinner [class.show]="searching"></md-spinner>
-  </md-card-content>
-</md-card>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-spinner [class.show]="searching"></mat-spinner>
+  </mat-card-content>
+</mat-card>

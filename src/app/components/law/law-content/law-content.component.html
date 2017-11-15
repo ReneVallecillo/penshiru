@@ -1,45 +1,45 @@
 <div class="law">
   <div class="law-info">
-    <md-card>
-      <md-card-content>
+    <mat-card>
+      <mat-card-content>
         {{ (law | async)?.intro }}
-      </md-card-content>
-    </md-card>
+      </mat-card-content>
+    </mat-card>
   </div>
   <div *ngFor="let book of (law | async)?.books" class="book">
-    <md-card id="book-{{book.id}}">
+    <mat-card id="book-{{book.id}}">
       Libro: {{book.name}}
-    </md-card>
+    </mat-card>
     <div *ngFor="let title of book.titles" class="title">
-      <md-card id="title-{{title.id}}">
+      <mat-card id="title-{{title.id}}">
         Título: {{title.name}}
-      </md-card>
+      </mat-card>
       <div *ngFor="let chapter of title.chapters" class="chapter">
-        <md-card id="chapter-{{chapter.id}}">
+        <mat-card id="chapter-{{chapter.id}}">
           Capítulo: {{chapter.name}}
-        </md-card>
+        </mat-card>
         <div *ngFor="let article of chapter.articles" class="article">
-          <md-card id="article-{{article.id}}">
-            <md-card-title>{{article.name}}</md-card-title>
-            <md-card-content>{{article.text}}</md-card-content>
-          </md-card>
+          <mat-card id="article-{{article.id}}">
+            <mat-card-title>{{article.name}}</mat-card-title>
+            <mat-card-content>{{article.text}}</mat-card-content>
+          </mat-card>
         </div>
       </div>
     </div>
   </div>
   <div *ngFor="let title of (law | async)?.titles" class="title">
-    <md-card id="title-{{title.id}}">
+    <mat-card id="title-{{title.id}}">
       Título: {{title.name}}
-    </md-card>
+    </mat-card>
     <div *ngFor="let chapter of title.chapters" class="chapter">
-      <md-card id="chapter-{{chapter.id}}">
+      <mat-card id="chapter-{{chapter.id}}">
         Capítulo: {{chapter.name}}
-      </md-card>
+      </mat-card>
       <div *ngFor="let article of chapter.articles" class="article">
-        <md-card id="article-{{article.id}}">
-          <md-card-title>{{article.name}}</md-card-title>
-          <md-card-content>{{article.text}}</md-card-content>
-        </md-card>
+        <mat-card id="article-{{article.id}}">
+          <mat-card-title>{{article.name}}</mat-card-title>
+          <mat-card-content>{{article.text}}</mat-card-content>
+        </mat-card>
       </div>
     </div>
   </div>
