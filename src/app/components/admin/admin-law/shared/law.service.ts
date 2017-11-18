@@ -2,10 +2,7 @@ import {
   Injectable
 } from '@angular/core';
 import {
-  Http,
-  Response,
-  Headers,
-  RequestOptions
+
 } from '@angular/http';
 
 import {
@@ -18,6 +15,7 @@ import {
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class LawService {
@@ -26,67 +24,28 @@ export class LawService {
   private lawtmpurl = 'http://localhost:8080/api/tmp/laws';
 
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   getLaws(): Observable<Law[]> {
-    return this.http.get(this.lawurl)
-      .map(this.extractDataT)
-      .catch(this.handleError);
+    return this.http.get<Law[]>(this.lawurl);
   }
   getLaw(id: string): Observable<Law> {
-    return this.http.get(this.lawurl + '/' + id)
-      .map(this.extractLaw)
-      .catch(this.handleError);
+    return this.http.get<Law>(this.lawurl + '/' + id);
   }
 
   getTmpLaws(): Observable<CommonFile[]> {
-    return this.http.get(this.lawtmpurl)
-      .map(this.extractDataT)
-      .catch(this.handleError);
+    return this.http.get<CommonFile[]>(this.lawtmpurl);
   }
 
   getTmpLaw(uri: string): Observable<Law> {
-    return this.http.get(this.lawtmpurl + '/' + uri)
-      .map(this.extractLaw)
-      .catch(this.handleError);
+    return this.http.get<Law>(this.lawtmpurl + '/' + uri);
   }
 
   saveLawDB(law: Law): Observable<boolean> {
-    return this.http.post(this.lawurl, JSON.stringify(law))
-      .map(this.extractData)
-      .catch(this.handleError);
+    return this.http.post<boolean>(this.lawurl, JSON.stringify(law));
   }
 
   saveTmpLaw(uri: string, law: Law): Observable<Law> {
-    return this.http.put(this.lawtmpurl + '/' + uri, JSON.stringify(law))
-      .map(this.extractLaw)
-      .catch(this.handleError);
+    return this.http.put<Law>(this.lawtmpurl + '/' + uri, JSON.stringify(law))
   }
-
-  private extractData(res: Response) {
-    let body = res.json();
-    return body || {};
-  }
-
-  private extractLaw(res: Response) {
-    let body = res.json();
-    let law = Law.fromJSON(body.data);
-    return law || {};
-  }
-
-  // fix later
-  private extractDataT(res: Response) {
-    let body = res.json();
-    return body.data || [];
-  }
-
-  private handleError(error: any) {
-    // In a real world app, we might use a remote logging infrastructure
-    // We'd also dig deeper into the error to get a better message
-    let errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg); // log to console instead
-    return Observable.throw(errMsg);
-  }
-
 }

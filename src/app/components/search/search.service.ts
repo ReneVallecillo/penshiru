@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { Result } from '../../models';
-import { Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class SearchService {
@@ -12,39 +12,16 @@ export class SearchService {
 
   private searchAPI = 'http://localhost:8585/law/search';
   private autoCompleteAPI = 'http://localhost:8080/api/law/autocomplete';
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
   search(query: string): Observable<Result[]> {
     console.log('search reached');
-    return this.http.get(this.searchAPI + '?query=' + query)
-      .map(this.extractData)
-      .catch(this.handleError);
+    return this.http.get<Result[]>(this.searchAPI + '?query=' + query)
   }
 
   autoComplete(query: string): Observable<string[]> {
     console.log('autocomplete reached');
-    return this.http.get(this.autoCompleteAPI + '?query=' + query)
-      .map(this.extractData)
-      .catch(this.handleError);
-  }
-
-  private extractData(res: Response) {
-    const body = res.json();
-    return body.data || {};
-  }
-
-  private handleError(error: Response | any) {
-    // In a real world app, you might use a remote logging infrastructure
-    let errMsg: string;
-    if (error instanceof Response) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
+    return this.http.get<string[]>(this.autoCompleteAPI + '?query=' + query)
   }
 }
 

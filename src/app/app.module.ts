@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // router
 import { routing } from './app.routing';
@@ -43,7 +43,7 @@ import { APP_CONFIG, AppConfig } from './config/app.config';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     SharedModule,
     routing,
     HomeModule,

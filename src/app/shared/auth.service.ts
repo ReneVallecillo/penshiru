@@ -1,41 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions} from '@angular/http';
-import {Observable} from 'rxjs';
-
-// import {SharedService} from './shared.service'
-
-
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
 
     private domain: string = 'http://localhost:8080';
-    constructor(private http: Http) {
+    constructor(private http: HttpClient) {
 
     }
 
     login(username, password): Observable<boolean> {
         return this.http.post(this.domain + '/api/v1/login', JSON.stringify(
-            {username: username, password: password })).map((response: Response) => {
+            { username: username, password: password })).map((response: Response) => {
                 let user = response.json();
                 if (user && user.token) {
                     localStorage.setItem('currentUser', JSON.stringify(user));
                     return true;
-                }else {
+                } else {
                     return false;
                 }
             });
     }
 
     logout(): void {
-        // clear token remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
-    }
+                // clear token remove user from local storage to log user out
+                localStorage.removeItem('currentUser');
+        }
 
 
     jwt(): RequestOptions {
-         // create authorization header with jwt token
+        // create authorization header with jwt token
 
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         console.log(currentUser);
