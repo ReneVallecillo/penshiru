@@ -18,7 +18,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class AppComponent implements AfterViewInit {
   title = 'app works!';
 
-  hasMenu: boolean = false;
+  hasMenu = false;
   sidenavToggler$ = new BehaviorSubject(false);
   sidenav$ = new BehaviorSubject(false);
 

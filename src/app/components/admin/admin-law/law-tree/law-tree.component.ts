@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Article, directory } from '../../../../models/';
+import { Article, directory } from '../../../../models';
 
 
 import { TitleCasePipe } from '../../../../shared/title-case.pipe';
