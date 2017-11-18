@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { MenuService } from './shared/menu.service';
 import { ToolbarService } from './shared/toolbar.service';
 
 import { Observable } from 'rxjs/Observable';
 import { startWith } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 
@@ -14,13 +15,13 @@ import { startWith } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'app works!';
 
   hasMenu: boolean = false;
-  sidenavToggler$: Observable<boolean> = new Observable<boolean>().startWith(false);
-  sidenav$: Observable<boolean> = new Observable<boolean>();
-  sidenav: boolean = false;
+  sidenavToggler$ = new BehaviorSubject(false);
+  sidenav$ = new BehaviorSubject(false);
+
 
   constructor(
     private menuService: MenuService,
@@ -32,12 +33,16 @@ export class AppComponent {
       }
     );
 
-    this.sidenavToggler$ = toolbarService.toogle$;
-    this.sidenav$ = toolbarService.sideNav$;
+    // this.sidenavToggler$ = toolbarService.toogle$;
+    // this.sidenav$ = toolbarService.sideNav$;
   }
 
   showSidenav() {
     // console.log('showSideNav on appcomponent reached');
-    this.toolbarService.showSidenav(!this.sidenav);
+    // this.toolbarService.showSidenav(!this.sidenav);
+  }
+
+  ngAfterViewInit() {
+    // this.sidenavToggler$.startWith(false);
   }
 }

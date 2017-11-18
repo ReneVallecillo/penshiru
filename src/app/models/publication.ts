@@ -5,6 +5,7 @@ export class Publication {
     name: string;
     titles: PublicationT[];
     reviewed: boolean;
+    expanded = false;
 
     constructor(values: Object = {}) {
         Object.assign(this, values);
