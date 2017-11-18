@@ -6,7 +6,7 @@ import { User } from '../../../../models/';
 
 import { UserService } from '../user.service';
 
-import 'rxjs/add/operator/switchMap';
+import { switchMap } from 'rxjs/operators';
 
 
 @Component({

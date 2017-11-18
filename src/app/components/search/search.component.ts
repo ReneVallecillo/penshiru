@@ -3,11 +3,10 @@ import { Observable } from 'rxjs/Observable';
 import { Result } from '../../models';
 import { SearchService } from './search.service';
 import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/partition';
+import { debounceTime, distinctUntilChanged, partition } from 'rxjs/operators';
+
 import { ActivatedRoute, Params } from '@angular/router';
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 

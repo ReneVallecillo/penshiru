@@ -3,7 +3,8 @@ import { LawService } from '../law.service';
 import { Observable } from 'rxjs/Observable';
 import { Law } from '../../../models';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
+import { switchMap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-law-list',

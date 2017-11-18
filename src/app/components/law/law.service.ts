@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Law } from '../../models';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
 import { HttpClient } from '@angular/common/http';
 
 

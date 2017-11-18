@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
@@ -26,9 +25,9 @@ export class AuthService {
     }
 
     logout(): void {
-                // clear token remove user from local storage to log user out
-                localStorage.removeItem('currentUser');
-        }
+        // clear token remove user from local storage to log user out
+        localStorage.removeItem('currentUser');
+    }
 
 
     jwt(): RequestOptions {
