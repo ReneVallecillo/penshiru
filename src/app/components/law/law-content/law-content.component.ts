@@ -16,8 +16,8 @@ export class LawContentComponent implements OnInit, AfterViewChecked {
   constructor(private route: ActivatedRoute, private lawService: LawService) { }
 
   ngOnInit() {
-    this.law = this.route.params
-      .switchMap((params: Params) => this.getLawByID(+params['id']));
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.law = this.getLawByID(+id);
   }
 
   getLawByID(id: number): Observable<Law> {

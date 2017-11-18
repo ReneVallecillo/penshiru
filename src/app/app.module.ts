@@ -11,10 +11,9 @@ import { HomeModule } from './components/home/home.module';
 import { LawModule } from './components/law/law.module';
 
 // providers
-import { MenuService } from './shared/menu.service';
-import { AuthService } from './shared/auth.service';
-import { AlertService } from './shared/alert.service';
-import { ToolbarService } from './shared/toolbar.service';
+import { MenuService } from './shared/services/menu.service';
+import { AuthService } from './shared/services/auth.service';
+import { ToolbarService } from './shared/services/toolbar.service';
 
 // Shared
 import { SharedModule } from './shared/shared.module';
@@ -53,7 +52,7 @@ import { APP_CONFIG, AppConfig } from './config/app.config';
     SearchModule,
     CovalentDataTableModule,
   ],
-  providers: [MenuService, AlertService, AuthService, ToolbarService,
+  providers: [MenuService, AuthService, ToolbarService,
     { provide: APP_CONFIG, useValue: AppConfig },
   ],
   bootstrap: [AppComponent]

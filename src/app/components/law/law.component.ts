@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MenuService } from '../../shared/menu.service';
+import { MenuService } from '../../shared/services/menu.service';
 
 @Component({
   selector: 'app-law',

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
-import { TitleCasePipe, TruncatePipe } from './';
+import { TitleCasePipe, TruncatePipe } from './pipes';
 
 // Material
 import { PenshiruMaterialModule } from '../shared/penshiru-material.module';
@@ -13,13 +13,16 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { CovalentDataTableModule } from '@covalent/core';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { TreeViewComponent } from './tree-view/tree-view.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from '../message.service';
 
 
 @NgModule({
     imports: [CommonModule, PenshiruMaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule],
     exports: [TitleCasePipe, TruncatePipe, PenshiruMaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule,
         FileUploadComponent, TreeViewComponent, CommonModule],
-    declarations: [TitleCasePipe, TruncatePipe, ConfirmDialogComponent, FileUploadComponent, TreeViewComponent],
+    declarations: [TitleCasePipe, TruncatePipe, ConfirmDialogComponent, FileUploadComponent, TreeViewComponent, MessagesComponent],
     entryComponents: [ConfirmDialogComponent],
+    providers: [MessageService],
 })
 export class SharedModule { }

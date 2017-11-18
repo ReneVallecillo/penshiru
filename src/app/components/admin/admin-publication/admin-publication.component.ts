@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicationService } from './publication.service';
 import { Router } from '@angular/router';
-import { TabService } from '../../../shared/tab.service';
+import { TabService } from '../../../shared/services/tab.service';
 
 @Component({
   selector: 'app-admin-publication',

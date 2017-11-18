@@ -3,7 +3,7 @@ import { PublicationService } from '../publication.service';
 import { Observable } from 'rxjs/Observable';
 import { Publication, CommonFile } from '../../../../models/';
 import { Router } from '@angular/router';
-import { TabService } from '../../../../shared/tab.service';
+import { TabService } from '../../../../shared/services/tab.service';
 
 @Component({
   selector: 'app-list-publication',

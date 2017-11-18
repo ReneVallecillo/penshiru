@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 
-import { MenuService } from '../../shared/menu.service';
+import { MenuService } from '../../shared/services/menu.service';
 import { SharedModule } from '../../shared/shared.module';
-import { ToolbarService } from '../../shared/toolbar.service';
+import { ToolbarService } from '../../shared/services/toolbar.service';
 
 @NgModule({
   imports: [

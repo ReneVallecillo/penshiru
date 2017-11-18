@@ -2,8 +2,8 @@
 import { Injectable } from '@angular/core';
 import { Law } from '../models/';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from "rxjs/Observable";
-
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 
 @Injectable()
@@ -39,37 +39,37 @@ export class LawServiceStub {
     }
 
     getLawsByCat(): Observable<Law[]> {
-        return Observable.of<Law[]>([]);
+        return of<Law[]>([]);
     }
 
 
     getLaws() {
-        let law1 = new Law({
-            id: 1,
-            name: 'Test Law',
-            books: null,
-            titles: null,
-            approvalDate: new Date(),
-            publishDate: new Date(),
-            journal: 'Example Journal 1',
-            intro: 'Veniam magna aute ex mollit ex sit sit do anim nisi.',
-            init: 'Incididunt ipsum adipisicing in eu in proident veniam dolor veniam labore excepteur.'
-        });
+        // let law1 = new Law({
+        //     id: 1,
+        //     name: 'Test Law',
+        //     books: null,
+        //     titles: null,
+        //     approvalDate: new Date(),
+        //     publishDate: new Date(),
+        //     journal: 'Example Journal 1',
+        //     intro: 'Veniam magna aute ex mollit ex sit sit do anim nisi.',
+        //     init: 'Incididunt ipsum adipisicing in eu in proident veniam dolor veniam labore excepteur.'
+        // });
 
-        let law2 = new Law({
-            id: 1,
-            name: 'Test Law',
-            books: null,
-            titles: null,
-            approvalDate: new Date(),
-            publishDate: new Date(),
-            journal: 'Example Journal 1',
-            intro: 'Veniam magna aute ex mollit ex sit sit do anim nisi.',
-            init: 'Incididunt ipsum adipisicing in eu in proident veniam dolor veniam labore excepteur.'
-        });
+        // let law2 = new Law({
+        //     id: 1,
+        //     name: 'Test Law',
+        //     books: null,
+        //     titles: null,
+        //     approvalDate: new Date(),
+        //     publishDate: new Date(),
+        //     journal: 'Example Journal 1',
+        //     intro: 'Veniam magna aute ex mollit ex sit sit do anim nisi.',
+        //     init: 'Incididunt ipsum adipisicing in eu in proident veniam dolor veniam labore excepteur.'
+        // });
 
-        this.laws.push(law1);
-        this.laws.push(law2);
+        // this.laws.push(law1);
+        // this.laws.push(law2);
         return this.laws;
     }
 }

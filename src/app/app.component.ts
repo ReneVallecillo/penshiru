@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { MenuService } from './shared/menu.service';
-import { ToolbarService } from './shared/toolbar.service';
+import { MenuService } from './shared/services/menu.service';
+import { ToolbarService } from './shared/services/toolbar.service';
 
 import { Observable } from 'rxjs/Observable';
 import { startWith } from 'rxjs/operators';

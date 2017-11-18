@@ -29,7 +29,7 @@ export class LawListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.laws = this.route.params
+    this.laws = this.route.snapshot.params
       // (+) converts string 'id' to a number
       .switchMap((params: Params) => params['id']
         ? this.getLawsByCat(params['id'])

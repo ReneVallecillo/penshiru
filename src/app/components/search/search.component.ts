@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { Result } from '../../models';
 import { SearchService } from './search.service';
+import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import { debounceTime, distinctUntilChanged, partition } from 'rxjs/operators';
-
-import { ActivatedRoute, Params } from '@angular/router';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-
+import { ActivatedRoute, Params } from '@angular/router';
+import { of } from 'rxjs/observable/of';
+import {
+  distinctUntilChanged,
+  partition,
+  merge,
+  debounceTime,
+  switchMap
+} from 'rxjs/operators';
 
 @Component({
   selector: 'app-search',
@@ -32,51 +37,53 @@ export class SearchComponent implements OnInit {
   constructor(private searchService: SearchService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    [this.autoTerms, this.searchTerms] = this.queryTerms
-      .debounceTime(500)
-      .distinctUntilChanged()
-      .partition(input => (/^(LEY|Ley|ley|Codigo|CODIGO|CÓDIGO|codigo|Código|código)[a-zA-Z\u00C0-\u017F\s]*(?!\/)$/.test(input)));
+    // [this.autoTerms, this.searchTerms] = this.queryTerms.pipe(
+    //   debounceTime(500),
+    //   distinctUntilChanged(),
+    //   partition(input => (/^(LEY|Ley|ley|Codigo|CODIGO|CÓDIGO|codigo|Código|código)[a-zA-Z\u00C0-\u017F\s]*(?!\/)$/.test(input)))
 
-    this.results = Observable.merge(this.searchTerms, this.coSearch)
-      .switchMap(term => term
-        ? this.searchService.search(term)
-        : Observable.of<Result[]>([]))
-      .catch(error => {
-        console.log(error);
-        return Observable.of<Result[]>([]);
-      });
+    // )
 
-    this.autoItems = Observable.merge(this.autoTerms
-      .switchMap(term => term
-        ? this.searchService.autoComplete(term)
-        : Observable.of<string[]>([]))
-      .catch(error => {
-        console.log(error);
-        return Observable.of<string[]>([]);
-      }), this.empty);
+    // this.results = Observable.merge(this.searchTerms, this.coSearch)
+    //   .switchMap(term => term
+    //     ? this.searchService.search(term)
+    //     : of<Result[]>([]))
+    //   .catch(error => {
+    //     console.log(error);
+    //     return Observable.of<Result[]>([]);
+    //   });
 
-    this.searchTerms.subscribe(
-      (term) => {
-        this.empty$.next(<string[]>([]));
-      }
-    );
+    // this.autoItems = Observable.merge(this.autoTerms
+    //   .switchMap(term => term
+    //     ? this.searchService.autoComplete(term)
+    //     : of<string[]>([]))
+    //   .catch(error => {
+    //     console.log(error);
+    //     return of<string[]>([]);
+    //   }), this.empty);
 
-    this.autoTerms.subscribe(
-      (term) => {
-        if (term) {
-          this.coSearch$.next(term);
-        }
-      }
-    );
+    // this.searchTerms.subscribe(
+    //   (term) => {
+    //     this.empty$.next(<string[]>([]));
+    //   }
+    // );
 
-    this.route.queryParams
-      .subscribe((param: Params) =>
-        this.query.next(param['query'])
-      );
+    // this.autoTerms.subscribe(
+    //   (term) => {
+    //     if (term) {
+    //       this.coSearch$.next(term);
+    //     }
+    //   }
+    // );
 
-    this.results.subscribe(
-      result => console.log(result)
-    );
+    // this.route.queryParams
+    //   .subscribe((param: Params) =>
+    //     this.query.next(param['query'])
+    //   );
+
+    // this.results.subscribe(
+    //   result => console.log(result)
+    // );
   }
   search(query: string) {
     this.queryTerms.next(query);

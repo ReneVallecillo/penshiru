@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../../../shared/auth.service';
-import { AlertService } from '../../../shared/alert.service';
+import { AuthService } from '../../../shared/services/auth.service';
+// import { AlertService } from '../../../shared/services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private alertService: AlertService,
+    // private alertService: AlertService,
   ) { }
 
   ngOnInit() {
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
       data => { this.router.navigate(['/']); },
       error => {
-        this.alertService.error(error);
+        // this.alertService.error(error);
         this.loading = false;
       });
   }

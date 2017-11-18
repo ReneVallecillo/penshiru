@@ -3,6 +3,7 @@ import { Law } from '../../models';
 
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
+import { of } from 'rxjs/observable/of';
 
 
 @Injectable()
@@ -17,7 +18,7 @@ export class LawService {
   }
 
   getLawsByCat() {
-    return Observable.of<Law[]>([]);
+    return of<Law[]>([]);
 
   }
 
