@@ -1,88 +1,165 @@
-import { Injectable, Inject } from '@angular/core';
-import { Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import { APP_CONFIG, Config } from '../../config/app.config';
+// Taken from https://github.com/ZouYouShun/ngxf-uploader/blob/master/src/lib/src/directive/ngxf-uploader.service.ts
 
+import { HttpParams, HttpHeaders } from '@angular/common/http';
+import {
+    HttpErrorResponse,
+    HttpHeaderResponse,
+    HttpEventType,
+    HttpRequest,
+    HttpClient
+} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { filter, map } from 'rxjs/operators'
+import { catchError } from 'rxjs/operators/catchError';
 
 @Injectable()
 export class FileUploadService {
-  /**
-   * @param Observable<number>
-   */
-  private progress$: Observable<number>;
 
-  /**
-   * @type {number}
-   */
-  private progress = 0;
+    constructor(private http: HttpClient) { }
 
-  private progressObserver: any;
+    upload(d: UploadObject): Observable<any> {
+        if ((d.files instanceof File) || (d.files instanceof Array && d.files.length !== 0)) {
+            const ufData = new FormData();
 
-  constructor(
-    @Inject(APP_CONFIG) private config: Config
-  ) {
-    this.progress$ = new Observable<number>(observer => {
-      this.progressObserver = observer;
-    });
-  }
+            if (d.files instanceof File) {
+                ufData.append(<string>d.filesKey || 'file', d.files, d.files.name);
+            } else {
+                for (let i = 0; i < d.files.length; i++) {
 
-  /**
-   * @returns {Observable<number>}
-   */
-  public getObserver(): Observable<number> {
-    return this.progress$;
-  }
+                    let key = 'file';
 
-  /**
-   * Upload files throught XMLHttpRequest
-   *
-   * @param url
-   * @param files
-   * @returns {Observable<T>}
-   *
-   */
-  public upload(url: string, files: File[]): Observable<Response> {
-    return Observable.create((observer) => {
-      let formData: FormData = new FormData(),
-        xhr: XMLHttpRequest = new XMLHttpRequest();
+                    // If it has key
+                    if (d.filesKey) {
+                        if (d.filesKey instanceof Array) {
+                            key = d.filesKey[i % d.filesKey.length];
+                        } else {
+                            key = d.filesKey;
+                        }
+                    }
+                    ufData.append(key, d.files[i], d.files[i].name);
+                }
+            }
 
-      for (let i = 0; i < files.length; i++) {
-        formData.append('uploads[]', files[i], files[i].name);
-      }
+            if (d.fields) {
+                Object.keys(d.fields).forEach(key => ufData.append(key, d.fields[key]));
+            }
 
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            observer.next(JSON.parse(xhr.response));
-            observer.complete();
-          } else {
-            observer.error(xhr.response);
-          }
+
+            let url = d.url;
+            let req;
+            let params: any;
+
+            if (d.params && !(d.params instanceof HttpParams)) {
+                url = `${url}?${this.addPamars(d.params)}`;
+            } else {
+                params = d.params;
+            }
+
+
+            if (d.headers instanceof HttpHeaders) {
+                req = new HttpRequest(d.method || 'POST', url, ufData, {
+                    headers: d.headers,
+                    params: params,
+                    reportProgress: d.process,
+                });
+            } else {
+                req = new HttpRequest(d.method || 'POST', url, ufData, {
+                    headers: new HttpHeaders(d.headers),
+                    params: params,
+                    reportProgress: d.process,
+                });
+            }
+
+            return this.http.request(req).pipe(
+                filter((r: any) => {
+                    if (d.process) {
+                        return !(r instanceof HttpHeaderResponse || r.type === HttpEventType.DownloadProgress);
+                    }
+                    return (r.type === HttpEventType.Response);
+                }),
+                map((event: any) => {
+                    switch (event.type) {
+                        case HttpEventType.Sent:
+                            return <UploadEvent>{
+                                status: UploadStatus.Uploading,
+                                percent: 0
+                            };
+                        case HttpEventType.UploadProgress:
+                            return <UploadEvent>{
+                                status: UploadStatus.Uploading,
+                                percent: Math.round(100 * event.loaded / event.total) || 0
+                            };
+                        case HttpEventType.Response:
+                            return <UploadEvent>{
+                                status: UploadStatus.Completed,
+                                percent: 100,
+                                data: event.body
+                            };
+                    }
+                }),
+                catchError((error: HttpErrorResponse) => {
+                    return Observable.throw(<UploadEvent>{
+                        status: UploadStatus.UploadError,
+                        data: error.error
+                    });
+                })
+            )
+        } else {
+            return Observable
+                .throw(<UploadEvent>{
+                    status: UploadStatus.FileNumError
+                }).map((error: any) => error);
         }
-      };
-      FileUploadService.setUploadUpdateInterval(500);
+    }
 
-      xhr.upload.onprogress = (event) => {
-        this.progress = Math.round(event.loaded / event.total * 100);
-        this.progressObserver.next(this.progress);
-      };
+    private addPamars(params: { [name: string]: string | string[] }) {
+        let url = '';
 
-      xhr.open('POST', this.config.apiEndpoint + url, true);
-
-      xhr.send(formData);
-    });
-  }
-
-  /**
-   * Set interval for frequency with which observable will share data with the subscribers
-   *
-   * @param interval
-   */
-  private static setUploadUpdateInterval(interval: number): void {
-    setInterval(() => { }, interval);
-  }
+        Object.keys(params).forEach(key => {
+            url = `${url}${key}=${params[key]}&`;
+        });
+        return url.slice(0, -1);
+    }
 
 }
 
 
+
+
+
+export enum FileError {
+    NumError,
+    TypeError,
+    SizeError
+}
+// NumError = 'Number Error',
+// TypeError = 'Type Error',
+// SizeError = 'Size Error'
+export enum UploadStatus {
+    Uploading,
+    Completed,
+    UploadError,
+    FileNumError
+}
+
+export interface UploadObject {
+    url: string;
+    files: File | File[];
+    headers?: { [name: string]: string | string[] } | HttpHeaders;
+    params?: { [name: string]: string | string[] } | HttpParams;
+    fields?: any;
+    filesKey?: string | string[];
+    process?: boolean;
+    method?: string; // Custom your method Default is POST
+}
+
+export interface UploadEvent {
+    status: UploadStatus;
+    percent: number;
+    data?: any;
+}
+
+export interface FileOption {
+    size: { min?: number, max?: number }; // unit: Byte
+}

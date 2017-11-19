@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer, Input } from '@angular/core';
 import { FileUploadService } from '../file-upload/file-upload.service';
+import { FileUpload2Service, UploadEvent } from './file-upload2.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -20,7 +21,7 @@ export class FileUploadComponent implements OnInit {
 
   constructor(
     private renderer: Renderer,
-    private uploadService: FileUploadService
+    private uploadService: FileUpload2Service
   ) { }
 
   ngOnInit() {
@@ -48,16 +49,29 @@ export class FileUploadComponent implements OnInit {
   parse() {
     console.log('enter parse');
     // subscribe to progress observer
-    this.uploadService.getObserver()
-      .subscribe(progress => {
-        this.uploadProgress = progress;
+    // this.uploadService.getObserver()
+    //   .subscribe(progress => {
+    //     this.uploadProgress = progress;
+    //   });
+
+    // this.uploadService.upload(this.endpoint, this.toUpload)
+    //   .subscribe(
+
+    //   );
+    this.uploadService.upload({
+      url: this.endpoint,
+      files: this.toUpload,
+      filesKey: 'uploads[]'
+    }).subscribe(
+      (event: UploadEvent) => {
+        console.log(event);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        console.log('complete');
       });
-
-    this.uploadService.upload(this.endpoint, this.toUpload)
-      .subscribe(
-
-      );
-
   }
 
 }
