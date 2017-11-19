@@ -20,6 +20,7 @@ export class LawReviewListComponent implements OnInit {
   id: number;
   errorMessage: string;
   laws$: Observable<Law[]>;
+  tmpLaws$: Observable<CommonFile[]>;
   tmpLaws: CommonFile[];
 
   constructor(
@@ -32,16 +33,13 @@ export class LawReviewListComponent implements OnInit {
   }
 
   getLaws() {
-    this.laws$ = this.lawService.getLaws();
+    this.laws$ = this.lawService
+      .getLaws();
   }
 
   getTmpLaws() {
-    this.lawService.getTmpLaws()
-      .subscribe(
-      tmpLaws => this.tmpLaws = tmpLaws,
-      error => this.errorMessage = <any>error,
-      () => { }
-      );
+    this.tmpLaws$ = this.lawService
+      .getTmpLaws();
   }
 
   addTab(route: string) {

@@ -1,5 +1,5 @@
 <!-- Update once angular 4.0 is released-->
-<div *ngIf="(laws$ | async)?.length > 0" class="card-container" align="center">
+<div *ngIf="laws$ | async" class="card-container" align="center">
   <mat-card align="left">
     <mat-nav-list *ngFor="let law of laws$ | async">
       <a mat-list-item (click)="addTab(law.id +'/'+law.name)">
@@ -11,7 +11,7 @@
     </mat-nav-list>
   </mat-card>
 </div>
-<div *ngIf="tmpLaws" class="card-container" align="center">
+<div *ngIf="tmpLaws$ | async as tmpLaws" class="card-container" align="center">
   <mat-card align="left">
     <mat-card-title>Pendientes de Revisar</mat-card-title>
     <mat-nav-list *ngFor="let tlaw of tmpLaws">

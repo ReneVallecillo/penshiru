@@ -14,13 +14,13 @@ import { CovalentDataTableModule } from '@covalent/core';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { TreeViewComponent } from './tree-view/tree-view.component';
 import { MessagesComponent } from './messages/messages.component';
-import { MessageService } from '../message.service';
+import { MessageService } from './services/message.service';
 
 
 @NgModule({
     imports: [CommonModule, PenshiruMaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule],
     exports: [TitleCasePipe, TruncatePipe, PenshiruMaterialModule, FormsModule, CovalentDataTableModule, ReactiveFormsModule,
-        FileUploadComponent, TreeViewComponent, CommonModule],
+        FileUploadComponent, TreeViewComponent, CommonModule, MessagesComponent],
     declarations: [TitleCasePipe, TruncatePipe, ConfirmDialogComponent, FileUploadComponent, TreeViewComponent, MessagesComponent],
     entryComponents: [ConfirmDialogComponent],
     providers: [MessageService],
