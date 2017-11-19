@@ -30,23 +30,20 @@ export class EditUserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.activedRoute.params
-      .map((params: Params) => this.userService.getUserById(+params['id']))
-      .subscribe(user => {
-        // console.log('User is:' + user);
-        this.editUser = user;
-        this.user = this.fb.group({
-          id: [this.editUser.id],
-          name: [this.editUser.name, [Validators.required, Validators.minLength(2)]],
-          username: [this.editUser.alias, [Validators.required, Validators.minLength(6)]],
-          company: [this.editUser.company],
-          active: [this.editUser.active],
-          account: this.fb.group({
-            email: [this.editUser.email, Validators.required],
-            confirm: [this.editUser.email, Validators.required],
-          })
-        });
-      });
+
+    const id = + this.activedRoute.snapshot.paramMap.get('id')
+    this.editUser = this.userService.getUserById(id)
+    this.user = this.fb.group({
+      id: [this.editUser.id],
+      name: [this.editUser.name, [Validators.required, Validators.minLength(2)]],
+      username: [this.editUser.alias, [Validators.required, Validators.minLength(6)]],
+      company: [this.editUser.company],
+      active: [this.editUser.active],
+      account: this.fb.group({
+        email: [this.editUser.email, Validators.required],
+        confirm: [this.editUser.email, Validators.required],
+      })
+    });
   }
 
   onSubmit() {

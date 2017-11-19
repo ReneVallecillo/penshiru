@@ -109,7 +109,7 @@ export class FileUploadService {
             return Observable
                 .throw(<UploadEvent>{
                     status: UploadStatus.FileNumError
-                }).map((error: any) => error);
+                })// .map((error: any) => error);
         }
     }
 
